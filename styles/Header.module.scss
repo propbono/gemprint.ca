@@ -1,0 +1,27 @@
+@import "variables";
+
+.navShaddow {
+  box-shadow: 0 2px 4px 0 $box-shaddow;
+}
+
+.navbarItem {
+  margin-left: 1.25em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  background: $white;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  //   padding-left: 8vh;
+}
+
+.logoImage {
+  width: 16rem;
+  height: 3rem;
+}
