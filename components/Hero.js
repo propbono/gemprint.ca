@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Image from "next/Image";
+import Image from "next/image";
 import heroStyles from "../styles/Hero.module.scss";
 
 const Hero = () => {
