@@ -67,3 +67,12 @@ $font-size-base: 1.5rem;
 $lead-font-size: $font-size-base * 1.2;
 $navigation-font-size: $font-size-base;
 $card-title-font-size: $font-size-base * 2;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
