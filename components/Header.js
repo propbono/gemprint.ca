@@ -4,7 +4,8 @@ import Link from "next/link";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import navStyles from "../styles/Header.module.scss";
+
+import navStyles from "@/styles/Header.module.scss";
 
 const Header = () => {
   const renderNavList = () => {

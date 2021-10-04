@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MenuItem from "./MenuItem";
-import { links } from "../pages/links";
+
+import { links } from "@/pages/links";
 
 const Menu = () => {
   const [selected, setSelected] = useState("Ho");
