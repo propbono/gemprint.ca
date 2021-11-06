@@ -6,10 +6,11 @@ import Nav from "react-bootstrap/Nav";
 
 import footerStyles from "@/styles/Footer.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={footerStyles.footer}>
-      <Container>
+      Footer
+      {/* <Container>
         <Row className="d-flex justify-content-between">
           <Col sm={6}>
             <p>© 2017-2021 Gemprint</p>
@@ -31,9 +32,7 @@ const Footer = () => {
             </Nav>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </footer>
   );
 };
-
-export default Footer;

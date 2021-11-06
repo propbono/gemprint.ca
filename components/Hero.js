@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import heroStyles from "@/styles/Hero.module.scss";
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <section className={heroStyles.hero}>
       <Container>
@@ -34,7 +34,7 @@ const Hero = () => {
               </p>
               <a
                 href="mailto:maimuna.gabeyre@gemprint.ca"
-                className="btn btn-primary mt-auto text-white"
+                className="mt-auto text-white btn btn-primary"
               >
                 Request a Quote
               </a>
@@ -45,5 +45,3 @@ const Hero = () => {
     </section>
   );
 };
-
-export default Hero;

@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import styles from "@/styles/Services.module.scss";
 
-const Services = () => {
+export const Services = () => {
   return (
     <section id="services" className={styles.services}>
       <Container>
@@ -77,5 +77,3 @@ const Services = () => {
     </section>
   );
 };
-
-export default Services;

@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
   return (
     <>
       <Head>
@@ -16,5 +16,3 @@ const Layout = ({ children }) => {
     </>
   );
 };
-
-export default Layout;

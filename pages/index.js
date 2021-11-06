@@ -1,15 +1,18 @@
 import Head from "next/head";
 
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Parallax from "@/components/Parallax";
-import Testimonials from "@/components/Testimonials";
-import Products from "@/components/Products";
+import {
+  Hero,
+  About,
+  Services,
+  Parallax,
+  Testimonials,
+  Products,
+  Layout,
+} from "@/components";
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Gemprint - Experts in Print</title>
         <meta
@@ -21,12 +24,12 @@ export default function Home() {
           content="Gemprint, print, printing, toronto printer, quality print, printing company Toronto, custom stickers, on demand printing toronto, printing services, brochure printing, brochure printing Toronto"
         />
       </Head>
-      <Hero />
+      {/* <Hero /> */}
       <About />
-      <Services />
+      {/* <Services />
       <Parallax />
       <Testimonials />
-      <Products />
-    </>
+      <Products /> */}
+    </Layout>
   );
 }

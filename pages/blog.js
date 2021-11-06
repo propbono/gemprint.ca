@@ -1,8 +1,12 @@
 import React from "react";
+import { Layout } from "@/components";
 
 const Blog = () => {
-  return <div>Blog</div>;
+  return (
+    <Layout>
+      <div>Blog</div>
+    </Layout>
+  );
 };
 
 export default Blog;
-Blog;

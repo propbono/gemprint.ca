@@ -1,8 +1,12 @@
 import React from "react";
+import { Layout } from "@/components";
 
 const ContactUs = () => {
-  console.log("Component Rendered!");
-  return <div>Contact us</div>;
+  return (
+    <Layout>
+      <div>Contact us</div>
+    </Layout>
+  );
 };
 
 export default ContactUs;

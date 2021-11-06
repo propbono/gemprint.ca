@@ -1,33 +1,34 @@
-import React, { useState } from "react";
-import MenuItem from "./MenuItem";
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { links } from "@/pages/links";
+const menu = [
+  { src: "/", text: "Home" },
+  { src: "/#about", text: "About" },
+  { src: "/quote", text: "Request a Quote" },
+  { src: "/faqs", text: "FAQs" },
+  { src: "/blog", text: "Blog" },
+];
 
-const Menu = () => {
-  const [selected, setSelected] = useState("Ho");
-
-  const renderNavList = links.map((item) => {
-    return (
-      <MenuItem
-        key={item.text}
-        link={item.link}
-        text={item.text}
-        onActiveTab={onActiveTab}
-        isActive={(item) => isActive(item)}
-      />
-    );
-  });
-  console.log("🚀 LOG:  => renderNavList => renderNavList", renderNavList);
-
-  const isActive = (item) => {
-    return selected === item.text;
-  };
-  const onActiveTab = (text) => {
-    console.log(text);
-    setSelected(text);
-  };
-  console.log("Selected: ", selected);
-  return <ul className="navbar-nav">{renderNavList}</ul>;
+const styles = {
+  navMenu: "text-sm lg:ml-auto",
+  navMenuItem:
+    "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-lg  mr-4",
 };
 
-export default Menu;
+export const Menu = () => {
+  const router = useRouter();
+
+  return (
+    <div className={styles.navMenu}>
+      {menu.map((item, index) => {
+        const active = router.asPath === item.src ? "text-primary" : "";
+        return (
+          <Link key={index} href={item.src}>
+            <a className={`${styles.navMenuItem} ${active}`}>{item.text}</a>
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
