@@ -4,19 +4,21 @@ import Image from "next/image";
 import { Menu } from "@/components";
 
 const styles = {
-  navContainer: "bg-white-300 p-6 md:px-0 shadow-2xl",
+  navSection:
+    "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed md:z-100",
+  navContainer: "container flex flex-wrap items-center justify-between py-6",
   navMenuContainer: "w-full block flex-grow lg:w-auto lg:flex lg:items-center",
   hamburger:
     "flex items-center px-2 py-2 border rounded text-primary hover:border-primary",
   navMenuContact:
-    "block mt-4 font-bold text-xl hover:text-primary lg:px-4 lg:py-2 lg:leading-none lg:border lg:rounded lg:text-white lg:bg-primary lg:border-white lg:hover:bg-secondary lg:ml-4 lg:mt-0",
+    "block mt-4 font-bold text-xl hover:text-primary lg:px-4 lg:py-4 lg:leading-none lg:border lg:rounded lg:text-white lg:bg-primary lg:border-white lg:hover:bg-secondary lg:ml-4 lg:mt-0",
   logo: "",
 };
 
 export const Header = () => {
   return (
-    <nav className={styles.navContainer}>
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+    <nav className={styles.navSection}>
+    <div className={styles.navContainer}>
         <div className={styles.logo}>
           <Link href="/" passHref>
             <a>
@@ -48,7 +50,7 @@ export const Header = () => {
             <a className={styles.navMenuContact}>Contact Us</a>
           </Link>
         </div>
-      </div>
+    </div>
     </nav>
   );
 };
