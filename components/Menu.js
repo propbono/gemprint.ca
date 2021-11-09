@@ -13,7 +13,7 @@ const menu = [
 const styles = {
   navMenu: "text-sm lg:ml-auto",
   navMenuItem:
-    "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-lg  mr-4",
+    "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-xl  mr-6",
 };
 
 export const Menu = () => {

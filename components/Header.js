@@ -11,7 +11,7 @@ const styles = {
   hamburger:
     "flex items-center px-2 py-2 border rounded text-primary hover:border-primary",
   navMenuContact:
-    "block mt-4 font-bold text-xl hover:text-primary lg:px-4 lg:py-4 lg:leading-none lg:border lg:rounded lg:text-white lg:bg-primary lg:border-white lg:hover:bg-secondary lg:ml-4 lg:mt-0",
+    "block mt-4 btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
   logo: "",
 };
 

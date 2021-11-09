@@ -1,16 +1,25 @@
 import React from "react";
 import Image from "next/image";
 
+const styles = {
+  section:
+    "w-full h-auto bg-center bg-cover md:h-screen md:pt-24 bg-hero-section",
+  heroContainer: "container py-6 md:py-24",
+  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md md:opacity-60 md:w-3/4 hover:opacity-100",
+  preTitle: "mb-2 text-2xl",
+  title: "mb-4 text-5xl font-bold text-secondary",
+};
+
 export const Hero = () => {
   return (
-    <section className="w-full h-auto bg-center bg-cover md:h-screen md:pt-24 bg-hero-section">
-      <div className="container py-6 md:py-24">
-        <div className="w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md md:opacity-60 md:w-3/4 hover:opacity-100">
-          <p className="mb-2 text-2xl">
+    <section className={styles.section}>
+      <div className={styles.heroContainer}>
+        <div className={styles.card}>
+          <p className={styles.preTitle}>
             May 2, 2018 by{" "}
             <strong className="text-primary">Maimuna Gabeyre</strong>
           </p>
-          <h2 className="mb-4 text-5xl font-bold text-secondary">
+          <h2 className={styles.title}>
             Be original, be creative choose Gemprint
           </h2>
           <Image
@@ -26,7 +35,7 @@ export const Hero = () => {
           </p>
           <a
             href="mailto:maimuna.gabeyre@gemprint.ca"
-            className="px-6 py-4 my-auto text-xl text-white rounded bg-primary hover:bg-secondary hover:text-gray-100"
+            className="my-auto btn btn-primary"
           >
             Request a Quote
           </a>
