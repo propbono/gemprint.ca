@@ -1,4 +1,5 @@
 module.exports = {
+  mode: "jit",
   purge: {
     enabled: true,
     content: [
@@ -8,6 +9,13 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    container: {
+      center: true,
+      padding: {
+        default: "1.5rem",
+        lg: "0rem",
+      },
+    },
     extend: {
       colors: {
         primary: "#00afde",
