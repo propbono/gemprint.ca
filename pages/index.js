@@ -24,7 +24,7 @@ export default function Home() {
           content="Gemprint, print, printing, toronto printer, quality print, printing company Toronto, custom stickers, on demand printing toronto, printing services, brochure printing, brochure printing Toronto"
         />
       </Head>
-      {/* <Hero /> */}
+      <Hero />
       <About />
       {/* <Services />
       <Parallax />
