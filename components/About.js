@@ -7,7 +7,8 @@ const styles = {
   section: "bg-white",
   aboutContainer:
     "container flex flex-col flex-col-reverse lg:flex-row lg:flex-wrap items-center px-0 pt-0 pb-6 lg:py-24 w-full",
-  image: "bg-cover w-full lg:w-1/2 rounded-3xl",
+  imageContainer: "bg-cover w-full lg:w-1/2",
+  image: "rounded-tl-[8rem] rounded-br-[12rem] shadow-lg",
   textContainer:
     "w-full lg:w-1/2 text-center lg:text-left pt-3 px-6 lg:px-0 lg:pt-0 lg:pr-8",
   title: "mb-3 text-6xl font-bold text-primary",
@@ -51,8 +52,9 @@ export const About = () => {
             </Link>
           </div>
         </div>
-        <div className={styles.image}>
+        <div className={styles.imageContainer}>
           <Image
+          className={styles.image}
             src={aboutImage}
             alt="About section image"
             placeholder="blur"
