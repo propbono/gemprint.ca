@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import heroImage from "../public/images/Hero.webp"
 
 const styles = {
   section:
-    "w-full h-auto bg-center bg-cover md:h-screen md:pt-24 bg-hero-section",
-  heroContainer: "container py-6 md:py-24",
-  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md md:opacity-60 md:w-3/4 hover:opacity-100",
+    "w-full h-auto bg-center bg-cover md:h-screen md:pt-24 relative",
+  heroContainer: "container py-6 md:py-24 relative z-auto",
+  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md md:opacity-60 md:w-4/6 hover:opacity-100",
   preTitle: "mb-2 text-2xl",
   title: "mb-4 text-5xl font-bold text-secondary",
 };
@@ -13,6 +14,15 @@ const styles = {
 export const Hero = () => {
   return (
     <section className={styles.section}>
+      <Image
+        src={heroImage}
+        alt="Hero Image"
+        layout="fill"
+        objectFit="cover"
+        placeholder="blur"
+        priority
+        className="z-[-10]"
+      />
       <div className={styles.heroContainer}>
         <div className={styles.card}>
           <p className={styles.preTitle}>
