@@ -14,13 +14,16 @@ const styles = {
   navMenu: "text-sm lg:ml-auto",
   navMenuItem:
     "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-xl  mr-6",
+  navMenuContact:
+    "block mt-4 lg:inline-block btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
 };
 
-export const Menu = () => {
+export const Menu = ({show}) => {
   const router = useRouter();
-
+  const visible = show ? 'block' : 'hidden lg:block';
+  
   return (
-    <div className={styles.navMenu}>
+    <div className={`${styles.navMenu} ${visible}`}>
       {menu.map((item, index) => {
         const active = router.asPath === item.src ? "text-primary" : "";
         return (
@@ -29,6 +32,9 @@ export const Menu = () => {
           </Link>
         );
       })}
+      <Link href="/contact">
+        <a className={styles.navMenuContact}>Contact Us</a>
+      </Link>
     </div>
   );
 };
