@@ -5,7 +5,7 @@ import { Menu } from "@/components";
 
 const styles = {
   navSection:
-    "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed md:z-100",
+    "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed lg:z-50",
   navContainer: "container flex flex-wrap items-center justify-between py-6",
   navMenuContainer: "w-full block flex-grow lg:w-auto lg:flex lg:items-center",
   hamburger:
