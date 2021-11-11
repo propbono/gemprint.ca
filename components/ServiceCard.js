@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const ServiceCard = ({card}) => {
     return (
-      <div className="relative flex flex-col w-full overflow-hidden rounded shadow-lg lg:w-1/3 lg:opacity-60 hover:opacity-100">
+      <div className="relative flex flex-col w-full overflow-hidden bg-white rounded shadow-lg lg:w-1/3">
         <Image
           className="w-full rounded shadow-md"
           src={card.img.path}
@@ -18,7 +18,7 @@ export const ServiceCard = ({card}) => {
           <div className="mb-2 text-xl font-bold text-primary">
             {card.title}
           </div>
-          <p className="text-xl text-secondary">
+          <p className="text-lg leading-relaxed text-secondary">
             {card.content}
           </p>
         </div>

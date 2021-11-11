@@ -10,7 +10,7 @@ const expertCard = {
   },
   title: "Experts in Print",
   content:
-    "We combine our expertise, best online technology and our standard print services to optimize our client’s needs. Let us be your trusted partner.",
+    "Gemprint is your online print partner. We combine our expertise and the best available technology to achieve highest printing and designing standards for our clients. Let us be your trusted partner.",
   link: "/#",
 };
 
@@ -38,8 +38,8 @@ const servicesCard = {
 
 export const Services = () => {
   return (
-    <section id="services" className="py-8">
-      <div className="container flex flex-col items-stretch justify-between w-full space-y-5 lg:space-x-5 lg:space-y-0 lg:flex-row">
+    <section id="services" className="relative py-8 top-[-15rem]">
+      <div className="container flex flex-col items-start justify-between w-full space-y-5 lg:space-x-8 lg:space-y-0 lg:flex-row">
         <ServiceCard card={expertCard} />
         <ServiceCard card={trustedCard} />
         <ServiceCard card={servicesCard} />
