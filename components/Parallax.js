@@ -1,7 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
-import styles from "@/styles/Parallax.module.scss";
+import parallaxImg from "../public/images/parallax.webp";
 
 export const Parallax = () => {
-  return <div className={`${styles.parallax} d-none d-lg-block`}></div>;
+  return (
+    <div className="hidden h-[40vh] bg-contain bg-center bg-fixed lg:block bg-parallax-section">
+    </div>
+  );
 };
