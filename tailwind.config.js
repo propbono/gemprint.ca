@@ -19,6 +19,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+       sans: ['Ubuntu', 'sans-serif'],
+      },
       colors: {
         primary: "#00afde",
         secondary: "#354a54",
