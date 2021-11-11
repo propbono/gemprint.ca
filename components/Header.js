@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "@/components";
@@ -10,12 +10,13 @@ const styles = {
   navMenuContainer: "w-full block flex-grow lg:w-auto lg:flex lg:items-center",
   hamburger:
     "flex items-center px-2 py-2 border rounded text-primary hover:border-primary",
-  navMenuContact:
-    "block mt-4 btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
   logo: "",
 };
 
 export const Header = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className={styles.navSection}>
     <div className={styles.navContainer}>
@@ -33,7 +34,7 @@ export const Header = () => {
           </Link>
         </div>
         <div className="block lg:hidden">
-          <button className={styles.hamburger}>
+          <button className={styles.hamburger} onClick={()=> {setIsOpen(!isOpen)}}>
             <svg
               className="w-3 h-3 fill-current"
               viewBox="0 0 20 20"
@@ -45,10 +46,7 @@ export const Header = () => {
           </button>
         </div>
         <div className={styles.navMenuContainer}>
-          <Menu />
-          <Link href="/contact">
-            <a className={styles.navMenuContact}>Contact Us</a>
-          </Link>
+          <Menu show={isOpen}/>
         </div>
     </div>
     </nav>

@@ -26,8 +26,8 @@ export default function Home() {
       </Head>
       <Hero />
       <About />
-      {/* <Services />
-      <Parallax />
+      <Services />
+      {/*  <Parallax />
       <Testimonials />
       <Products /> */}
     </Layout>

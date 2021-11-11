@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import heroImage from "../public/images/Hero.webp"
 
+
 const styles = {
   section:
-    "w-full h-auto bg-center bg-cover md:h-screen md:pt-24 relative",
-  heroContainer: "container py-6 md:py-24 relative z-auto",
-  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md md:opacity-60 md:w-4/6 hover:opacity-100",
+    "w-full h-auto bg-center bg-cover lg:h-screen lg:pt-24 relative",
+  heroContainer: "container py-6 lg:py-24 relative z-auto",
+  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md lg:opacity-60 lg:w-4/6 hover:opacity-100",
   preTitle: "mb-2 text-2xl",
   title: "mb-4 text-5xl font-bold text-secondary",
 };
