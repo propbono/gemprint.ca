@@ -5,13 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 .btn {
-    @apply px-6 py-4 text-xl font-bold rounded;
+    @apply px-6 py-4 text-xl font-bold text-gray-100 transition duration-300 ease-in border-white rounded;
  }
 
  .btn-primary {
-     @apply text-gray-100 border-white bg-primary hover:bg-secondary hover:border-primary;
+     @apply   bg-primary hover:bg-secondary hover:border-primary;
  }
 
  .btn-secondary {
-     @apply text-gray-100 border-white bg-secondary hover:bg-primary hover:border-secondary;
+     @apply   bg-secondary hover:bg-primary hover:border-secondary;
  }
