@@ -39,7 +39,7 @@ const servicesCard = {
 export const Services = () => {
   return (
     <section id="services" className="relative py-8 top-[-15rem]">
-      <div className="container flex flex-col items-start justify-between w-full space-y-5 lg:space-x-8 lg:space-y-0 lg:flex-row">
+      <div className="container flex flex-col items-start justify-between w-full space-y-8 lg:space-x-8 lg:space-y-0 lg:flex-row">
         <ServiceCard card={expertCard} />
         <ServiceCard card={trustedCard} />
         <ServiceCard card={servicesCard} />
