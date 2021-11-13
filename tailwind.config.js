@@ -29,7 +29,7 @@ module.exports = {
       backgroundImage: {
         "about-section": "url('/images/About.webp')",
         "hero-section": "url('/images/Hero.webp')",
-        "parallax-section": "url('/images/parallax.webp')",
+        "parallax-section": "url('/images/Parallax.webp')",
       },
     },
   },

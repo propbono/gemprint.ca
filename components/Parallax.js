@@ -1,7 +1,4 @@
 import React from "react";
-import Image from "next/image";
-
-import parallaxImg from "../public/images/parallax.webp";
 
 export const Parallax = () => {
   return (
