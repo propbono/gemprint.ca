@@ -4,12 +4,13 @@ import heroImage from "../public/images/Hero.webp"
 
 
 const styles = {
-  section:
-    "w-full h-auto bg-center bg-cover lg:h-screen lg:pt-24 relative",
+  section: "w-full h-auto bg-center bg-cover lg:h-screen lg:pt-24 relative",
   heroContainer: "container py-6 lg:py-24 relative z-auto",
-  card: "w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md lg:opacity-60 lg:w-4/6 hover:opacity-100",
+  card: "group w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md lg:opacity-60 lg:w-3/5 hover:opacity-100 transition duration-1000 ease-in-out",
   preTitle: "mb-2 text-2xl",
-  title: "mb-4 text-5xl font-bold text-secondary",
+  title: "mb-4 text-5xl font-bold text-secondary leading-snug",
+  text: "mb-10 text-3xl lg:opacity-60 group-hover:opacity-100 transition duration-1500 ease leading-relaxed",
+  img: "z-[-10]",
 };
 
 export const Hero = () => {
@@ -22,7 +23,7 @@ export const Hero = () => {
         objectFit="cover"
         placeholder="blur"
         priority
-        className="z-[-10]"
+        className={styles.img}
       />
       <div className={styles.heroContainer}>
         <div className={styles.card}>
@@ -40,7 +41,7 @@ export const Hero = () => {
             width={100}
             height={20}
           />
-          <p className="mb-10 text-3xl">
+          <p className={styles.text}>
             Are you looking for a reliable and affordable printer? We are
             experts in print. Our experienced team is here to help you succeed.
           </p>
