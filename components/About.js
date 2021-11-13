@@ -11,15 +11,13 @@ const styles = {
   image: "rounded-tl-[8rem] rounded-br-[12rem] shadow-lg",
   textContainer:
     "w-full lg:w-1/2 text-center lg:text-left pt-3 px-6 lg:px-0 lg:pt-0 lg:pr-8",
-  title: "mb-3 text-6xl font-bold text-primary",
+  title: "mb-2 text-6xl font-bold text-primary",
   subtitle: "mb-5 text-md text-secondary text-lg",
-  description: "text-2xl text-secondary space-y-4",
+  description: "text-2xl text-secondary space-y-4 leading-relaxed",
   buttonContainer:
     "flex flex-wrap items-center w-auto mt-6 space-y-5 lg:px-0 lg:space-y-0 lg:space-x-5",
-  buttonSecondary:
-    "w-full lg:w-auto btn btn-secondary",
-  buttonPrimary:
-    "w-full lg:w-auto btn btn-primary",
+  buttonSecondary: "w-full lg:w-auto btn btn-secondary",
+  buttonPrimary: "w-full lg:w-auto btn btn-primary",
 };
 
 export const About = () => {
