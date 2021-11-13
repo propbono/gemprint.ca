@@ -16,6 +16,7 @@ const styles = {
 export const Hero = () => {
   return (
     <section className={styles.section}>
+      <div className="hidden lg:block">
       <Image
         src={heroImage}
         alt="Hero Image"
@@ -25,6 +26,7 @@ export const Hero = () => {
         priority
         className={styles.img}
       />
+      </div>
       <div className={styles.heroContainer}>
         <div className={styles.card}>
           <p className={styles.preTitle}>

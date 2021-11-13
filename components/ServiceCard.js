@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const styles = {
-  card: "relative flex flex-col w-full overflow-hidden transition duration-500 ease-linear bg-white rounded shadow-lg lg:w-1/3 group hover:scale-105",
+  card: "relative flex flex-col w-full overflow-hidden transition duration-500 ease-linear bg-white rounded shadow-lg lg:w-1/3 group lg:hover:scale-105",
   img: "w-full transition duration-500 ease-in-out rounded shadow-md opacity-80 group-hover:opacity-100",
   content: "h-full px-6 py-4",
   title: "mb-2 text-xl font-bold text-primary",
