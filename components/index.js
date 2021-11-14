@@ -9,3 +9,4 @@ export { Services } from "./Services";
 export { Testimonials } from "./Testimonials";
 export { Menu } from "./Menu";
 export { ServiceCard } from "./ServiceCard";
+export { Subscribe } from "./Subscribe";
