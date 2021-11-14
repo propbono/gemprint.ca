@@ -20,11 +20,16 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-       sans: ['Ubuntu', 'sans-serif'],
+        sans: ["Ubuntu", "sans-serif"],
       },
       colors: {
         primary: "#00afde",
         secondary: "#354a54",
+        "secondary-dark": "#0d222b",
+        "secondary-light": "#607680",
+        "primary-light": "#63e1ff",
+        "primary-dark": "#0080ac",
+        "off-white": "#ECF0F1",
       },
       backgroundImage: {
         "about-section": "url('/images/About.webp')",
