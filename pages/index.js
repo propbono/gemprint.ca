@@ -5,8 +5,7 @@ import {
   About,
   Services,
   Parallax,
-  Testimonials,
-  Products,
+  Subscribe,
   Layout,
 } from "@/components";
 
@@ -28,6 +27,7 @@ export default function Home() {
       <About />
       <Parallax />
       <Services />
+      <Subscribe />
 
       {/* <Testimonials />
       <Products /> */}
