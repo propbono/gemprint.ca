@@ -6,11 +6,10 @@ import { Menu } from "@/components";
 const styles = {
   navSection:
     "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed z-50",
-  navContainer: "container flex flex-wrap items-center justify-between py-6 px-6",
+  navContainer: "container flex flex-wrap items-center justify-between py-6 px-6 lg:px-0",
   navMenuContainer: "w-full block flex-grow lg:w-auto lg:flex lg:items-center",
   hamburger:
     "flex items-center px-2 py-2 border rounded text-primary hover:border-primary",
-  logo: "",
 };
 
 export const Header = () => {
@@ -19,20 +18,18 @@ export const Header = () => {
 
   return (
     <nav className={styles.navSection}>
-    <div className={styles.navContainer}>
-        <div className={styles.logo}>
+    <div className={styles.navContainer}> 
           <Link href="/" passHref>
             <a>
               <Image
                 alt="Logo of Gemprint - experts in print"
                 src="/images/Gemprint-vector-logo.svg"
                 title="Gemprint"
-                width={170}
-                height={30}
+                width={200}
+                height={40}
               />
             </a>
           </Link>
-        </div>
         <div className="block lg:hidden">
           <button className={styles.hamburger} onClick={()=> {setIsOpen(!isOpen)}}>
             <svg
