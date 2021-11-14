@@ -24,8 +24,8 @@ export const Subscribe = () => {
   return (
     <section className="relative lg:top-[-12rem]">
       <div className="container">
-        <div className="flex flex-col my-10 overflow-hidden bg-white rounded-lg shadow-lg lg:h-56 lg:flex-row">
-          <div className="items-center justify-center lg:flex lg:w-1/2 lg:bg-secondary">
+        <div className="flex flex-col my-10 overflow-hidden transition duration-500 ease-in-out bg-white rounded-lg shadow-lg lg:h-56 lg:flex-row group lg:hover:scale-105">
+          <div className="items-center justify-center lg:flex lg:w-1/3 lg:bg-secondary">
             <div className="px-8 py-6 lg:py-0">
               <h2 className="text-2xl font-bold text-secondary lg:text-gray-100">
                 Subscribe to our newsletter
@@ -36,8 +36,8 @@ export const Subscribe = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center pb-6 lg:py-0 lg:w-1/2 lg:border-b-8 border-secondary">
-            <div className="flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full pb-6 transition duration-1000 ease-in-out lg:py-0 lg:w-2/3 lg:border-b-8 border-secondary lg:group-hover:border-primary">
+            <div className="w-[600px]">
               <form
                 onSubmit={subscribe}
                 className="flex flex-col overflow-hidden rounded-lg sm:flex-row"
@@ -47,11 +47,11 @@ export const Subscribe = () => {
                   type="email"
                   placeholder="Enter your email"
                   id="email-newsletter"
-                  className="flex flex-1 max-w-4xl px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100"
+                  className="flex flex-1 max-w-6xl px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100"
                 />
                 <button
                   type="submit"
-                  className="flex-none uppercase btn btn-secondary"
+                  className="flex-none btn btn-secondary"
                 >
                   Subscribe
                 </button>
