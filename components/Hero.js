@@ -10,7 +10,6 @@ const styles = {
   preTitle: "mb-2 text-2xl",
   title: "mb-4 text-5xl font-bold text-secondary leading-snug",
   text: "mb-10 text-3xl lg:opacity-60 group-hover:opacity-100 transition duration-1500 ease leading-relaxed",
-  img: "z-[-10]",
 };
 
 export const Hero = () => {
@@ -24,7 +23,6 @@ export const Hero = () => {
         objectFit="cover"
         placeholder="blur"
         priority
-        className={styles.img}
       />
       </div>
       <div className={styles.heroContainer}>
