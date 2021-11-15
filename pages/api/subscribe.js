@@ -1,28 +1,47 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
+import axios from 'axios';
 
-mailchimp.setConfig({
-    apiKey: process.env.MAILCHIMP_API_KEY,
-    server: process.env.MAILCHIMP_API_SERVER
-});
+const getRequestParams = (email) => {
+  const API_KEY = process.env.MAILCHIMP_API_KEY;
+  const API_SERVER = process.env.MAILCHIMP_API_SERVER;
+  const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+  const url = `https://${API_SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
 
-const Subscribe = async (req, res) => {
-    const {email} = req.body;
+  const data = {
+    email_address: email,
+    status: "subscribed",
+  };
+  // Api key needs to be encoded in base 64 format before
+  const base64ApiKey = Buffer.from(`anystring:${API_KEY}`).toString("base64");
 
-    if(!email) {
-        return res.status(400).json({error: 'Email is required'});
-    }
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Basic ${base64ApiKey}`,
+  };
 
-    try {
-        const response = await mailchimp.lists.addListMember({
-            id: process.env.MAILCHIMP_LIST_ID,
-            email_address: email,
-            status: 'subscribed'
-        });
+  return { url, data, headers };
+};
 
-        return res.json(response);
-    } catch (error) {
-        return res.status(500).json({error: error.message || error.toString()});
-    }
-}
+const subscribe = async (req, res) => {
+  const { email } = req.body;
 
-export default Subscribe;
+  if (!email || !email.length) {
+    return res.status(400).json({ error: "Please provide an email address" });
+  }
+
+  try {
+    const { url, data, headers } = getRequestParams(email);
+
+    await axios.post(url, data, { headers });
+
+    return res.status(201).json({ error: null });
+  } catch (error) {
+    return res
+      .status(400)
+      .json({
+        error:
+          "Something went wrong. Please try again later. If this issue continues please contact us.",
+      });
+  }
+};
+
+export default subscribe;
