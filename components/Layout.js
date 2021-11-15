@@ -31,7 +31,7 @@ export const Layout = ({ children }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Header />
-      <main className="min-h-screen">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );
