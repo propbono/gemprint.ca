@@ -5,9 +5,9 @@ import { FormCard } from "@/components";
 const styles = {
   section: "relative lg:top-[-12rem]",
   container: "container",
-  form: "flex flex-col overflow-hidden rounded-lg sm:flex-row",
+  form: "flex flex-col sm:flex-row",
   email:
-    "flex flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100",
+    "flex flex-1  w-full mb-2 lg:mx-2 lg:mb-0 px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
 };
 
 export const Subscribe = () => {
