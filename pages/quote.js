@@ -5,9 +5,9 @@ import { Layout, FormCard } from "@/components";
 const styles = {
   section: "relative lg:min-h-screen lg:pt-24",
   container: "container py-6 lg:py-17 relative z-auto",
-  form: "flex flex-col h-auto overflow-hidden ",
+  form: "flex flex-col h-auto",
   field:
-    "flex rounded-lg mb-4 flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100",
+    "flex w-full rounded-lg  mb-4 flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100 focus:border-primary focus:ring-primary",
 };
 
 const RequestQuote = () => {
