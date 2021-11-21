@@ -28,9 +28,6 @@ export default function Home() {
       <Parallax />
       <Services />
       <Subscribe />
-
-      {/* <Testimonials />
-      <Products /> */}
     </Layout>
   );
 }
