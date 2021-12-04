@@ -56,7 +56,7 @@ export const Subscribe = () => {
                 type="submit"
                 className="flex items-center justify-center btn btn-secondary"
               >
-                Subscribe
+                {isLoading ? "Subscribing..." : "Subscribe"}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`w-6 h-6 mt-1 ml-2 ${isLoading}`}

@@ -35,7 +35,6 @@ const RequestQuote = () => {
         subject: subjectRef.current.value,
         message: messageRef.current.value,
       });
-      console.log("Response: ", response);
       setState(STATE.SUCCESS);
       setMessage(
         "Success! 🎉 We received your request. We will contact you soon."
@@ -113,7 +112,7 @@ const RequestQuote = () => {
                   type="submit"
                   className="flex items-center justify-center btn btn-secondary"
                 >
-                  Send
+                  {isLoading ? "Sending..." : "Send"}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={`w-6 h-6 mt-1 ml-2 ${isLoading}`}
