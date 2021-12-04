@@ -22,6 +22,12 @@ const RequestQuote = () => {
   const [state, setState] = useState(STATE.IDLE);
   const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
 
+  const mixedTitle = {
+    one: "Let's talk!",
+    two: " Tell us about",
+    three: " your project."
+  }
+
   const requestQuote = async (e) => {
     e.preventDefault();
     setState(STATE.LOADING);
@@ -66,7 +72,7 @@ const RequestQuote = () => {
       <section className={styles.section}>
         <div className={styles.container}>
           <FormCard
-            title="Request a new Quote"
+            mixedTitle={mixedTitle}
             text="If you didn’t find the product you were looking for, please fill the below form to contact us and request a custom quote."
           >
             <div className="lg:w-[600px]  lg:py-24">
