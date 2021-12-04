@@ -130,7 +130,7 @@ const RequestQuote = () => {
                   </svg>
                 </button>
               </form>
-              {message && <FormMessage state={state} message={message} />}
+              {message ? <FormMessage state={state} message={message} /> : null}
             </div>
           </FormCard>
         </div>
