@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import { Layout, FormCard } from "@/components";
+import { Layout, FormCard, FormMessage } from "@/components";
 import { STATE } from "@/helpers/State";
 
 const styles = {
@@ -20,8 +20,6 @@ const RequestQuote = () => {
   const messageRef = useRef(null);
   const [message, setMessage] = useState("");
   const [state, setState] = useState(STATE.IDLE);
-  const messageClass =
-    state === STATE.ERROR ? "text-red-600 mt-2" : "text-green-600 mt-2";
   const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
 
   const requestQuote = async (e) => {
@@ -132,7 +130,7 @@ const RequestQuote = () => {
                   </svg>
                 </button>
               </form>
-              {message && <div className={messageClass}>{message}</div>}
+              {message && <FormMessage state={state} message={message} />}
             </div>
           </FormCard>
         </div>
@@ -142,3 +140,5 @@ const RequestQuote = () => {
 };
 
 export default RequestQuote;
+
+
