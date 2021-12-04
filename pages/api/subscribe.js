@@ -25,7 +25,7 @@ const subscribe = async (req, res) => {
   const { email } = req.body;
 
   if (!email || !email.length) {
-    return res.status(400).json({ error: "Please provide an email address" });
+    return res.status(401).json({ error: "Please provide an email addres." });
   }
 
   try {
@@ -36,7 +36,7 @@ const subscribe = async (req, res) => {
     return res.status(201).json({ error: null });
   } catch (error) {
     return res
-      .status(400)
+      .status(500)
       .json({
         error:
           "Something went wrong. Please try again later. If this issue continues please contact us.",
