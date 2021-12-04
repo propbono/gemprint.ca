@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import { FormCard } from "@/components";
+import { FormCard, FormMessage } from "@/components";
+import {STATE} from "@/helpers/State";
 
 const styles = {
   section: "relative lg:top-[-12rem]",
@@ -13,25 +14,23 @@ const styles = {
 export const Subscribe = () => {
   const inputRef = useRef(null);
   const [message, setMessage] = useState("");
-  const [state, setState] = useState("IDLE");
-  const messageClass =
-    state === "SUCCESS" ? "text-green-600 mt-2" : "text-red-600 mt-2";
-  const isLoading = state === "LOADING" ? "animate-bounce" : "";
+  const [state, setState] = useState(STATE.IDLE);
+  const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
 
   const subscribe = async (e) => {
     e.preventDefault();
-    setState("LOADING");
+    setState(STATE.LOADING);
     setMessage("");
     try {
       const response = await axios.post("/api/subscribe", {
         email: inputRef.current.value,
       });
 
-      setState("SUCCESS");
+      setState(STATE.SUCCESS);
       setMessage("Success! 🎉 You are now subscribed to the newsletter.");
       inputRef.current.value = "";
     } catch (error) {
-      setState("ERROR");
+      setState(STATE.ERROR);
       setMessage(error.response.data.message);
     }
   };
@@ -74,7 +73,7 @@ export const Subscribe = () => {
                 </svg>
               </button>
             </form>
-            <div className={messageClass}>{message}</div>
+            {message ? <FormMessage message={message} state={state} /> : null}
           </div>
         </FormCard>
       </div>
