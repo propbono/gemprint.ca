@@ -15,7 +15,7 @@ export const Subscribe = () => {
   const [message, setMessage] = useState("");
   const [state, setState] = useState("IDLE");
   const messageClass =
-    state === "SUCCESS" ? "text-green-600 mt-1" : "text-red-600 mt-1";
+    state === "SUCCESS" ? "text-green-600 mt-2" : "text-red-600 mt-2";
   const isLoading = state === "LOADING" ? "animate-bounce" : "";
 
   const subscribe = async (e) => {
@@ -26,12 +26,11 @@ export const Subscribe = () => {
       const response = await axios.post("/api/subscribe", {
         email: inputRef.current.value,
       });
-      console.log("Response: ", response);
+
       setState("SUCCESS");
       setMessage("Success! 🎉 You are now subscribed to the newsletter.");
       inputRef.current.value = "";
     } catch (error) {
-      console.log("Error: ", error);
       setState("ERROR");
       setMessage(error.response.data.message);
     }
@@ -75,8 +74,8 @@ export const Subscribe = () => {
                 </svg>
               </button>
             </form>
+            <div className={messageClass}>{message}</div>
           </div>
-          <div className={messageClass}>{message}</div>
         </FormCard>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Head from "next/head";
+import axios from "axios";
 import { Layout, FormCard } from "@/components";
+import { STATE } from "@/helpers/State";
 
 const styles = {
   section: "relative lg:min-h-screen lg:pt-24",
@@ -15,14 +17,41 @@ const RequestQuote = () => {
   const emailRef = useRef(null);
   const phoneRef = useRef(null);
   const subjectRef = useRef(null);
-  const requestRef = useRef(null);
+  const messageRef = useRef(null);
   const [message, setMessage] = useState("");
-  const [state, setState] = useState("IDLE");
+  const [state, setState] = useState(STATE.IDLE);
   const messageClass =
-    state === "SUCCESS" ? "text-green-600 mt-1" : "text-red-600 mt-1";
-  const isLoading = state === "LOADING" ? "animate-bounce" : "";
+    state === STATE.ERROR ? "text-red-600 mt-2" : "text-green-600 mt-2";
+  const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
 
-  const requestQuote = async (e) => {};
+  const requestQuote = async (e) => {
+    e.preventDefault();
+    setState(STATE.LOADING);
+    setMessage("");
+    try {
+      const response = await axios.post("/api/contact", {
+        type: "Request quote",
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        phone: phoneRef.current.value,
+        subject: subjectRef.current.value,
+        message: messageRef.current.value,
+      });
+      console.log("Response: ", response);
+      setState(STATE.SUCCESS);
+      setMessage(
+        "Success! 🎉 We received your request. We will contact you soon."
+      );
+      nameRef.current.value = "";
+      emailRef.current.value = "";
+      phoneRef.current.value = "";
+      subjectRef.current.value = "";
+      messageRef.current.value = "";
+    } catch (error) {
+      setState(STATE.ERROR);
+      setMessage(error.response.data.error);
+    }
+  };
 
   return (
     <Layout>
@@ -74,7 +103,7 @@ const RequestQuote = () => {
                   className={styles.field}
                 />
                 <textarea
-                  ref={requestRef}
+                  ref={messageRef}
                   type="text-area"
                   placeholder="Enter the quote request"
                   id="request"
@@ -103,8 +132,8 @@ const RequestQuote = () => {
                   </svg>
                 </button>
               </form>
+              {message && <div className={messageClass}>{message}</div>}
             </div>
-            <div className={messageClass}>{message}</div>
           </FormCard>
         </div>
       </section>

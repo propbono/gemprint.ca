@@ -11,3 +11,4 @@ export { Menu } from "./Menu";
 export { ServiceCard } from "./ServiceCard";
 export { Subscribe } from "./Subscribe";
 export { FormCard } from "./FormCard";
+export { FAQCard } from "./FAQCard";

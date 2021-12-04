@@ -14,7 +14,7 @@ export const FormCard = ({ title, text, children }) => {
   return (
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <div className="px-8 py-6">
+            <div className="px-6 py-6">
               <h2 className={styles.title}>{title}</h2>
               <p className={styles.text}>{text}</p>
             </div>
