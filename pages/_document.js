@@ -1,15 +1,9 @@
-/* eslint-disable @next/next/no-document-import-in-page */
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
+export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head />
         <body className="bg-off-white">
           <Main />
@@ -19,5 +13,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
