@@ -13,3 +13,4 @@ export { Subscribe } from "./Subscribe";
 export { FormCard } from "./FormCard";
 export { FAQCard } from "./FAQCard";
 export { FormMessage } from "./FormMessage";
+export { HeroPost } from "./HeroPost";
