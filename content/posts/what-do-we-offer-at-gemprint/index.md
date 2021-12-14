@@ -6,7 +6,8 @@ tags:
   - "offer"
   - "quality"
 excerpt: ""
-coverImage: ""
+coverImage: "/images/posts/font-awesome.jpg"
+altImage: "Image of the various products offered by Gemprint"
 author: "Maimuna Gabeyre"
 ---
 
@@ -20,24 +21,24 @@ The biggest part of our services is printing, we focus mostly on offset, digita
 
 ## Printing
 
-![](images/GEM_Icons_Artboard-1@1x-150x150.png) We offer a variety of quality print products such as Flyers, Brochures, Business Cards, Door Hangers, Greeting Cards, Booklets, Notepads, a big quantity of Envelopes and many more. Best quality printing in GTA at the most affordable prices.
+![](/images/posts/icon-one.png) We offer a variety of quality print products such as Flyers, Brochures, Business Cards, Door Hangers, Greeting Cards, Booklets, Notepads, a big quantity of Envelopes and many more. Best quality printing in GTA at the most affordable prices.
 
 ## Digital Printing
 
-![](images/GEM_Icons_Artboard-2@1x-150x150.png)Don't have a big budget? We still can help you promote your business by printing smaller quantities. Our Digital department can print Business Cards, high-quality Matte Laminated Business Cards, NCR pads, Envelopes, small quantity Posters, writable Greeting Cards, numbered Tickets and many more.
+![](/images/posts/icon-two.png)Don't have a big budget? We still can help you promote your business by printing smaller quantities. Our Digital department can print Business Cards, high-quality Matte Laminated Business Cards, NCR pads, Envelopes, small quantity Posters, writable Greeting Cards, numbered Tickets and many more.
 
 ## Wide Format Printing
 
-![](images/GEM_Icons_Artboard-3@1x-150x150.png)Are you interested in the outdoor advertising? Our signs department can produce Vinyl Banners, Banner Stands, A-Frames, Yard Signs, and Large Format Posters.
+![](/images/posts/icon-three.png)Are you interested in the outdoor advertising? Our signs department can produce Vinyl Banners, Banner Stands, A-Frames, Yard Signs, and Large Format Posters.
 
 ## Fast Turnaround time and Delivery
 
-![](images/GEM_Icons_Artboard-4@1x-150x150.png) Thanks to our distribution center located in Mississauga, we can deliver your print product faster and cheaper to your location. We do not double charge you for shipping. You pay what we pay for our couriers!
+![](/images/posts/icon-four.png) Thanks to our distribution center located in Mississauga, we can deliver your print product faster and cheaper to your location. We do not double charge you for shipping. You pay what we pay for our couriers!
 
 ## Language Support
 
-![](images/GEM_Icons_Artboard-5@1x-150x150.png) [Communication is important](https://gemprint.ca/blog/communication-is-importnant-english-arabic-polish-somali/) factor in business. We speak English, Arabic, Polish and Somali. If you speak one of these languages we can easily understand your needs.
+![](/images/posts/icon-five.png) [Communication is important](https://gemprint.ca/blog/communication-is-importnant-english-arabic-polish-somali/) factor in business. We speak English, Arabic, Polish and Somali. If you speak one of these languages we can easily understand your needs.
 
 ## Quality Print Control
 
-![](images/GEM_Icons_Artboard-6@1x-150x150.png) Our 12 years experience in printing industry let us not only find any issues which can cause problems in print but also easily resolve them. You can read more about our [quality process](https://gemprint.ca/blog/16-point-quality-checklist/) on our blog.
+![](/images/posts/icon-six.png) Our 12 years experience in printing industry let us not only find any issues which can cause problems in print but also easily resolve them. You can read more about our [quality process](https://gemprint.ca/blog/16-point-quality-checklist/) on our blog.

@@ -5,7 +5,8 @@ tags:
   - "promotion"
   - "quality"
 excerpt: "Who doesn't like a good deal served to us on Black Friday? What about Black Friday printing deals, wouldn't that be interesting? Most of us have done that before, waiting in lineups or just counting down seconds to the online sales. We like the excitement but mostly we all like good deals."
-coverImage: ""
+coverImage: "/images/posts/black-friday.jpg"
+altImage: "Black Friday Deals"
 author: "Maimuna Gabeyre"
 ---
 

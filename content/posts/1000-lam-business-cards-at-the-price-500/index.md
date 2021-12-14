@@ -1,5 +1,5 @@
 ---
-title: "1000 Laminated Business Cards, special offer now only 84.58!"
+title: "Laminated Business Cards - special offer now only 84.58!"
 date: "June 26, 2018"
 tags:
   - "offer"
@@ -7,7 +7,8 @@ tags:
   - "quality"
   - "business-cards"
 excerpt: "We would like to announce a unique program we are starting in February 2020. Every month we will have a special offer. We will choose one of our products, and write a short post about it to get you familiar with it."
-coverImage: ""
+coverImage: "/images/posts/laminated-business-cards.jpg"
+altImage: "Set of two laminated business cards"
 author: "Maimuna Gabeyre"
 ---
 

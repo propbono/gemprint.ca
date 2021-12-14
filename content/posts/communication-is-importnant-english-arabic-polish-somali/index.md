@@ -5,13 +5,14 @@ tags:
   - "inspiration"
   - "quality"
 excerpt: "Communication is an important factor in having a successful business these days. It is extremely important to understand your clients' needs. No matter how much we try nor how good quality product we can deliver as long if it is not what client expected we set up ourselves for failure."
-coverImage: ""
+coverImage: "/images/posts/communication-is-important.jpg"
+altImage: "Picture with Hello in different languages"
 author: "Maimuna Gabeyre"
 ---
 
 ## Communication is important
 
-![Communication is important. We speak Arabic, Polish and Somali](images/communication_2.jpg)
+![Communication is important. We speak Arabic, Polish and Somali](/images/posts/telephone-booths.jpg)
 
 Communication is an important factor in having a successful business these days. It is extremely important to understand your clients' needs. No matter how much we try nor how good quality product we can deliver as long if it is not what client expected we set up ourselves for failure.
 
@@ -19,7 +20,7 @@ At Gemprint, we focus on communication with our clients. You can be assured we w
 
 ## We speak English, Arabic, Polish and Somali
 
-![We speak English Arabic Polish and Somali](images/Flags-big-1024x185.png)
+![We speak English Arabic Polish and Somali](/images/posts/four-flags.png)
 
 Our website, all blog posts, and official communication is done in English. However, Toronto is our home, and we do understand how diversified culturally this city is. We know that sometimes is easier to express ourselves using our mother tongue instead of English. This is the natural situation for all of us not born here. Our staff speaks fluently English, Arabic, Polish and Somali.
 

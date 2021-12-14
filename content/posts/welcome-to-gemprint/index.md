@@ -5,7 +5,8 @@ tags:
   - "design"
   - "inspiration"
 excerpt: ""
-coverImage: ""
+coverImage: "/images/posts/welcome-to-gemprint.jpg"
+altImage: "Image of welcome sign"
 author: "Maimuna Gabeyre"
 ---
 
@@ -27,7 +28,7 @@ We specialize in a variety of print products, our focus customer group are a sma
 
 ## Quality matters
 
-![](images/edho-pratama-149011-1024x683.jpg)
+![](/images/posts/phone.jpg)
 
 We are proud of our [quality control](https://gemprint.ca/blog/16-point-quality-checklist/) process. You can be sure that we always check your files before production and advise if your design can be improved. This kind of feedback from your printer is important so you won't be disappointed by the final result.
 

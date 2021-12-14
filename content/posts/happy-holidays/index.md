@@ -4,7 +4,8 @@ date: "December 21, 2017"
 tags:
   - "inspiration"
 excerpt: ""
-coverImage: ""
+coverImage: "/images/posts/happy-holidays.jpg"
+altImage: "Picture of Happy Holidays wishes"
 author: "Maimuna Gabeyre"
 ---
 

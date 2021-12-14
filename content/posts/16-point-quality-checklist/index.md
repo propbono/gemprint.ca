@@ -6,7 +6,8 @@ tags:
   - "inspiration"
   - "quality"
 excerpt: "Problem with quality? Let's be honest we all do mistakes. Cut off texts, not centered graphics, low resolution etc. It happened to all of us at least once."
-coverImage: ""
+coverImage: "/images/posts/quality-checklist.jpg"
+altImage: "Picture of a notebook by Glenn Carstens Peters"
 author: "Maimuna Gabeyre"
 ---
 

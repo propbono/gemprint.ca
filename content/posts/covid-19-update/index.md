@@ -1,11 +1,12 @@
 ---
-title: "COVID-19 – March 29 update"
+title: "COVID-19 Update"
 date: "March 3, 2020"
 tags:
   - "information"
   - "inspiration"
 excerpt: "As we continue to face the impacts of COVID-19, we would like to assure you that we stand behind you during this difficult time. We recognize that our customers rely on us, especially for orders that are meant for business classified by the government as "Essential Business"."
-coverImage: ""
+coverImage: "/images/posts/covid-19-update.jpg"
+altImage: "COVID-19 Update"
 author: "Maimuna Gabeyre"
 ---
 

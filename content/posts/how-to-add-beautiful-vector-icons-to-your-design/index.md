@@ -8,7 +8,8 @@ tags:
   - "font-awesome"
   - "illustrator"
 excerpt: ""
-coverImage: ""
+coverImage: "/images/posts/font-awesome.jpg"
+altImage: "Pictures of various font awesome icons"
 author: "Maimuna Gabeyre"
 ---
 
@@ -26,13 +27,13 @@ But wait, isn't the font awesome used on the website? Yes, that's correct. But i
 
 Ok! You have downloaded the font, now you have to install the proper fonts. It is super easy as well. You can follow the instruction on the font awesome website. Basically, you have to unzip the folder, then find the folder containing three TTF font files. It should be named /use-on-desktop. Install all three fonts as all of them contain a different set of icons.
 
-![font awesome, how to add icons, how to add icons to design, vector icons](images/fonteawesomepic.png)
+![font awesome, how to add icons, how to add icons to design, vector icons](/images/posts/fonte-awesome-folder.png)
 
 ## Step 3 - Start using it!
 
 Now, the final step guys, start using it as a normal font. Yes, just like that. OK, there is a trick to it, you have to know the shortcodes, names of the icons you want to use. Once again let's take a peek at the font awesome website, they offer amazing [cheatsheet](https://fontawesome.com/cheatsheet), where you can find all shortcodes you need.
 
-![font awesome, font awesome icons, how to add icons in illustrator, icons in illustrator, icons with a font](images/fontawesomeiconsgif-300x199.gif)
+![font awesome, font awesome icons, how to add icons in illustrator, icons in illustrator, icons with a font](/images/posts/font-awesome-example.gif)
 
 Just copy or write the shortcode for the icon you want to use, and then paste it to Illustrator, just make sure that the copied text is using font awesome. And, voila! The copied text was converted to a beautiful icon. You can edit this as any other font, change the size, colour, line height etc.
 

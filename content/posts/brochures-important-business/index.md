@@ -6,7 +6,8 @@ tags:
   - "inspiration"
   - "quality"
 excerpt: "There are several factors why brochures are important to your business. In this blog post, I will explain most of the reasons why you still should reserve part of your marketing budget for printing promotional brochures. First thing first, let explain what actually the brochure is."
-coverImage: ""
+coverImage: "/images/posts/brochures-are-important.jpg"
+altImage: "Picture of a brochure"
 author: "Maimuna Gabeyre"
 ---
 
@@ -16,7 +17,7 @@ There are several factors why brochures are important to your business. In this 
 
 ## What is the brochure
 
-![Tri-Fold Brochure](images/brochure-enviro-300x225.jpg)
+![Tri-Fold Brochure](/images/posts/brochures-are-important-sample.jpg)
 
 Brochures are print product materials, most of the time printed on semi-thick paper, like 100lb Gloss Text. What differs brochures from normal flyers is folding. All brochures have some type of folding included. The most popular fold type is Roll Fold. The brochure is folded as a trifold piece with a cover on the front and in most cases address on the back. The next one, for instance, is simple Half Fold when the brochure is folded in half. There are many more folding types and sizes. The most popular folding types are Roll Fold, Z Fold, Half Fold, Double Parallel Fold. The most popular sizes for brochures are 11x8.5, 14x8.5 and 17x11, It doesn't mean you can't order any other type, just [request a quote](https://www.gemprint.ca/request-quote/) and we will contact you to provide the best possible way to produce your job. Let's talk why are they important for your business. Below you can find 6 reasons why you still should invest in printing brochures.
 
