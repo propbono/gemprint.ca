@@ -1,9 +1,7 @@
 import React from "react";
-import { Layout, FormCard, FAQCard } from "@/components";
+import { Layout, FormCard, FAQCard, Section, Container } from "@/components";
 
 const styles = {
-  section: "relative lg:min-h-screen lg:pt-24",
-  container: "container py-6 lg:py-17 relative z-auto",
   description: "p-6 leading-relaxed text-lg",
 };
 
@@ -49,17 +47,17 @@ const faqs = [
 const Faqs = () => {
   return (
     <Layout>
-      <section className={styles.section}>
-        <div className={styles.container}>
-          {faqs.map(({faq}, index) => {
+      <Section>
+        <Container>
+          {faqs.map(({ faq }, index) => {
             return (
               <FormCard key={index} title={faq.title}>
                 <FAQCard text={faq.text} />
               </FormCard>
             );
           })}
-        </div>
-      </section>
+        </Container>
+      </Section>
     </Layout>
   );
 };

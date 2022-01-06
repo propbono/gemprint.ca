@@ -14,3 +14,8 @@ export { FormCard } from "./FormCard";
 export { FAQCard } from "./FAQCard";
 export { FormMessage } from "./FormMessage";
 export { HeroPost } from "./HeroPost";
+export { MorePosts } from "./MorePosts";
+export { Section } from "./Section";
+export { Container } from "./Container";
+export { BlogNavigation } from "./BlogNavigation";
+export { Post } from "./Post";

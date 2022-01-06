@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import { Layout, FormCard, FormMessage } from "@/components";
+import {
+  Layout,
+  FormCard,
+  FormMessage,
+  Container,
+  Section,
+} from "@/components";
 import { STATE } from "@/helpers/State";
 
 const styles = {
-  section: "relative lg:min-h-screen lg:pt-24",
-  container: "container py-6 lg:py-17 relative z-auto",
   form: "flex flex-col h-auto",
   field:
     "flex w-full rounded-lg  mb-4 flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100 focus:border-primary focus:ring-primary",
@@ -25,8 +29,8 @@ const RequestQuote = () => {
   const mixedTitle = {
     one: "Let's talk!",
     two: " Tell us about",
-    three: " your project."
-  }
+    three: " your project.",
+  };
 
   const requestQuote = async (e) => {
     e.preventDefault();
@@ -69,13 +73,13 @@ const RequestQuote = () => {
           content="Gemprint, custom quote, quote, print quote, printing quote, toronto printer, custom stickers"
         />
       </Head>
-      <section className={styles.section}>
-        <div className={styles.container}>
+      <Section>
+        <Container>
           <FormCard
             mixedTitle={mixedTitle}
             text="If you didn’t find the product you were looking for, please fill the below form to contact us and request a custom quote."
           >
-            <div className="lg:w-[600px]  lg:py-24">
+            <div className="w-[350px] sm:w-[400px] md:w-[500px] lg:w-[600px] lg:py-20">
               <form onSubmit={requestQuote} className={styles.form}>
                 <input
                   ref={nameRef}
@@ -138,12 +142,10 @@ const RequestQuote = () => {
               {message ? <FormMessage state={state} message={message} /> : null}
             </div>
           </FormCard>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </Layout>
   );
 };
 
 export default RequestQuote;
-
-
