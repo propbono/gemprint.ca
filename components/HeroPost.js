@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const styles = {
-  card: "flex group w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md border-4 border-transparent hover:border-primary transition duration-1000 ease-in-out",
+  card: "flex group mb-10 w-full px-8 pt-6 pb-10 bg-white rounded-lg shadow-md border-4 border-transparent hover:border-primary transition duration-1000 ease-in-out",
   dateAuthor: "mb-2 text-2xl",
   title: "mb-4 text-5xl font-bold text-secondary leading-snug",
   text: "mb-10 text-3xl transition duration-1500 ease leading-relaxed",
@@ -32,7 +32,7 @@ export const HeroPost = ({
           height={20}
         />
         <p className={styles.text}>{excerpt}</p>
-        <Link href={`blog/${link}`} passHref>
+        <Link href={`/blog/${link}`} passHref>
           <a className="my-auto btn btn-primary">Read the post</a>
         </Link>
       </div>

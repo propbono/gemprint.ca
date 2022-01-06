@@ -7,7 +7,7 @@ tags:
   - "removable-vinyl"
   - "social-distancing"
 excerpt: "We have prepared some Social Distancing decal designs for you. These removable vinyl decals feature important health and hygiene practices during COVID-19."
-coverImage: "/images/posts/Gemprint-Blog-Health-Vinyl.jpg"
+coverImage: "/images/posts/vinyl-stickers.jpg"
 altImage: "Picture of various vinyl stickers"
 author: "Maimuna Gabeyre"
 ---

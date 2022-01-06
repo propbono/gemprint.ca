@@ -1,12 +1,12 @@
 ---
-title: "COVID-19 Update"
-date: "March 3, 2020"
+title: "Covid19 Update"
+date: "March, 2020"
 tags:
-  - "information"
+  - "design"
   - "inspiration"
-excerpt: "As we continue to face the impacts of COVID-19, we would like to assure you that we stand behind you during this difficult time. We recognize that our customers rely on us, especially for orders that are meant for business classified by the government as "Essential Business"."
+excerpt: ""
 coverImage: "/images/posts/covid-19-update.jpg"
-altImage: "COVID-19 Update"
+altImage: "Image of welcome sign"
 author: "Maimuna Gabeyre"
 ---
 
