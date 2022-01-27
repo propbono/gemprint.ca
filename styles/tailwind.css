@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
 .btn {
-    @apply px-6 py-4 text-xl font-bold text-gray-100 transition duration-300 ease-in border-white rounded-lg;
- }
+  @apply px-6 py-4 text-xl font-bold text-gray-100 transition duration-300 ease-in border-white rounded-lg;
+}
 
- .btn-primary {
-     @apply   bg-primary hover:bg-secondary focus:bg-secondary focus:ring-primary;
- }
+.btn-primary {
+  @apply bg-primary hover:bg-secondary focus:bg-secondary focus:ring-primary;
+}
 
- .btn-secondary {
-     @apply   bg-secondary hover:bg-primary focus:bg-primary focus:ring-secondary;
- }
+.btn-secondary {
+  @apply bg-secondary hover:bg-primary focus:bg-primary focus:ring-secondary;
+}
