@@ -4,10 +4,16 @@ import matter from "gray-matter";
 
 const postsDirectory = join(process.cwd(), "content/posts");
 
+/**
+ * Reading the contents of the posts directory and returning an array of the file names.
+ */
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
+/**
+ * Get the post by slug and return the fields we want.
+ */
 export function getPostBySlug(slug, fields = []) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, slug, "index.md");
@@ -33,6 +39,9 @@ export function getPostBySlug(slug, fields = []) {
   return items;
 }
 
+/**
+ * `getAllPosts` returns an array of all posts in the site.
+ */
 export function getAllPosts(fields = []) {
   const slugs = getPostSlugs();
   const posts = slugs

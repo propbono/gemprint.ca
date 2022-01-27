@@ -11,31 +11,33 @@ const styles = {
 
 export const MorePosts = ({ posts }) => {
   return (
-    <div className="relative grid grid-cols-4 mb-64 md:grid-cols-8 lg:grid-cols-12 gap-x-4 lg:gap-x-10">
-      {posts.map(({ title, slug, date, coverImage }) => (
-        <div key={title} className="col-span-4 mb-10">
-          <div className=" group">
-            <Link as={`/blog/${slug}`} href={`/blog/${slug}`} passHref>
-              <a>
-                <div className="relative w-full h-[600px] rounded-lg aspect-h-4 aspect-w-3 group-hover:ring-4 group-hover:ring-primary transition duration-1000 ease-in-out">
-                  <Image
-                    src={coverImage}
-                    className="object-cover object-center focus-ring max-h-[600px]  rounded-lg"
-                    alt="Cove Image"
-                    layout="fill"
-                  />
-                </div>
-                <div className="px-4 mt-6 text-xl font-medium text-primary">
-                  {date}
-                </div>
-                <div className="p-4 text-2xl font-bold text-secondary md:text-3xl dark:text-white">
-                  {title}
-                </div>
-              </a>
-            </Link>
+    <div className="py-12 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-24 lg:px-8 lg:py-16">
+      <div className="relative grid grid-cols-4 mb-64 md:grid-cols-8 lg:grid-cols-12 gap-x-4 lg:gap-x-10">
+        {posts.map(({ title, slug, date, coverImage }) => (
+          <div key={title} className="col-span-4 mb-10">
+            <div className=" group">
+              <Link href={`/blog/${slug}`} passHref>
+                <a>
+                  <div className="relative w-full h-[600px] rounded-lg aspect-h-4 aspect-w-3 group-hover:ring-4 group-hover:ring-primary transition duration-1000 ease-in-out">
+                    <Image
+                      src={coverImage}
+                      className="object-cover object-center focus-ring max-h-[600px]  rounded-lg"
+                      alt="Cove Image"
+                      layout="fill"
+                    />
+                  </div>
+                  <div className="px-4 mt-6 text-xl font-medium text-primary">
+                    {date}
+                  </div>
+                  <div className="p-4 text-2xl font-bold text-secondary md:text-3xl dark:text-white">
+                    {title}
+                  </div>
+                </a>
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Layout, Section, Container, BlogNavigation, Post } from "@/components";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "@/helpers";
 
-const BlogPost = ({ post, morePosts }) => {
+const BlogPost = ({ post }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -19,7 +19,6 @@ const BlogPost = ({ post, morePosts }) => {
             <meta property="og:image" content={post.coverImage.url} />
           </Head>
           {router.isFallback ? <h3>Loading...</h3> : <Post post={post} />}
-          {/* <BlogNavigation previous={""} next={""} /> */}
         </Container>
       </Section>
     </Layout>
@@ -31,12 +30,14 @@ export default BlogPost;
 export const getStaticProps = async ({ params }) => {
   const post = getPostBySlug(params.slug, [
     "title",
-    "content",
     "excerpt",
     "date",
     "slug",
     "author",
     "coverImage",
+    "altImage",
+    "tags",
+    "content",
   ]);
   const content = await markdownToHtml(post.content || "");
 
