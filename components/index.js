@@ -19,3 +19,4 @@ export { Section } from "./Section";
 export { Container } from "./Container";
 export { BlogNavigation } from "./BlogNavigation";
 export { Post } from "./Post";
+export { Tags } from "./Tags";
