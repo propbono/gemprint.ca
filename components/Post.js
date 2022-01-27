@@ -10,7 +10,7 @@ export const Post = ({ post }) => {
           layout="fill"
           src={post.coverImage}
           alt=""
-          className="hover:opacity-75"
+          className="rounded-xl hover:opacity-75"
         />
       </div>
       <div className="flex flex-col justify-start p-6">
