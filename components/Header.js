@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "@/components";
 
 const styles = {
   navSection:
-    "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed z-50",
+    "bg-white shadow-lg md:shadow-2xl md:mt-0 md:top-0 w-full md:fixed z-50 transition delay-150 hover:bg-opacity-100 duration-700 ease-in-in ",
   navContainer:
     "container flex flex-wrap items-center justify-between py-6 px-6 lg:px-0",
   navMenuContainer: "w-full block flex-grow lg:w-auto lg:flex lg:items-center",
@@ -15,9 +15,26 @@ const styles = {
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [headerClass, setHeaderClass] = useState("bg-opacity-75");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setHeaderClass("bg-opacity-100");
+      } else {
+        setHeaderClass("bg-opacity-75");
+      }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   return (
-    <nav className={styles.navSection}>
+    <nav className={`${styles.navSection} ${headerClass}`}>
       <div className={styles.navContainer}>
         <Link href="/" passHref>
           <a>
