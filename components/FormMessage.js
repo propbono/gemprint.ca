@@ -1,9 +1,14 @@
 import React from "react";
-import { STATE } from "@/helpers/State";
-
+import { STATE } from "@/helpers/state";
 
 export const FormMessage = ({ message, state }) => {
   return (
-    <div className={`${state === STATE.ERROR ? "text-red-600" : "text-green-600"} mt-2`}>{message}</div>
+    <div
+      className={`${
+        state === STATE.ERROR ? "text-red-600" : "text-green-600"
+      } mt-2`}
+    >
+      {message}
+    </div>
   );
 };

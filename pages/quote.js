@@ -8,7 +8,7 @@ import {
   Container,
   Section,
 } from "@/components";
-import { STATE } from "@/helpers/State";
+import { STATE } from "@/helpers/state";
 
 const styles = {
   form: "flex flex-col h-auto",

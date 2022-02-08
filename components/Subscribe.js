@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import { FormCard, FormMessage } from "@/components";
-import {STATE} from "@/helpers/State";
+import { STATE } from "@/helpers/state";
 
 const styles = {
   section: "relative lg:top-[-12rem]",
