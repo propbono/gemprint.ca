@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
-import { Layout, Section, Container, BlogNavigation, Post } from "@/components";
+import { Layout, Section, Container, Post } from "@/components";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "@/helpers";
 
 const BlogPost = ({ post }) => {
@@ -15,8 +15,8 @@ const BlogPost = ({ post }) => {
       <Section>
         <Container>
           <Head>
-            <title>{post.title} | Gemprint Blog</title>
-            <meta property="og:image" content={post.coverImage.url} />
+            <title>{post.meta.title} | Gemprint Blog</title>
+            <meta property="og:image" content={post.meta.coverImage} />
           </Head>
           {router.isFallback ? <h3>Loading...</h3> : <Post post={post} />}
         </Container>

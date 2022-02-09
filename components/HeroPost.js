@@ -13,13 +13,18 @@ const styles = {
 };
 
 export const HeroPost = ({ post }) => {
+  const {
+    slug,
+    meta: { coverImage, altImage, tags, title, excerpt },
+  } = post;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <div className="relative lg:w-1/3">
           <Image
-            src={post.coverImage}
-            alt={post.altImage}
+            src={coverImage}
+            alt={altImage}
             className="object-cover w-full lg:absolute h-80 lg:h-full"
             layout="fill"
           />
@@ -32,13 +37,13 @@ export const HeroPost = ({ post }) => {
           </svg>
         </div>
         <div className="flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-2/3">
-          <Tags tags={post.tags} />
-          <h5 className={styles.title}>{post.title}</h5>
+          <Tags tags={tags} />
+          <h5 className={styles.title}>{title}</h5>
           <p className="py-5 mb-5 text-3xl leading-relaxed text-gray-800">
-            {post.excerpt}
+            {excerpt}
           </p>
           <div className="flex items-center justify-end">
-            <Link href={`/blog/${post.slug}`} passHref>
+            <Link href={`/blog/${slug}`} passHref>
               <a className="my-auto btn btn-primary">Read the post</a>
             </Link>
           </div>
