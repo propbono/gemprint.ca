@@ -1,11 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import { Container, Section } from "components";
+
 import heroImage from "/public/images/Hero.webp";
 
 const styles = {
-  section: "w-full h-auto bg-center bg-cover lg:h-screen lg:pt-24 relative",
-  heroContainer: "container py-6 lg:py-24 relative z-auto",
-  card: "group w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md lg:opacity-60 lg:w-3/5 hover:opacity-100 transition duration-1000 ease-in-out",
+  section:
+    "w-full h-auto bg-center bg-cover lg:h-screen md:pt-20 lg:pt-24 relative",
+  container: "py-6 md:py-12 lg:py-16 relative z-auto",
+  card: "group bg-white px-8 pt-6 pb-10 rounded-md shadow-md lg:opacity-60 lg:max-w-5xl hover:opacity-100 transition duration-1000 ease-in-out",
   preTitle: "mb-2 text-2xl",
   title: "mb-4 text-5xl font-bold text-secondary leading-snug",
   text: "mb-10 text-3xl lg:opacity-60 group-hover:opacity-100 transition duration-1500 ease leading-relaxed",
@@ -13,7 +16,7 @@ const styles = {
 
 export const Hero = () => {
   return (
-    <section className={styles.section}>
+    <Section className={styles.section}>
       <div className="hidden lg:block">
         <Image
           src={heroImage}
@@ -24,7 +27,7 @@ export const Hero = () => {
           priority
         />
       </div>
-      <div className={styles.heroContainer}>
+      <Container className={styles.container}>
         <div className={styles.card}>
           <p className={styles.preTitle}>
             May 2, 2018 by{" "}
@@ -51,8 +54,8 @@ export const Hero = () => {
             Request a Quote
           </a>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

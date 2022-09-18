@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import aboutImage from "/public/images/About.webp";
+import { Container, Section } from "components";
 
 const styles = {
-  section: "bg-white",
-  aboutContainer:
-    "container flex flex-col flex-col-reverse lg:flex-row lg:flex-wrap items-center px-0 pt-0 pb-6 lg:py-24 w-full",
+  container:
+    "flex flex-col flex-col-reverse lg:flex-row lg:flex-wrap items-center pt-0 pb-6 lg:py-24 w-full",
   imageContainer: "bg-cover w-full lg:w-1/2",
   image: "rounded-tl-[8rem] rounded-br-[12rem] shadow-lg",
   textContainer:
@@ -22,8 +22,8 @@ const styles = {
 
 export const About = () => {
   return (
-    <section id="about" className={styles.section}>
-      <div className={styles.aboutContainer}>
+    <Section title="about">
+      <Container className={styles.container}>
         <div className={styles.textContainer}>
           <h2 className={styles.title}>Experts in Print</h2>
           <h4 className={styles.subtitle}>
@@ -58,8 +58,8 @@ export const About = () => {
             placeholder="blur"
           />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

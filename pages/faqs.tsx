@@ -1,5 +1,6 @@
 import React from "react";
-import { Layout, FormCard, FAQCard, Section, Container } from "components";
+import { FormCard, FAQCard, Section, Container } from "components";
+import { PageLayout } from "layouts";
 
 const styles = {
   description: "p-6 leading-relaxed text-lg",
@@ -46,19 +47,15 @@ const faqs = [
 
 const Faqs = () => {
   return (
-    <Layout>
-      <Section>
+    <PageLayout>
+      <Section className="pt-6 md:pt-28">
         <Container>
           {faqs.map(({ faq }, index) => {
-            return (
-              <FormCard key={index} title={faq.title}>
-                <FAQCard text={faq.text} />
-              </FormCard>
-            );
+            return <FAQCard key={index} title={faq.title} content={faq.text} />;
           })}
         </Container>
       </Section>
-    </Layout>
+    </PageLayout>
   );
 };
 

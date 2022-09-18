@@ -1,9 +1,10 @@
+import { Container, Section } from "components";
 import React from "react";
 
 const styles = {
-  footerSection: "bg-secondary text-gray-100 text-lg",
-  footerWrapper:
-    "flex text-center md:text-left flex-col-reverse w-full md:w-auto md:justify-between md:flex-row",
+  section: "bg-secondary text-gray-100 text-lg",
+  wrapper:
+    "flex text-center md:text-left flex-col-reverse w-full md:w-auto md:justify-between md:flex-row py-6",
   socialLinks:
     "hover:text-primary md:before:content-['/'] md:before:opacity-40 md:before:mr-4 text-decoration-none my-2 md:my-0 md:ml-4",
   socialMenu:
@@ -12,9 +13,9 @@ const styles = {
 
 export const Footer = () => {
   return (
-    <footer className={styles.footerSection}>
-      <div className="container py-6">
-        <div className={styles.footerWrapper}>
+    <Section className={styles.section}>
+      <Container>
+        <footer className={styles.wrapper}>
           <div>
             <p>© 2017-2022 Gemprint</p>
           </div>
@@ -34,9 +35,9 @@ export const Footer = () => {
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-    </footer>
+        </footer>
+      </Container>
+    </Section>
   );
 };
 

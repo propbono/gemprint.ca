@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 
-import { FormCard, FormMessage } from "components";
+import { Container, FormCard, FormMessage, Section } from "components";
 
 const STATE = {
   LOADING: "loading",
@@ -11,8 +11,7 @@ const STATE = {
 };
 
 const styles = {
-  section: "relative lg:top-[-12rem]",
-  container: "container",
+  section: "lg:top-[-12rem]",
   form: "flex flex-col sm:flex-row",
   email:
     "flex flex-1  w-full mb-2 lg:mx-2 lg:mb-0 px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
@@ -43,8 +42,8 @@ export const Subscribe = () => {
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
+    <Section className={styles.section}>
+      <Container>
         <FormCard
           mixedTitle=""
           title="Subscribe to our newsletter"
@@ -84,8 +83,8 @@ export const Subscribe = () => {
             {message ? <FormMessage message={message} state={state} /> : null}
           </div>
         </FormCard>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
