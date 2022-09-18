@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": ""
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.0",
