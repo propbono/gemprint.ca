@@ -1,17 +1,19 @@
 import React from "react";
+import { State } from "./sections/subscribe";
 
-const STATE = {
-  ERROR: "error",
-};
+interface IFormMessageProps {
+  message: string;
+  state: State;
+}
 
-export const FormMessage = ({ message, state }) => {
+export const FormMessage: React.FC<IFormMessageProps> = (props) => {
   return (
     <div
       className={`${
-        state === STATE.ERROR ? "text-red-600" : "text-green-600"
-      } mt-2`}
+        props.state === "ERROR" ? "text-red-600" : "text-green-600"
+      } mt-2 text-center`}
     >
-      {message}
+      {props.message}
     </div>
   );
 };
