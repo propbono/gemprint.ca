@@ -15,7 +15,6 @@ const MailchimpSubscribe = async (
   if (!email) {
     return res.status(400).json({ error: "Email is required" });
   }
-
   try {
     await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
       email_address: email,

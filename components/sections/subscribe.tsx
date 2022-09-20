@@ -1,14 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 
-import { Container, FormCard, FormMessage, Section } from "components";
+import { Container, FormMessage, Section, SubscribeCard } from "components";
 
-const STATE = {
-  LOADING: "loading",
-  SUCCESS: "success",
-  ERROR: "error",
-  IDLE: "idle",
-};
+export type State = "LOADING" | "IDLE" | "SUCCESS" | "ERROR";
+
+export interface ISubscribe {
+  email: string;
+}
 
 const styles = {
   section: "lg:top-[-12rem]",
@@ -18,71 +18,88 @@ const styles = {
 };
 
 export const Subscribe = () => {
-  const inputRef = useRef(null);
-  const [message, setMessage] = useState("");
-  const [state, setState] = useState(STATE.IDLE);
-  const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<ISubscribe>();
 
-  const subscribe = async (e) => {
-    e.preventDefault();
-    setState(STATE.LOADING);
+  const emailRef = useRef(null);
+  const [message, setMessage] = useState("");
+  const [state, setState] = useState<State>("IDLE");
+  const isLoading = state === "LOADING" ? "animate-bounce" : "";
+
+  const subscribe: SubmitHandler<ISubscribe> = async (data) => {
+    setState("LOADING");
     setMessage("");
     try {
-      const response = await axios.post("/api/subscribe", {
-        email: inputRef.current.value,
+      await axios.post("/api/subscribe", {
+        email: data.email,
       });
-
-      setState(STATE.SUCCESS);
+      setState("SUCCESS");
       setMessage("Success! 🎉 You are now subscribed to the newsletter.");
-      inputRef.current.value = "";
     } catch (error) {
-      setState(STATE.ERROR);
-      setMessage(error.response.data.message);
+      setState("ERROR");
+      setMessage(
+        "Something went wrong! You might be already on the list. If not try again later."
+      );
     }
   };
+
+  useEffect(() => {
+    if (state === "SUCCESS") setValue("email", "");
+  }, [state, setValue]);
 
   return (
     <Section className={styles.section}>
       <Container>
-        <FormCard
-          mixedTitle=""
+        <SubscribeCard
           title="Subscribe to our newsletter"
-          text="We will only send emails once a month to update you on our offer. No Spam!"
+          subTitle="We will only send emails once a month to update you on our offer. No
+            Spam!"
         >
-          <div className="lg:w-[600px]  lg:py-24">
-            <form onSubmit={subscribe} className={styles.form}>
-              <input
-                ref={inputRef}
-                type="email"
-                placeholder="Enter your email"
-                id="email-newsletter"
-                className={styles.email}
-              />
+          <form onSubmit={handleSubmit(subscribe)} className={styles.form}>
+            <input
+              {...register("email", {
+                required: { value: true, message: "Please provide e-mail" },
+                pattern: {
+                  value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                  message: "Please provide a valid e-mail",
+                },
+              })}
+              type="email"
+              placeholder="Enter your email"
+              id="email-newsletter"
+              className={styles.email}
+            />
 
-              <button
-                type="submit"
-                className="flex items-center justify-center btn btn-secondary"
+            <button
+              type="submit"
+              className="flex items-center justify-center btn btn-secondary"
+            >
+              {isLoading ? "Subscribing..." : "Subscribe"}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`w-6 h-6 mt-1 ml-2 ${isLoading}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                {isLoading ? "Subscribing..." : "Subscribe"}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`w-6 h-6 mt-1 ml-2 ${isLoading}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
-              </button>
-            </form>
-            {message ? <FormMessage message={message} state={state} /> : null}
-          </div>
-        </FormCard>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+            </button>
+          </form>
+          {message ? <FormMessage message={message} state={state} /> : null}
+          {!!errors.email ? (
+            <FormMessage message={errors.email.message} state={"ERROR"} />
+          ) : null}
+        </SubscribeCard>
       </Container>
     </Section>
   );
