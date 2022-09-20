@@ -7,6 +7,8 @@ interface IFormMessageProps {
 }
 
 export const FormMessage: React.FC<IFormMessageProps> = (props) => {
+  if (!!!props.message) return null;
+
   return (
     <div
       className={`${

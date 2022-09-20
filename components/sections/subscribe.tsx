@@ -25,7 +25,6 @@ export const Subscribe = () => {
     formState: { errors },
   } = useForm<ISubscribe>();
 
-  const emailRef = useRef(null);
   const [message, setMessage] = useState("");
   const [state, setState] = useState<State>("IDLE");
   const isLoading = state === "LOADING" ? "animate-bounce" : "";
@@ -95,10 +94,9 @@ export const Subscribe = () => {
               </svg>
             </button>
           </form>
-          {message ? <FormMessage message={message} state={state} /> : null}
-          {!!errors.email ? (
-            <FormMessage message={errors.email.message} state={"ERROR"} />
-          ) : null}
+          <FormMessage message={message} state={state} />
+
+          <FormMessage message={errors?.email?.message} state={"ERROR"} />
         </SubscribeCard>
       </Container>
     </Section>
