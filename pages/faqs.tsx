@@ -1,5 +1,5 @@
 import React from "react";
-import { FormCard, FAQCard, Section, Container } from "components";
+import { ContactCard, FAQCard, Section, Container } from "components";
 import { PageLayout } from "layouts";
 
 const styles = {

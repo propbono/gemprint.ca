@@ -1,7 +1,8 @@
 import nodemailer from "nodemailer";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-const contact = async (req, res) => {
-  let { type, email, message, name, phone, subject } = req.body;
+const contact = async (req: NextApiRequest, res: NextApiResponse) => {
+  let { email, message, name, phone, subject } = req.body;
 
   if (!email || !email.trim().length) {
     return res.status(400).json({ error: "Please provide an email address." });
@@ -31,7 +32,7 @@ const contact = async (req, res) => {
     to: process.env.MAIL_TO,
     from: process.env.MAIL_FROM,
     replyTo: email,
-    subject: `${type} from: ${name} - ${subject}`,
+    subject: `Message from: ${name} - ${subject}`,
     text: message,
     html: `<p>${message.replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
   };
@@ -42,13 +43,10 @@ const contact = async (req, res) => {
     return res.status(200).json({ error: null });
   } catch (error) {
     // log the error
-    return res
-      .status(500)
-      .json({
-        error:
-          "Something went wrong. Please try again later. If this issue continues please contact us.",
-      });
-
+    return res.status(500).json({
+      error:
+        "Something went wrong. Please try again later. If this issue continues please contact us.",
+    });
   }
 };
 
