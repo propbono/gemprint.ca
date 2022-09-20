@@ -1,15 +1,8 @@
 import React, { useRef, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import { FormCard, FormMessage, Container, Section } from "components";
+import { FormCard, FormMessage, Container, Section, State } from "components";
 import { PageLayout } from "layouts";
-
-const STATE = {
-  IDLE: "iddle",
-  LOADING: "loading",
-  ERROR: "error",
-  SUCCESS: "success",
-};
 
 const styles = {
   form: "flex flex-col h-auto",
@@ -24,8 +17,8 @@ const RequestQuote = () => {
   const subjectRef = useRef(null);
   const messageRef = useRef(null);
   const [message, setMessage] = useState("");
-  const [state, setState] = useState(STATE.IDLE);
-  const isLoading = state === STATE.LOADING ? "animate-bounce" : "";
+  const [state, setState] = useState<State>("IDLE");
+  const isLoading = state === "LOADING" ? "animate-bounce" : "";
 
   const mixedTitle = {
     one: "Let's talk!",
@@ -35,7 +28,7 @@ const RequestQuote = () => {
 
   const requestQuote = async (e) => {
     e.preventDefault();
-    setState(STATE.LOADING);
+    setState("LOADING");
     setMessage("");
     try {
       const response = await axios.post("/api/contact", {
@@ -46,7 +39,7 @@ const RequestQuote = () => {
         subject: subjectRef.current.value,
         message: messageRef.current.value,
       });
-      setState(STATE.SUCCESS);
+      setState("SUCCESS");
       setMessage(
         "Success! 🎉 We received your request. We will contact you soon."
       );
@@ -56,7 +49,7 @@ const RequestQuote = () => {
       subjectRef.current.value = "";
       messageRef.current.value = "";
     } catch (error) {
-      setState(STATE.ERROR);
+      setState("ERROR");
       setMessage(error.response.data.error);
     }
   };
