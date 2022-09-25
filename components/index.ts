@@ -9,3 +9,4 @@ export * from "./service-card";
 export * from "./tags";
 export * from "./testimonials";
 export * from "./subscribe-card";
+export * from "./dashboard";

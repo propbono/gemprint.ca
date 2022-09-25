@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Footer, Header } from "components";
+import { DashboardFooter, DashboardHeader } from "components";
 
 export interface IDashboardLayoutProps {
   children: Array<React.ReactElement> | React.ReactElement;
@@ -9,8 +9,9 @@ export interface IDashboardLayoutProps {
 export const DashboardLayout: React.FC<IDashboardLayoutProps> = (props) => {
   return (
     <>
+      <DashboardHeader />
       <main>{props.children}</main>
-      <Footer />
+      <DashboardFooter />
     </>
   );
 };
