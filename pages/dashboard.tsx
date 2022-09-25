@@ -1,3 +1,4 @@
+import { Container, Section } from "components";
 import { DashboardLayout } from "layouts";
 import type { NextPage } from "next";
 import { signOut } from "next-auth/react";
@@ -5,8 +6,12 @@ import { signOut } from "next-auth/react";
 const Dashboard: NextPage = () => {
   return (
     <DashboardLayout>
-      <p>This is dashboard. Access only after login.</p>
-      <button onClick={() => signOut()}>Sign out</button>
+      <Section>
+        <Container>
+          <h1>Dashboard View. </h1>
+          <p>Protected route. Cointainer for Dashboard</p>
+        </Container>
+      </Section>
     </DashboardLayout>
   );
 };
