@@ -1,13 +1,16 @@
 import { Container, Section } from "components";
+import { DashboardLayout } from "layouts";
 
 export const Payments = () => {
   return (
-    <Section>
-      <Container>
-        <h1>Payments View. </h1>
-        <p>Protected route. Cointainer for Payments</p>
-      </Container>
-    </Section>
+    <DashboardLayout>
+      <Section>
+        <Container>
+          <h1>Payments View. </h1>
+          <p>Protected route. Cointainer for Payments</p>
+        </Container>
+      </Section>
+    </DashboardLayout>
   );
 };
 

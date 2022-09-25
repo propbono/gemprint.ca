@@ -15,9 +15,7 @@ const styles = {
 };
 
 export const DashboardHeader = () => {
-  const {
-    data: { user },
-  } = useSession();
+  const { data } = useSession();
 
   return (
     <Section className={styles.section}>
@@ -31,7 +29,7 @@ export const DashboardHeader = () => {
               SignOut
             </button>
             <Image
-              src={user?.image}
+              src={data?.user?.image}
               alt="logged in user picture"
               width={25}
               height={25}
