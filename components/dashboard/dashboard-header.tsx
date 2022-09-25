@@ -20,7 +20,7 @@ export const DashboardHeader = () => {
   return (
     <Section className={styles.section}>
       <Container>
-        <footer className={styles.wrapper}>
+        <div className={styles.wrapper}>
           <div>
             <p>Gemprint Dashboard</p>
           </div>
@@ -36,7 +36,7 @@ export const DashboardHeader = () => {
               className="rounded-full"
             />
           </div>
-        </footer>
+        </div>
       </Container>
     </Section>
   );

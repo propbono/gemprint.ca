@@ -9,12 +9,12 @@ export interface IDashboardLayoutProps {
 export const DashboardLayout: React.FC<IDashboardLayoutProps> = (props) => {
   return (
     <>
-      <DashboardHeader />
-      <main className="grid grid-cols-6 gap-4">
-        <DashboardMenu />
-        <div className="grid-span-5">{props.children}</div>
+      <DashboardMenu />
+      <main className="relative md:ml-64 bg-off-white">
+        <DashboardHeader />
+        {props.children}
+        <DashboardFooter />
       </main>
-      <DashboardFooter />
     </>
   );
 };
