@@ -1,0 +1,44 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Company {
+  id                Int               @id @default(autoincrement())
+  contactFirstName  String?
+  contactLastName   String?
+  billingFirstName  String?
+  billingLastName   String?
+  billingCompany    String            @unique
+  billingAddress1   String?
+  billingAddress2   String?
+  billingCity       String?
+  billingPostalCode String?
+  billingCountry    String?
+  billingProvince   String?
+  billingEmail      String?
+  billingPhone      String?
+  shippingAddresses ShippingAddress[]
+}
+
+model ShippingAddress {
+  id                 Int      @id @default(autoincrement())
+  shippingFirstName  String?
+  shippingLastName   String?
+  shippingCompany    String?
+  shippingAddress1   String?
+  shippingAddress2   String?
+  shippingCity       String?
+  shippingPostalCode String?
+  shippingCountry    String?
+  shippingProvince   String?
+  shippingPhone      String?
+  company            Company? @relation(fields: [companyId], references: [id])
+  companyId          Int?
+}
