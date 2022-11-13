@@ -7,10 +7,8 @@ import { QueryClient, useQuery, useQueryClient } from "react-query";
 import { IPaginatedCustomers } from "../../src/services/getPaginatedCustomers";
 
 export const Customers = () => {
-  const [page, setPage] = useState(DEFAULT_PAGE);
-
-  const fetchCompanies = async (pageNumber = page) => {
-    const response = await axios(`/api/auth/customers/${pageNumber}`);
+  const fetchCompanies = async () => {
+    const response = await axios(`/api/auth/customers`);
     console.log(response);
     return response.data;
   };
@@ -26,7 +24,7 @@ export const Customers = () => {
   const { isError, isLoading, isFetching, data, isPreviousData } = useQuery<
     IPaginatedCustomers,
     Error
-  >(["companies", page], () => fetchCompanies(page), {
+  >("companies", () => fetchCompanies(), {
     keepPreviousData: true,
     staleTime: 24 * 60 * 60 * 60 * 1000,
   });
