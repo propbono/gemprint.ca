@@ -1,15 +1,12 @@
 import { CompanyTable, Container, Section } from "components";
 import { DashboardLayout } from "layouts";
-import { FC, useState } from "react";
-import { DEFAULT_PAGE } from "src/constants";
 import axios from "axios";
-import { QueryClient, useQuery, useQueryClient } from "react-query";
-import { IPaginatedCustomers } from "../../src/services/getPaginatedCustomers";
+import { QueryClient, useQuery } from "react-query";
+import { ICustomer } from "../../src/services/getCustomers";
 
 export const Customers = () => {
   const fetchCompanies = async () => {
     const response = await axios(`/api/auth/customers`);
-    console.log(response);
     return response.data;
   };
 
@@ -21,26 +18,22 @@ export const Customers = () => {
     },
   });
 
-  const { isError, isLoading, isFetching, data, isPreviousData } = useQuery<
-    IPaginatedCustomers,
+  const { isError, isLoading, isFetching, data } = useQuery<
+    Array<ICustomer>,
     Error
   >("companies", () => fetchCompanies(), {
     keepPreviousData: true,
     staleTime: 24 * 60 * 60 * 60 * 1000,
   });
 
-  console.log("Data", data);
   // TODO:: Prefetching
 
   return (
     <DashboardLayout>
       <Section>
-        <Container>
-          <h1 className="mt-6 mb-4 text-lg font-extrabold px-4">
-            Customers View.{" "}
-          </h1>
+        <Container className="p-6">
           {isLoading ? <p>Loading...</p> : null}
-          <CompanyTable data={data?.customers} />
+          <CompanyTable data={data} />
         </Container>
       </Section>
     </DashboardLayout>

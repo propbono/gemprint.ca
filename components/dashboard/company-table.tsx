@@ -7,12 +7,13 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { FC, useState } from "react";
+import { ICustomer } from "src/services";
 
 export interface ICompanyTableProps {
-  data: Array<Company> | null;
+  data: Array<ICustomer> | null;
 }
 
-const columnHelper = createColumnHelper<Company>();
+const columnHelper = createColumnHelper<ICustomer>();
 
 const defaultColumns = [
   columnHelper.accessor("id", {
@@ -31,6 +32,15 @@ const defaultColumns = [
     {
       id: "billingAddress",
       header: "Billing Address",
+    }
+  ),
+  columnHelper.accessor(
+    (row) =>
+      `${row.shippingAddresses[0].shippingAddress1} ${row.shippingAddresses[0].shippingAddress2} 
+      ${row.shippingAddresses[0].shippingCity}  ${row.shippingAddresses[0].shippingProvince} ${row.shippingAddresses[0].shippingPostalCode}`.trim(),
+    {
+      id: "shippingAddress",
+      header: "Shipping Address",
     }
   ),
   columnHelper.display({
@@ -65,28 +75,25 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
   if (!props.data) return null;
   return (
     <div className="w-full mb-12 px-4">
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
-        <div className="rounded-t mb-0 px-4 py-3 border-0">
-          <div className="relative w-full px-4 max-w-full flex justify-between">
-            <h3 className="font-semibold text-lg text-Gray-700">Customers</h3>
-            <div className="flex gap-2 items-center">
-              <span>Show</span>
-              <select
-                value={table.getState().pagination.pageSize}
-                onChange={(e) => {
-                  table.setPageSize(Number(e.target.value));
-                }}
-              >
-                {[10, 20, 30, 50, 100].map((pageSize) => (
-                  <option key={pageSize} value={pageSize}>
-                    {pageSize}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+      <div className="relative rounded w-full px-4 py-3 bg-white flex justify-between">
+        <h3 className="font-semibold text-lg text-Gray-700">Customers</h3>
+        <div className="flex gap-2 items-center">
+          <span>Show</span>
+          <select
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+          >
+            {[10, 20, 30, 50, 100].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
         </div>
-
+      </div>
+      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
         <div className="block w-full overflow-x-auto">
           <table className="items-center w-full bg-transparent border-collapse">
             <thead>

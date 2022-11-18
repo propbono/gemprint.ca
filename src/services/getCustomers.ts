@@ -1,9 +1,12 @@
-import { PrismaClient } from "@prisma/client";
-import { IPaginatedCustomers } from "./getPaginatedCustomers";
+import { Company, Prisma, PrismaClient, ShippingAddress } from "@prisma/client";
 
-export const getCustomers = async (): Promise<IPaginatedCustomers> => {
+export type ICustomer = Prisma.CompanyGetPayload<{
+  include: { shippingAddresses: true };
+}>;
+
+export const getCustomers = async (): Promise<Array<ICustomer>> => {
   const client = new PrismaClient();
-  const customers = await client.company.findMany();
-
-  return { customers, hasMore: false };
+  return await client.company.findMany({
+    include: { shippingAddresses: true },
+  });
 };

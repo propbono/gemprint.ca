@@ -1,14 +1,13 @@
+import { Company } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getCustomers } from "src/services";
-import { IPaginatedCustomers } from "../../../src/services/getPaginatedCustomers";
+import { getCustomers, ICustomer } from "src/services";
 
 const customers = async (
   req: NextApiRequest,
-  res: NextApiResponse<IPaginatedCustomers | Error>
+  res: NextApiResponse<Array<ICustomer> | Error>
 ) => {
   try {
     const customers = await getCustomers();
-    console.log(customers);
     return res.status(200).json(customers);
   } catch (error) {
     return res
