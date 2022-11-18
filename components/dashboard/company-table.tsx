@@ -19,9 +19,15 @@ const defaultColumns = [
   columnHelper.accessor("id", {
     header: () => "Id",
   }),
-  columnHelper.accessor("billingCompany", {
-    header: () => "Company",
-  }),
+  columnHelper.accessor(
+    (row) =>
+      row.billingCompany
+        ? row.billingCompany
+        : `${row.firstName} ${row.lastName}`,
+    {
+      header: "Company/Name",
+    }
+  ),
   columnHelper.accessor("billingEmail", {
     header: () => "Email",
   }),
