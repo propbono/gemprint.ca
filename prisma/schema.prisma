@@ -11,10 +11,8 @@ datasource db {
 
 model Company {
   id                Int               @id @default(autoincrement())
-  contactFirstName  String?
-  contactLastName   String?
-  billingFirstName  String?
-  billingLastName   String?
+  firstName         String?
+  lastName          String?
   billingCompany    String            @unique
   billingAddress1   String?
   billingAddress2   String?
@@ -29,8 +27,8 @@ model Company {
 
 model ShippingAddress {
   id                 Int      @id @default(autoincrement())
-  shippingFirstName  String?
-  shippingLastName   String?
+  firstName          String?
+  lastName           String?
   shippingCompany    String?
   shippingAddress1   String?
   shippingAddress2   String?

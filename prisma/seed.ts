@@ -40,13 +40,11 @@ const cleanDB = async () => {
 };
 
 const populateAllCustomers = (customers: Customer[]) => {
-  customers.forEach(async (customer: Customer) => {
+  customers.forEach(async (customer: Customer, index: number) => {
     const addedCustomer = await prisma.company.create({
       data: {
-        contactFirstName: customer.first_name.toString(),
-        contactLastName: customer.last_name.toString(),
-        billingFirstName: customer.billing_first_name.toString(),
-        billingLastName: customer.billing_last_name.toString(),
+        firstName: customer.first_name.toString(),
+        lastName: customer.last_name.toString(),
         billingCompany: customer.billing_company.toString(),
         billingAddress1: customer.billing_address_1.toString(),
         billingAddress2: customer.billing_address_2.toString(),
@@ -68,8 +66,8 @@ const populateAllCustomers = (customers: Customer[]) => {
             shippingCity: customer.shipping_city.toString(),
             shippingCompany: customer.shipping_company.toString(),
             shippingCountry: customer.shipping_country.toString(),
-            shippingFirstName: customer.shipping_first_name.toString(),
-            shippingLastName: customer.shipping_last_name.toString(),
+            firstName: customer.shipping_first_name.toString(),
+            lastName: customer.shipping_last_name.toString(),
             shippingPhone: customer.billing_phone.toString(),
             shippingPostalCode: customer.shipping_postcode.toString(),
             shippingProvince: customer.shipping_state.toString(),
