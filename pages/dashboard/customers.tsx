@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   CompanyTable,
   Container,
@@ -8,24 +7,20 @@ import {
 } from "components";
 import { Page } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
+import Link from "next/link";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { ICustomer } from "../../src/services/getCustomers";
+import { fetchCompanies, ICustomer } from "../../src/services/getCustomers";
 
 export const Customers = () => {
-  const fetchCompanies = async () => {
-    const response = await axios(`/api/auth/customers`);
-    return response.data;
-  };
-
-  const { isError, isLoading, data } = useQuery<Array<ICustomer>, Error>(
-    "companies",
-    () => fetchCompanies(),
-    {
-      keepPreviousData: true,
-      staleTime: 24 * 60 * 60 * 60 * 1000,
-    }
-  );
+  const {
+    isError,
+    isLoading,
+    data: customers,
+  } = useQuery<Array<ICustomer>, Error>("companies", () => fetchCompanies(), {
+    keepPreviousData: true,
+    staleTime: 24 * 60 * 60 * 60 * 1000,
+  });
 
   // TODO:: Prefetching
 
@@ -43,18 +38,23 @@ export const Customers = () => {
               There was an error. Please try again later.
             </DashboardHeaderTitle>
           ) : null}
-          {data ? (
+          {customers ? (
             <>
               <DashboardHeaderTitle>
-                <h3 className="text-lg font-semibold text-Gray-700">
-                  Customers
-                </h3>
+                <div className="flex flex-row items-center gap-4 text-lg">
+                  <h3 className="font-semibold text-gray-700">Customers</h3>
+                  <Link href={"customers/new"}>
+                    <a className="px-2 py-1 text-xs text-white rounded-lg bg-primary">
+                      Add Customer
+                    </a>
+                  </Link>
+                </div>
                 <PageSizeDropdown
                   pageSize={pageSize}
                   setPageSize={setPageSize}
                 />
               </DashboardHeaderTitle>
-              <CompanyTable data={data} pageSize={pageSize} />
+              <CompanyTable data={customers} pageSize={pageSize} />
             </>
           ) : null}
         </Container>
