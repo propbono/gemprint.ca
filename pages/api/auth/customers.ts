@@ -1,4 +1,3 @@
-import { Company } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getCustomers, ICustomer } from "src/services";
 

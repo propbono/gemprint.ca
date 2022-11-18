@@ -1,4 +1,3 @@
-import { Company } from "@prisma/client";
 import {
   createColumnHelper,
   flexRender,
@@ -11,6 +10,7 @@ import { ICustomer } from "src/services";
 
 export interface ICompanyTableProps {
   data: Array<ICustomer> | null;
+  pageSize: number;
 }
 
 const columnHelper = createColumnHelper<ICustomer>();
@@ -66,7 +66,7 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
       ...state,
       pagination: {
         ...state.pagination,
-        pageSize: 20,
+        pageSize: props.pageSize,
       },
     },
     onStateChange: setState,
@@ -74,26 +74,8 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
 
   if (!props.data) return null;
   return (
-    <div className="w-full mb-12 px-4">
-      <div className="relative rounded w-full px-4 py-3 bg-white flex justify-between">
-        <h3 className="font-semibold text-lg text-Gray-700">Customers</h3>
-        <div className="flex gap-2 items-center">
-          <span>Show</span>
-          <select
-            value={table.getState().pagination.pageSize}
-            onChange={(e) => {
-              table.setPageSize(Number(e.target.value));
-            }}
-          >
-            {[10, 20, 30, 50, 100].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
-                {pageSize}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
+    <>
+      <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg">
         <div className="block w-full overflow-x-auto">
           <table className="items-center w-full bg-transparent border-collapse">
             <thead>
@@ -103,7 +85,7 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
                     <th
                       key={header.id}
                       colSpan={header.colSpan}
-                      className="px-6 align-middle py-3 text-xs uppercase whitespace-wrap font-semibold text-left bg-secondary text-gray-100"
+                      className="px-6 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle whitespace-wrap bg-secondary"
                     >
                       {header.isPlaceholder
                         ? null
@@ -122,7 +104,7 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-wrap p-4"
+                      className="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -137,7 +119,7 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
         </div>
       </div>
       {/* //TODO refactor to a separate component */}
-      <div className="flex items-center gap-3 min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white justify-center">
+      <div className="flex items-center justify-center w-full min-w-0 gap-3 mb-6 break-words bg-white rounded shadow-lg">
         <button
           className="disabled:text-gray-400"
           onClick={() => table.setPageIndex(0)}
@@ -174,7 +156,7 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
           {">>"}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
