@@ -12,6 +12,8 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@heroicons/react": "^2.0.13",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@prisma/client": "^4.6.1",
     "@tailwindcss/typography": "^0.5.8",
