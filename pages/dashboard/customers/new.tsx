@@ -3,7 +3,7 @@ import { Container, CustomInput, Section, Dropdown } from "components";
 import { Provinces, Countries, States } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
 import { useMemo } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import DashboardHeaderTitle from "../../../components/dashboard/dashboard-header-title";
 
 // TODO fix mapping of the data it should map string to the value
@@ -41,11 +41,13 @@ interface ICustomer extends Omit<Company, "id"> {
 
 export const NewCustomer = () => {
   const {
+    handleSubmit,
     watch,
     control,
     formState: { errors },
   } = useForm<ICustomer>({
     defaultValues: defaultValues,
+    shouldUseNativeValidation: false,
   });
 
   const provinces = useMemo(
@@ -89,7 +91,11 @@ export const NewCustomer = () => {
   //TODO formData is not working
   const isUSA = formData.billingCountry === "USA";
   const isCanada = formData.billingCountry === "CAN";
-  console.log("IsUSA: ", isUSA);
+
+  const onSubmit: SubmitHandler<ICustomer> = (data) => {
+    console.log(data);
+  };
+
   return (
     <DashboardLayout>
       <Section>
@@ -97,7 +103,10 @@ export const NewCustomer = () => {
           <DashboardHeaderTitle>
             <h3>Add New Customer</h3>
           </DashboardHeaderTitle>
-          <form className="p-8 bg-white rounded shadow-lg">
+          <form
+            className="p-8 bg-white rounded shadow-lg"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <fieldset className="grid md:grid-cols-2 md:gap-6">
               <legend className="mb-4 md:mb-10">
                 <h4>Billing Address</h4>

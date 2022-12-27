@@ -37,11 +37,10 @@ export const CustomInput = <
         id={field.name}
         className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2  appearance-none dark:text-white ${
           !!fieldState.error
-            ? "border-red-300 dark:border-red-600 dark:focus:border-red-500"
-            : "border-gray-300 dark:border-gray-600 dark:focus:border-blue-500"
-        } focus:outline-none focus:ring-0 focus:border-primary peer`}
+            ? "border-red-300 focus:border-red-600 dark:border-red-600 dark:focus:border-red-500"
+            : "border-gray-300 focus:border-primary dark:border-gray-600 dark:focus:border-blue-500"
+        } focus:outline-none focus:ring-0 peer`}
         placeholder={placeholder}
-        required={required}
         disabled={disabled}
       />
       <label

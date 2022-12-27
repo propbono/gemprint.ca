@@ -28,7 +28,6 @@ export const Dropdown = <
 ) => {
   const { data, required = false, label } = props;
   const { field, fieldState } = useController(props);
-  const [selected, setSelected] = useState(data[0]);
   const [query, setQuery] = useState("");
 
   const filteredData =
@@ -43,10 +42,7 @@ export const Dropdown = <
 
   return (
     <div className="z-50">
-      <Combobox
-        {...field}
-        // value: {id: 1, name: "United States", value: "USA"}
-      >
+      <Combobox {...field}>
         <div className="relative">
           <div>
             <Combobox.Label className="absolute text-xs text-secondary dark:text-gray-400 -translate-y-6 top-3 -z-10 origin-[0] peer-focus:text-primary peer-focus:dark:text-primary">
@@ -54,7 +50,11 @@ export const Dropdown = <
               {required ? <span className="text-red-600"> *</span> : null}
             </Combobox.Label>
             <Combobox.Input
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary focus:outline-none focus:ring-0 focus:border-primary peer"
+              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none dark:text-white ${
+                !!fieldState.error
+                  ? "border-red-300 focus:red-primary dark:border-red-600 dark:focus:border-primary"
+                  : "border-gray-300 focus:border-primary dark:border-gray-600 dark:focus:border-primary"
+              } focus:outline-none focus:ring-0  peer`}
               onChange={(event) => setQuery(event.target.value)}
               displayValue={(value: string) =>
                 value
