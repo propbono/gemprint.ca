@@ -5,7 +5,8 @@ const styles = {
     "flex flex-col mb-10 overflow-hidden transition duration-500 ease-in-out bg-white rounded-lg shadow-lg  lg:flex-row group lg:hover:scale-105",
   left: "items-center lg:flex lg:w-1/3 lg:bg-secondary",
   title: "text-2xl font-bold text-secondary lg:text-gray-100",
-  mixedTitle: "text-4xl font-extrabold text-secondary lg:text-gray-100 mb-5 lg:mb-10 leading-tight",
+  mixedTitle:
+    "text-4xl font-extrabold text-secondary lg:text-gray-100 mb-5 lg:mb-10 leading-tight",
   mixedTitlePrimary: "text-primary",
   text: "mt-2 text-secondary lg:text-gray-400 p-6 leading-relaxed text-lg",
   right:

@@ -1,9 +1,17 @@
 import { Container, Section } from "components";
 import { BuiltInProviderType } from "next-auth/providers";
-import { ClientSafeProvider, getProviders, LiteralUnion, signIn } from "next-auth/react";
+import {
+  ClientSafeProvider,
+  getProviders,
+  LiteralUnion,
+  signIn,
+} from "next-auth/react";
 import { useRouter } from "next/router";
 
-export type Providers = Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>;
+export type Providers = Record<
+  LiteralUnion<BuiltInProviderType, string>,
+  ClientSafeProvider
+>;
 
 export interface ISignInProps {
   providers: Providers;

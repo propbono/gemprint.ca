@@ -19,9 +19,15 @@ const defaultColumns = [
   columnHelper.accessor("id", {
     header: () => "Id",
   }),
-  columnHelper.accessor((row) => (row.billingCompany ? row.billingCompany : `${row.firstName} ${row.lastName}`), {
-    header: "Company/Name",
-  }),
+  columnHelper.accessor(
+    (row) =>
+      row.billingCompany
+        ? row.billingCompany
+        : `${row.firstName} ${row.lastName}`,
+    {
+      header: "Company/Name",
+    }
+  ),
   columnHelper.accessor("billingEmail", {
     header: () => "Email",
   }),
@@ -87,7 +93,12 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
                       colSpan={header.colSpan}
                       className="px-6 py-3 text-xs font-semibold text-left text-gray-100 uppercase align-middle whitespace-wrap bg-secondary"
                     >
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
                     </th>
                   ))}
                 </tr>
@@ -101,7 +112,10 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
                       key={cell.id}
                       className="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-wrap"
                     >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -129,10 +143,15 @@ export const CompanyTable: FC<ICompanyTableProps> = (props) => {
         <span className="flex items-center gap-1">
           Page{" "}
           <strong>
-            {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+            {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount()}
           </strong>
         </span>
-        <button className="disabled:text-gray-400" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+        <button
+          className="disabled:text-gray-400"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
           {">"}
         </button>
         <button

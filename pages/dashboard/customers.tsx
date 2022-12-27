@@ -1,4 +1,10 @@
-import { CompanyTable, Container, DashboardHeaderTitle, PageSizeDropdown, Section } from "components";
+import {
+  CompanyTable,
+  Container,
+  DashboardHeaderTitle,
+  PageSizeDropdown,
+  Section,
+} from "components";
 import { Page } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
 import Link from "next/link";
@@ -24,18 +30,29 @@ export const Customers = () => {
     <DashboardLayout>
       <Section>
         <Container className="p-6">
-          {isLoading ? <DashboardHeaderTitle>Loading...</DashboardHeaderTitle> : null}
-          {isError ? <DashboardHeaderTitle>There was an error. Please try again later.</DashboardHeaderTitle> : null}
+          {isLoading ? (
+            <DashboardHeaderTitle>Loading...</DashboardHeaderTitle>
+          ) : null}
+          {isError ? (
+            <DashboardHeaderTitle>
+              There was an error. Please try again later.
+            </DashboardHeaderTitle>
+          ) : null}
           {customers ? (
             <>
               <DashboardHeaderTitle>
                 <div className="flex flex-row items-center gap-4 text-lg">
                   <h3 className="font-semibold text-gray-700">Customers</h3>
                   <Link href={"customers/new"}>
-                    <a className="px-2 py-1 text-xs text-white rounded-lg bg-primary">Add Customer</a>
+                    <a className="px-2 py-1 text-xs text-white rounded-lg bg-primary">
+                      Add Customer
+                    </a>
                   </Link>
                 </div>
-                <PageSizeDropdown pageSize={pageSize} setPageSize={setPageSize} />
+                <PageSizeDropdown
+                  pageSize={pageSize}
+                  setPageSize={setPageSize}
+                />
               </DashboardHeaderTitle>
               <CompanyTable data={customers} pageSize={pageSize} />
             </>

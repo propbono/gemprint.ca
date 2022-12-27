@@ -20,7 +20,10 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token }: { token: GemprintToken }) {
       token.userRole = "client";
-      if (token.email === process.env.ADMIN_1 || token.email === process.env.ADMIN_2) {
+      if (
+        token.email === process.env.ADMIN_1 ||
+        token.email === process.env.ADMIN_2
+      ) {
         token.userRole = "admin";
       }
       return token;

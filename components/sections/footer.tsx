@@ -3,10 +3,12 @@ import React from "react";
 
 const styles = {
   section: "bg-secondary text-gray-100 text-lg",
-  wrapper: "flex text-center md:text-left flex-col-reverse w-full md:w-auto md:justify-between md:flex-row py-6",
+  wrapper:
+    "flex text-center md:text-left flex-col-reverse w-full md:w-auto md:justify-between md:flex-row py-6",
   socialLinks:
     "hover:text-primary md:before:content-['/'] md:before:opacity-40 md:before:mr-4 text-decoration-none my-2 md:my-0 md:ml-4",
-  socialMenu: "flex flex-col md:flex-row items-center md:justify-end mb-3 md:mb-0",
+  socialMenu:
+    "flex flex-col md:flex-row items-center md:justify-end mb-3 md:mb-0",
 };
 
 export const Footer = () => {

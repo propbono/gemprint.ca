@@ -25,7 +25,9 @@ export const ContactCard: React.FC<IContactCardProps> = (props) => {
         </div>
       </div>
       <div className={styles.right}>
-        <div className="w-[350px] sm:w-[400px] md:w-[500px] lg:w-[600px] lg:py-16">{props.children}</div>
+        <div className="w-[350px] sm:w-[400px] md:w-[500px] lg:w-[600px] lg:py-16">
+          {props.children}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,9 @@
-import { FieldPath, FieldValues, UseControllerProps, useController } from "react-hook-form";
+import {
+  FieldPath,
+  FieldValues,
+  UseControllerProps,
+  useController,
+} from "react-hook-form";
 export interface CustomInputProps {
   label: string;
   type?: "text" | "email";
@@ -13,7 +18,13 @@ export const CustomInput = <
 >(
   props: CustomInputProps & UseControllerProps<TFieldValues, TName>
 ) => {
-  const { label, type = "text", placeholder = "", required = false, disabled = false } = props;
+  const {
+    label,
+    type = "text",
+    placeholder = "",
+    required = false,
+    disabled = false,
+  } = props;
 
   const { field, fieldState } = useController(props);
 

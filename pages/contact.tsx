@@ -24,7 +24,8 @@ const defaultContactForm = {
 };
 
 const styles = {
-  mixedTitle: "text-3xl font-extrabold text-secondary lg:text-gray-100 mb-3 lg:mb-8 leading-tight",
+  mixedTitle:
+    "text-3xl font-extrabold text-secondary lg:text-gray-100 mb-3 lg:mb-8 leading-tight",
   mixedTitlePrimary: "text-primary",
   form: "flex flex-col",
   field:
@@ -70,7 +71,9 @@ const RequestQuote = () => {
         message: data.message,
       });
       setState("SUCCESS");
-      setMessage("Success! 🎉 We received your request. We will contact you soon.");
+      setMessage(
+        "Success! 🎉 We received your request. We will contact you soon."
+      );
     } catch (error) {
       setState("ERROR");
       setMessage(error.response.data.error);
@@ -111,7 +114,9 @@ const RequestQuote = () => {
                 type="input"
                 placeholder="Enter your Name / Company"
                 id="name"
-                className={`${styles.field} ${!!errors?.name ? styles.fieldError : ""}`}
+                className={`${styles.field} ${
+                  !!errors?.name ? styles.fieldError : ""
+                }`}
               />
               <input
                 {...register("email", {
@@ -124,7 +129,9 @@ const RequestQuote = () => {
                 type="email"
                 placeholder="Enter your email"
                 id="email"
-                className={`${styles.field} ${!!errors?.email ? styles.fieldError : ""}`}
+                className={`${styles.field} ${
+                  !!errors?.email ? styles.fieldError : ""
+                }`}
               />
               <input
                 {...register("phone")}
@@ -138,17 +145,24 @@ const RequestQuote = () => {
                 type="input"
                 placeholder="Enter the subject"
                 id="subject"
-                className={`${styles.field} ${!!errors?.subject ? styles.fieldError : ""}`}
+                className={`${styles.field} ${
+                  !!errors?.subject ? styles.fieldError : ""
+                }`}
               />
               <textarea
                 {...register("message", { required: true })}
                 placeholder="Enter the quote request"
                 id="message"
                 rows={5}
-                className={`${styles.field} ${!!errors?.message ? styles.fieldError : ""}`}
+                className={`${styles.field} ${
+                  !!errors?.message ? styles.fieldError : ""
+                }`}
               />
 
-              <button type="submit" className="flex items-center justify-center btn btn-secondary">
+              <button
+                type="submit"
+                className="flex items-center justify-center btn btn-secondary"
+              >
                 {isLoading ? "Sending..." : "Send"}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +182,10 @@ const RequestQuote = () => {
             </form>
             <FormMessage state={state} message={message} />
 
-            <FormMessage state={"ERROR"} message={hasErrors ? "Please fix highlited fields." : null} />
+            <FormMessage
+              state={"ERROR"}
+              message={hasErrors ? "Please fix highlited fields." : null}
+            />
           </ContactCard>
         </Container>
       </Section>
