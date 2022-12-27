@@ -3,6 +3,7 @@
 
 # npm test
 npm run prettier:write
+git add .
 npm run lint
 npm run tsc:check
 

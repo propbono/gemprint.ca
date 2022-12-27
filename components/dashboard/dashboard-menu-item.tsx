@@ -12,9 +12,7 @@ export const DashboardMenuItem: React.FC<IDashboardMenuItemProps> = (props) => {
   return (
     <li className="items-center">
       <Link href={props.href}>
-        <a
-          className={`text-xs uppercase py-3 font-bold flex items-center gap-2 ${isActive} hover:text-primary`}
-        >
+        <a className={`text-xs uppercase py-3 font-bold flex items-center gap-2 ${isActive} hover:text-primary`}>
           {props.children}
         </a>
       </Link>

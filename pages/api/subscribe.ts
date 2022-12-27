@@ -6,10 +6,7 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_API_SERVER,
 });
 
-const MailchimpSubscribe = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-) => {
+const MailchimpSubscribe = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
 
   if (!email) {

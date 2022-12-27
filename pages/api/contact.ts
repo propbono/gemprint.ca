@@ -44,8 +44,7 @@ const contact = async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     // log the error
     return res.status(500).json({
-      error:
-        "Something went wrong. Please try again later. If this issue continues please contact us.",
+      error: "Something went wrong. Please try again later. If this issue continues please contact us.",
     });
   }
 };

@@ -40,9 +40,7 @@ export const Subscribe = () => {
       setMessage("Success! 🎉 You are now subscribed to the newsletter.");
     } catch (error) {
       setState("ERROR");
-      setMessage(
-        "Something went wrong! You might be already on the list. If not try again later."
-      );
+      setMessage("Something went wrong! You might be already on the list. If not try again later.");
     }
   };
 
@@ -73,10 +71,7 @@ export const Subscribe = () => {
               className={styles.email}
             />
 
-            <button
-              type="submit"
-              className="flex items-center justify-center btn btn-secondary"
-            >
+            <button type="submit" className="flex items-center justify-center btn btn-secondary">
               {isLoading ? "Subscribing..." : "Subscribe"}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

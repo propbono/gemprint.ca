@@ -6,13 +6,7 @@ interface IContainerProps {
 }
 
 export const Container: React.FC<IContainerProps> = (props) => {
-  return (
-    <div
-      className={`container relative z-auto px-4 mx-auto ${props.className}`}
-    >
-      {props.children}
-    </div>
-  );
+  return <div className={`container relative z-auto px-4 mx-auto ${props.className}`}>{props.children}</div>;
 };
 
 export default Container;

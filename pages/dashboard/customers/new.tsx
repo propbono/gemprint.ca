@@ -103,10 +103,7 @@ export const NewCustomer = () => {
           <DashboardHeaderTitle>
             <h3>Add New Customer</h3>
           </DashboardHeaderTitle>
-          <form
-            className="p-8 bg-white rounded shadow-lg"
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form className="p-8 bg-white rounded shadow-lg" onSubmit={handleSubmit(onSubmit)}>
             <fieldset className="grid md:grid-cols-2 md:gap-6">
               <legend className="mb-4 md:mb-10">
                 <h4>Billing Address</h4>

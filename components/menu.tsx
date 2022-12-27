@@ -12,8 +12,7 @@ const styles = {
   navMenu: "text-sm lg:ml-auto",
   navMenuItem:
     "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-xl  mr-6 transition duration-500 ease-in-out",
-  navMenuContact:
-    "block mt-4 lg:inline-block btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
+  navMenuContact: "block mt-4 lg:inline-block btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
 };
 
 export const Menu = ({ show }) => {
