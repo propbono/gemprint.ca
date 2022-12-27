@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tsc:check": "tsc --noEmit --pretty",
+    "prettier:write": "prettier --config .prettierrc --write .",
+    "prettier:check": "prettier --config .prettierrc --check .",
+    "prepare": "husky install"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -36,6 +40,8 @@
     "@types/react": "^18.0.20",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.4",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.1",
     "prisma": "^4.6.1",
     "ts-node": "^10.9.1"
   }
