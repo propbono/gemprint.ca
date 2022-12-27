@@ -1,26 +1,34 @@
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { useController, UseControllerProps } from "react-hook-form";
+import {
+  FieldPath,
+  FieldValues,
+  UseControllerProps,
+  useController,
+} from "react-hook-form";
 
 export interface IDropdownOption {
   id: string;
   name: string;
-  value?: string;
+  value: string;
 }
 
 export interface DropdownProps {
-  data: Array<IDropdownOption>;
   label: string;
-  name: string;
+  data: Array<IDropdownOption>;
   required?: boolean;
 }
 
-export const Dropdown = (props: DropdownProps & UseControllerProps) => {
-  const { data, required = false, label, name } = props;
-  const {
-    field: { value, onChange },
-  } = useController(props);
+export const Dropdown = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: DropdownProps & UseControllerProps<TFieldValues, TName>
+) => {
+  const { data, required = false, label } = props;
+  const { field, fieldState } = useController(props);
+  const [selected, setSelected] = useState(data[0]);
   const [query, setQuery] = useState("");
 
   const filteredData =
@@ -35,31 +43,27 @@ export const Dropdown = (props: DropdownProps & UseControllerProps) => {
 
   return (
     <div className="z-50">
-      <Combobox name={name} value={value} onChange={onChange}>
+      <Combobox
+        {...field}
+        // value: {id: 1, name: "United States", value: "USA"}
+      >
         <div className="relative">
           <div>
-            <Combobox.Label
-              htmlFor={name}
-              id={name}
-              className="absolute text-xs text-secondary dark:text-gray-400 -translate-y-6 top-3 -z-10 origin-[0] peer-focus:text-primary peer-focus:dark:text-primary"
-            >
+            <Combobox.Label className="absolute text-xs text-secondary dark:text-gray-400 -translate-y-6 top-3 -z-10 origin-[0] peer-focus:text-primary peer-focus:dark:text-primary">
               {label}
               {required ? <span className="text-red-600"> *</span> : null}
             </Combobox.Label>
             <Combobox.Input
-              id={name}
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary focus:outline-none focus:ring-0 focus:border-primary peer"
               onChange={(event) => setQuery(event.target.value)}
-              displayValue={(item: IDropdownOption) =>
-                item ? item.name : "Choose Province"
+              displayValue={(value: string) =>
+                value
+                  ? data.filter((item) => item.value === value)[0]?.name
+                  : "Choose"
               }
             />
 
-            <Combobox.Button
-              name={name}
-              id={name}
-              className="absolute inset-y-0 right-0 flex items-center pr-2"
-            >
+            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
                 className="w-5 h-5 text-gray-400"
                 aria-hidden="true"
@@ -87,7 +91,7 @@ export const Dropdown = (props: DropdownProps & UseControllerProps) => {
                         active ? "bg-primary text-white" : "text-secondary"
                       }`
                     }
-                    value={item}
+                    value={item.value}
                   >
                     {({ selected, active }) => (
                       <>

@@ -1,30 +1,52 @@
+import { Company, ShippingAddress } from "@prisma/client";
 import { Container, CustomInput, Section, Dropdown } from "components";
 import { Provinces, Countries, States } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
 import { useMemo } from "react";
-import { useForm } from "react-hook-form";
-import { ICustomer } from "src/services";
+import { Controller, useForm } from "react-hook-form";
 import DashboardHeaderTitle from "../../../components/dashboard/dashboard-header-title";
 
+// TODO fix mapping of the data it should map string to the value
 const defaultValues: ICustomer = {
-  billingCountry: { id: "1", name: "Canada", value: "CAN" },
+  firstName: "",
+  lastName: "",
+  billingCompany: "",
+  billingCity: "",
+  billingEmail: "",
+  billingPhone: "",
+  billingPostalCode: "",
+  billingProvince: "",
+  billingAddress1: "",
+  billingAddress2: "",
+  billingCountry: "CAN",
+  shippingAddresses: [
+    {
+      firstName: "",
+      lastName: "",
+      shippingAddress1: "",
+      shippingAddress2: "",
+      shippingCity: "",
+      shippingCompany: "",
+      shippingCountry: "",
+      shippingPhone: "",
+      shippingPostalCode: "",
+      shippingProvince: "",
+    },
+  ],
 };
+
+interface ICustomer extends Omit<Company, "id"> {
+  shippingAddresses: Omit<ShippingAddress, "id" | "companyId">[];
+}
 
 export const NewCustomer = () => {
   const {
-    register,
-    handleSubmit,
     watch,
     control,
     formState: { errors },
   } = useForm<ICustomer>({
-    defaultValues,
-    mode: "onSubmit",
-    reValidateMode: "onBlur",
-    shouldUseNativeValidation: false,
+    defaultValues: defaultValues,
   });
-  console.log("Errors: ", errors);
-  const formData = watch();
 
   const provinces = useMemo(
     () =>
@@ -61,12 +83,13 @@ export const NewCustomer = () => {
       }),
     []
   );
-
+  const formData = watch();
   console.log("FormData: ", formData);
-  //TODO formData is not working
-  const isUSA = false;
-  const isCanada = true;
 
+  //TODO formData is not working
+  const isUSA = formData.billingCountry === "USA";
+  const isCanada = formData.billingCountry === "CAN";
+  console.log("IsUSA: ", isUSA);
   return (
     <DashboardLayout>
       <Section>
@@ -79,104 +102,113 @@ export const NewCustomer = () => {
               <legend className="mb-4 md:mb-10">
                 <h4>Billing Address</h4>
               </legend>
+
               <CustomInput
                 name="firstName"
-                label="First Name"
                 control={control}
-                required //TODO how to add rules
+                rules={{ required: true }}
+                label="First Name"
+                required // FInd a way to pass control value
               />
               <CustomInput
                 name="lastName"
-                label="Last Name"
                 control={control}
-                required
+                rules={{ required: true }}
+                label="Last Name"
+                required // FInd a way to pass control value
               />
             </fieldset>
             <CustomInput
               name="billingCompany"
-              label="Company Name"
               control={control}
-              required
+              rules={{ required: true }}
+              label="Company Name"
+              required // FInd a way to pass control value
             />
             <div className="grid md:grid-cols-2 md:gap-6">
               <CustomInput
                 name="billingPhone"
-                label="Phone"
                 control={control}
-                required
+                rules={{ required: true }}
+                label="Phone"
+                required // FInd a way to pass control value
               />
               <CustomInput
                 name="billingEmail"
-                label="Email"
                 control={control}
-                type="email"
-                required
+                rules={{ required: true }}
+                label="Email"
+                required // FInd a way to pass control value
               />
             </div>
             <div className="grid md:grid-cols-2 md:gap-6">
               <CustomInput
                 name="billingAddress1"
-                label="Address Line 1"
                 control={control}
-                required
+                rules={{ required: true }}
+                label="Address Line 1"
+                required // FInd a way to pass control value
               />
               <CustomInput
                 name="billingAddress2"
-                label="Address Line 2"
                 control={control}
+                rules={{ required: true }}
+                label="Address Line 2"
+                required // FInd a way to pass control value
               />
             </div>
             <div className="grid md:grid-cols-2 md:gap-6">
               <CustomInput
                 name="billingCity"
-                label="City"
                 control={control}
-                required
+                rules={{ required: true }}
+                label="City"
+                required // FInd a way to pass control value
               />
               <Dropdown
-                name="billingCountry"
-                label="Country"
+                name={"billingCountry"}
                 control={control}
+                label="Country"
+                rules={{ required: true }}
                 data={countries}
-                defaultValue={countries[0]}
                 required
               />
             </div>
             {isCanada ? (
               <div className="grid md:grid-cols-2 md:gap-6">
                 <Dropdown
-                  label="Choose Province"
                   name="billingProvince"
-                  data={provinces}
                   control={control}
-                  defaultValue={{}}
+                  rules={{ required: isCanada }}
+                  label="Province"
+                  data={provinces}
                   required={isCanada}
                 />
-
                 <CustomInput
                   name="billingPostalCode"
-                  label="Postal Code"
                   control={control}
-                  required={isCanada}
+                  rules={{ required: isCanada }}
+                  label="Postal Code"
+                  required={isCanada} // FInd a way to pass control value
                 />
               </div>
             ) : null}
             {isUSA ? (
               <div className="grid md:grid-cols-2 md:gap-6">
                 <Dropdown
-                  label="Choose State"
                   name="billingProvince"
-                  data={states}
                   control={control}
-                  defaultValue={{}}
+                  rules={{ required: isUSA }}
+                  label="State"
+                  data={states}
                   required={isUSA}
                 />
-
                 <CustomInput
                   name="billingPostalCode"
-                  label="ZIP Code"
                   control={control}
-                  required={isUSA}
+                  rules={{ required: isUSA }}
+                  label="ZIP"
+                  required={isUSA} // FInd a way to pass control value
                 />
               </div>
             ) : null}
