@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tsc:check": "tsc --noEmit --pretty",
-    "prettier:write": "prettier --config .prettierrc --write .",
+    "tsc:check": "tsc -p tsconfig.json --noEmit --pretty",
+    "prettier:write": "prettier --config .prettierrc --write --ignore-unknown --",
     "prettier:check": "prettier --config .prettierrc --check .",
     "prepare": "husky install"
   },
