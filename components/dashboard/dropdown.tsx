@@ -41,7 +41,7 @@ export const Dropdown = <
         );
 
   return (
-    <div className="z-50">
+    <div className="relative z-50 w-full mb-6 group">
       <Combobox {...field}>
         <div className="relative">
           <div>
@@ -59,7 +59,7 @@ export const Dropdown = <
               displayValue={(value: string) =>
                 value
                   ? data.filter((item) => item.value === value)[0]?.name
-                  : "Choose"
+                  : ""
               }
             />
 

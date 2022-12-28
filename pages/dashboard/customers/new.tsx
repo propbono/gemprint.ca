@@ -93,8 +93,10 @@ export const NewCustomer = () => {
   const isCanada = formData.billingCountry === "CAN";
 
   const onSubmit: SubmitHandler<ICustomer> = (data) => {
-    console.log(data);
+    console.log("SUBMITTED: ", data);
   };
+
+  console.log("ERRORS: ", errors);
 
   return (
     <DashboardLayout>
