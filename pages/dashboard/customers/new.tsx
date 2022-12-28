@@ -1,9 +1,15 @@
 import { Company, ShippingAddress } from "@prisma/client";
-import { Container, CustomInput, Section, Dropdown } from "components";
+import {
+  Container,
+  CustomInput,
+  Section,
+  Dropdown,
+  Checkbox,
+} from "components";
 import { Provinces, Countries, States } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
 import { useMemo } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import DashboardHeaderTitle from "../../../components/dashboard/dashboard-header-title";
 
 // TODO fix mapping of the data it should map string to the value
@@ -19,6 +25,7 @@ const defaultValues: ICustomer = {
   billingAddress1: "",
   billingAddress2: "",
   billingCountry: "CAN",
+  isShippingSameAsBilling: false,
   shippingAddresses: [
     {
       firstName: "",
@@ -36,6 +43,7 @@ const defaultValues: ICustomer = {
 };
 
 interface ICustomer extends Omit<Company, "id"> {
+  isShippingSameAsBilling: boolean;
   shippingAddresses: Omit<ShippingAddress, "id" | "companyId">[];
 }
 
@@ -91,6 +99,7 @@ export const NewCustomer = () => {
   //TODO formData is not working
   const isUSA = formData.billingCountry === "USA";
   const isCanada = formData.billingCountry === "CAN";
+  const isShippingSameAsBilling = formData.isShippingSameAsBilling;
 
   const onSubmit: SubmitHandler<ICustomer> = (data) => {
     console.log("SUBMITTED: ", data);
@@ -109,121 +118,134 @@ export const NewCustomer = () => {
             className="p-8 bg-white rounded shadow-lg"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <fieldset className="grid md:grid-cols-2 md:gap-6">
+            <fieldset>
               <legend className="mb-4 md:mb-10">
                 <h4>Billing Address</h4>
               </legend>
-
+              <div className="grid md:grid-cols-2 md:gap-6">
+                <CustomInput
+                  name="firstName"
+                  control={control}
+                  rules={{ required: true }}
+                  label="First Name"
+                  required // FInd a way to pass control value
+                />
+                <CustomInput
+                  name="lastName"
+                  control={control}
+                  rules={{ required: true }}
+                  label="Last Name"
+                  required // FInd a way to pass control value
+                />
+              </div>
               <CustomInput
-                name="firstName"
+                name="billingCompany"
                 control={control}
                 rules={{ required: true }}
-                label="First Name"
+                label="Company Name"
                 required // FInd a way to pass control value
               />
-              <CustomInput
-                name="lastName"
-                control={control}
-                rules={{ required: true }}
-                label="Last Name"
-                required // FInd a way to pass control value
-              />
+              <div className="grid md:grid-cols-2 md:gap-6">
+                <CustomInput
+                  name="billingPhone"
+                  control={control}
+                  rules={{ required: true }}
+                  label="Phone"
+                  required // FInd a way to pass control value
+                />
+                <CustomInput
+                  name="billingEmail"
+                  control={control}
+                  rules={{ required: true }}
+                  label="Email"
+                  required // FInd a way to pass control value
+                />
+              </div>
+              <div className="grid md:grid-cols-2 md:gap-6">
+                <CustomInput
+                  name="billingAddress1"
+                  control={control}
+                  rules={{ required: true }}
+                  label="Address Line 1"
+                  required // FInd a way to pass control value
+                />
+                <CustomInput
+                  name="billingAddress2"
+                  control={control}
+                  rules={{ required: true }}
+                  label="Address Line 2"
+                  required // FInd a way to pass control value
+                />
+              </div>
+              <div className="grid md:grid-cols-2 md:gap-6">
+                <CustomInput
+                  name="billingCity"
+                  control={control}
+                  rules={{ required: true }}
+                  label="City"
+                  required // FInd a way to pass control value
+                />
+                <Dropdown
+                  name={"billingCountry"}
+                  control={control}
+                  label="Country"
+                  rules={{ required: true }}
+                  data={countries}
+                  required
+                />
+              </div>
+              {isCanada ? (
+                <div className="grid md:grid-cols-2 md:gap-6">
+                  <Dropdown
+                    name="billingProvince"
+                    control={control}
+                    rules={{ required: isCanada }}
+                    label="Province"
+                    data={provinces}
+                    required={isCanada}
+                  />
+                  <CustomInput
+                    name="billingPostalCode"
+                    control={control}
+                    rules={{ required: isCanada }}
+                    label="Postal Code"
+                    required={isCanada} // FInd a way to pass control value
+                  />
+                </div>
+              ) : null}
+              {isUSA ? (
+                <div className="grid md:grid-cols-2 md:gap-6">
+                  <Dropdown
+                    name="billingProvince"
+                    control={control}
+                    rules={{ required: isUSA }}
+                    label="State"
+                    data={states}
+                    required={isUSA}
+                  />
+                  <CustomInput
+                    name="billingPostalCode"
+                    control={control}
+                    rules={{ required: isUSA }}
+                    label="ZIP"
+                    required={isUSA} // FInd a way to pass control value
+                  />
+                </div>
+              ) : null}
             </fieldset>
-            <CustomInput
-              name="billingCompany"
+            <Checkbox
+              name="isShippingSameAsBilling"
+              label="Is Shipping Address same as Billing?"
               control={control}
-              rules={{ required: true }}
-              label="Company Name"
-              required // FInd a way to pass control value
             />
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <CustomInput
-                name="billingPhone"
-                control={control}
-                rules={{ required: true }}
-                label="Phone"
-                required // FInd a way to pass control value
-              />
-              <CustomInput
-                name="billingEmail"
-                control={control}
-                rules={{ required: true }}
-                label="Email"
-                required // FInd a way to pass control value
-              />
-            </div>
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <CustomInput
-                name="billingAddress1"
-                control={control}
-                rules={{ required: true }}
-                label="Address Line 1"
-                required // FInd a way to pass control value
-              />
-              <CustomInput
-                name="billingAddress2"
-                control={control}
-                rules={{ required: true }}
-                label="Address Line 2"
-                required // FInd a way to pass control value
-              />
-            </div>
-            <div className="grid md:grid-cols-2 md:gap-6">
-              <CustomInput
-                name="billingCity"
-                control={control}
-                rules={{ required: true }}
-                label="City"
-                required // FInd a way to pass control value
-              />
-              <Dropdown
-                name={"billingCountry"}
-                control={control}
-                label="Country"
-                rules={{ required: true }}
-                data={countries}
-                required
-              />
-            </div>
-            {isCanada ? (
-              <div className="grid md:grid-cols-2 md:gap-6">
-                <Dropdown
-                  name="billingProvince"
-                  control={control}
-                  rules={{ required: isCanada }}
-                  label="Province"
-                  data={provinces}
-                  required={isCanada}
-                />
-                <CustomInput
-                  name="billingPostalCode"
-                  control={control}
-                  rules={{ required: isCanada }}
-                  label="Postal Code"
-                  required={isCanada} // FInd a way to pass control value
-                />
-              </div>
+            {!isShippingSameAsBilling ? (
+              <fieldset>
+                <legend>Shipping Address</legend>
+              </fieldset>
             ) : null}
-            {isUSA ? (
-              <div className="grid md:grid-cols-2 md:gap-6">
-                <Dropdown
-                  name="billingProvince"
-                  control={control}
-                  rules={{ required: isUSA }}
-                  label="State"
-                  data={states}
-                  required={isUSA}
-                />
-                <CustomInput
-                  name="billingPostalCode"
-                  control={control}
-                  rules={{ required: isUSA }}
-                  label="ZIP"
-                  required={isUSA} // FInd a way to pass control value
-                />
-              </div>
-            ) : null}
-            <button>Submit</button>
+            <div className="grid justify-end align-middle">
+              <button className="btn btn-primary">Submit</button>
+            </div>
           </form>
         </Container>
       </Section>

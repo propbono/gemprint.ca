@@ -7,3 +7,4 @@ export * from "./dashboard-header-title";
 export * from "./pagesize-dropdown";
 export * from "./custom-input";
 export * from "./dropdown";
+export * from "./checkbox";
