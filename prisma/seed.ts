@@ -39,6 +39,29 @@ const cleanDB = async () => {
   await prisma.company.deleteMany();
 };
 
+// REFACTOR: Optimization
+// const chunkSize = 50;
+// const populateAllCustomers = (customers: Customer[]) => {
+//   const chunkedCustomers = chunk(customers, chunkSize);
+//   chunkedCustomers.forEach(async (chunk) => {
+//     const createPromises = chunk.map((customer) => {
+//       return prisma.company.create({
+//         data: {
+//           // data mapping
+//         },
+//       });
+//     });
+//     await Promise.all(createPromises);
+//   });
+// };
+
+// const chunk = (arr: any[], size: number) => {
+//   return arr.reduce((acc, _, i, arr) => {
+//     if (i % size === 0) acc.push(arr.slice(i, i + size));
+//     return acc;
+//   }, []);
+// };
+
 const populateAllCustomers = (customers: Customer[]) => {
   customers.forEach(async (customer: Customer, index: number) => {
     const addedCustomer = await prisma.company.create({
