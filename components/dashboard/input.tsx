@@ -12,7 +12,7 @@ export interface CustomInputProps {
   disabled?: boolean;
 }
 
-export const CustomInput = <
+export const Input = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
@@ -54,4 +54,4 @@ export const CustomInput = <
   );
 };
 
-export default CustomInput;
+export default Input;

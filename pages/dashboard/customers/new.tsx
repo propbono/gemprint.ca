@@ -1,11 +1,5 @@
 import { Company, ShippingAddress } from "@prisma/client";
-import {
-  Container,
-  CustomInput,
-  Section,
-  Dropdown,
-  Checkbox,
-} from "components";
+import { Container, Input, Section, Dropdown, Checkbox } from "components";
 import { Provinces, Countries, States } from "constants/default-constants";
 import { DashboardLayout } from "layouts";
 import { useMemo } from "react";
@@ -123,14 +117,14 @@ export const NewCustomer = () => {
                 <h4>Billing Address</h4>
               </legend>
               <div className="grid md:grid-cols-2 md:gap-6">
-                <CustomInput
+                <Input
                   name="firstName"
                   control={control}
                   rules={{ required: true }}
                   label="First Name"
                   required // FInd a way to pass control value
                 />
-                <CustomInput
+                <Input
                   name="lastName"
                   control={control}
                   rules={{ required: true }}
@@ -138,7 +132,7 @@ export const NewCustomer = () => {
                   required // FInd a way to pass control value
                 />
               </div>
-              <CustomInput
+              <Input
                 name="billingCompany"
                 control={control}
                 rules={{ required: true }}
@@ -146,14 +140,14 @@ export const NewCustomer = () => {
                 required // FInd a way to pass control value
               />
               <div className="grid md:grid-cols-2 md:gap-6">
-                <CustomInput
+                <Input
                   name="billingPhone"
                   control={control}
                   rules={{ required: true }}
                   label="Phone"
                   required // FInd a way to pass control value
                 />
-                <CustomInput
+                <Input
                   name="billingEmail"
                   control={control}
                   rules={{ required: true }}
@@ -162,14 +156,14 @@ export const NewCustomer = () => {
                 />
               </div>
               <div className="grid md:grid-cols-2 md:gap-6">
-                <CustomInput
+                <Input
                   name="billingAddress1"
                   control={control}
                   rules={{ required: true }}
                   label="Address Line 1"
                   required // FInd a way to pass control value
                 />
-                <CustomInput
+                <Input
                   name="billingAddress2"
                   control={control}
                   rules={{ required: true }}
@@ -178,7 +172,7 @@ export const NewCustomer = () => {
                 />
               </div>
               <div className="grid md:grid-cols-2 md:gap-6">
-                <CustomInput
+                <Input
                   name="billingCity"
                   control={control}
                   rules={{ required: true }}
@@ -204,7 +198,7 @@ export const NewCustomer = () => {
                     data={provinces}
                     required={isCanada}
                   />
-                  <CustomInput
+                  <Input
                     name="billingPostalCode"
                     control={control}
                     rules={{ required: isCanada }}
@@ -223,7 +217,7 @@ export const NewCustomer = () => {
                     data={states}
                     required={isUSA}
                   />
-                  <CustomInput
+                  <Input
                     name="billingPostalCode"
                     control={control}
                     rules={{ required: isUSA }}
