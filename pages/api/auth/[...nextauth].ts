@@ -1,0 +1,37 @@
+import NextAuth, { NextAuthOptions } from "next-auth";
+import type { JWT } from "next-auth/jwt/types";
+import GoogleProvider from "next-auth/providers/google";
+import { signIn } from "next-auth/react";
+
+export interface GemprintToken extends JWT {
+  userRole: "admin" | "client";
+}
+
+export const authOptions: NextAuthOptions = {
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
+  ],
+  theme: {
+    colorScheme: "light",
+  },
+  callbacks: {
+    async jwt({ token }: { token: GemprintToken }) {
+      token.userRole = "client";
+      if (
+        token.email === process.env.ADMIN_1 ||
+        token.email === process.env.ADMIN_2
+      ) {
+        token.userRole = "admin";
+      }
+      return token;
+    },
+  },
+  pages: {
+    signIn: "/auth/signin",
+  },
+};
+
+export default NextAuth(authOptions);
