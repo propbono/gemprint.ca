@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "flex min-h-screen flex-col bg-off-white",
+          "flex min-h-screen flex-col bg-background",
           ubuntu.className
         )}
       >

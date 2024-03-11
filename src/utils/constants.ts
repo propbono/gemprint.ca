@@ -16,3 +16,10 @@ export const FOOTER_LINKS = [
     href: "https://linkedin.com",
   },
 ];
+
+export const HEADER_MENU_ITEMS = [
+  { href: "/", title: "Home" },
+  { href: "/about", title: "About" },
+  { href: "/faqs", title: "FAQs" },
+  { href: "/contact", title: "Contact Us", asButton: true },
+];
