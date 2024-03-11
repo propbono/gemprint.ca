@@ -1,3 +1,4 @@
+import { cn } from "@/utils/cn";
 import { Container } from "../container/container";
 
 type FooterProps = {
@@ -11,7 +12,7 @@ type FooterProps = {
 export const Footer = ({ links, className }: FooterProps) => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-secondary text-lg text-gray-100">
+    <footer className={cn("text-lg bg-secondary-foreground text-primary-foreground", className)}>
       <Container className="justify-left flex  w-full flex-col-reverse items-center py-6  md:flex-row md:justify-between ">
         <div>© 2017-{year} Gemprint</div>
         {links && (
