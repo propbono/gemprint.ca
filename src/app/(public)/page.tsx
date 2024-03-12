@@ -1,8 +1,3 @@
-
 export default function Home() {
-  return (
-      <>
-        Main Content
-      </>
-  );
+  return <>Main Content</>;
 }
