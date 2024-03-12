@@ -12,7 +12,12 @@ type FooterProps = {
 export const Footer = ({ links, className }: FooterProps) => {
   const year = new Date().getFullYear();
   return (
-    <footer className={cn("text-lg bg-secondary-foreground text-primary-foreground", className)}>
+    <footer
+      className={cn(
+        "bg-secondary-foreground text-lg text-primary-foreground",
+        className
+      )}
+    >
       <Container className="justify-left flex  w-full flex-col-reverse items-center py-6  md:flex-row md:justify-between ">
         <div>© 2017-{year} Gemprint</div>
         {links && (
