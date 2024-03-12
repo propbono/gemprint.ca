@@ -1,5 +1,5 @@
 import { cn } from "@/utils/cn";
-import { Container } from "../container/container";
+import { Container } from "../container";
 
 type FooterProps = {
   links?: {

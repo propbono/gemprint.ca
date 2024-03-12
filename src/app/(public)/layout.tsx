@@ -1,5 +1,6 @@
-import { Header } from "@/components/header/header";
-import { HEADER_MENU_ITEMS } from "@/utils/constants";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { FOOTER_LINKS, HEADER_MENU_ITEMS } from "@/utils/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <>
       <Header menuItems={HEADER_MENU_ITEMS} />
+      <main className="flex flex-grow  flex-col items-center justify-between bg-pink-100 p-24">
       {children}
+      </main>
+      <Footer links={FOOTER_LINKS} />
     </>
   );
 }
