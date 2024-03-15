@@ -42,7 +42,7 @@ export const Header = ({ menuItems }: HeaderProps) => {
         <Link href={"/"}>
           <Image
             alt="Logo of Gemprint - experts in print"
-            src="/images/Gemprint-vector-logo.svg"
+            src="/images/gemprint-logo.svg"
             title="Gemprint"
             width={200}
             height={40}
