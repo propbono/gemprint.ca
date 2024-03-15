@@ -34,11 +34,11 @@ export const Header = ({ menuItems }: HeaderProps) => {
   return (
     <header
       className={cn(
-        "ease-in-in z-50 w-full bg-white shadow-lg transition delay-150 duration-700 hover:bg-opacity-100 md:fixed md:top-0 md:mt-0 md:shadow-2xl",
+        "ease-in-in z-50 w-full bg-white shadow-lg transition delay-150 duration-700 hover:bg-opacity-100 lg:fixed lg:top-0 lg:mt-0 lg:shadow-2xl",
         headerClass
       )}
     >
-      <nav className="container relative mx-auto flex flex-wrap items-center justify-between px-4 py-6">
+      <nav className="container relative mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-6">
         <Link href={"/"}>
           <Image
             alt="Logo of Gemprint - experts in print"

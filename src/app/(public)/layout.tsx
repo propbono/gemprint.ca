@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <>
       <Header menuItems={HEADER_MENU_ITEMS} />
-      <main className="flex flex-grow  flex-col items-center justify-between pb-6 pt-24">
+      <main className="flex flex-grow  flex-col items-center justify-between">
         {children}
       </main>
       <Footer links={FOOTER_LINKS} />
