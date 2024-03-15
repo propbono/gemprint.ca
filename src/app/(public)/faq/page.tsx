@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { Heading } from "@/components/heading";
 import {
   Accordion,
   AccordionContent,
@@ -10,9 +11,9 @@ import { FAQ } from "@/utils/constants";
 export default function Faq() {
   return (
     <Container>
-      <h2 className="mt-6 text-center text-xl font-bold">
+      <Heading as="h2" className="lg:text-center">
         Frequently Asked Questions
-      </h2>
+      </Heading>
       <Accordion type="multiple" className="mt-4">
         {FAQ.map(({ title, text }, index) => (
           <AccordionItem key={title} value={title} className="w-full">
