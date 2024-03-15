@@ -18,7 +18,7 @@ export const Footer = ({ links, className }: FooterProps) => {
         className
       )}
     >
-      <Container className="justify-left flex  w-full flex-col-reverse items-center py-6  md:flex-row md:justify-between ">
+      <Container className="flex flex-col-reverse items-center py-6 md:flex-row  md:justify-between lg:py-6 ">
         <div>© 2017-{year} Gemprint</div>
         {links && (
           <div>
