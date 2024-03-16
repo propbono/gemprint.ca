@@ -8,7 +8,7 @@ type SectionProps = {
 
 export const Section = ({ children, title, className }: SectionProps) => {
   return (
-    <section id={title} className={cn("relative", className)}>
+    <section id={title} className={cn("relative w-full", className)}>
       {children}
     </section>
   );
