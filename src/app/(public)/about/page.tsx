@@ -13,22 +13,25 @@ export default function About() {
   return (
     <>
       <Section id="about" className="border-b-2 border-dashed border-b-primary">
-        <Container className="flex items-center justify-center gap-8 lg:pb-16 lg:pt-40">
+        <Container className="flex items-center justify-center gap-8 lg:pb-16 lg:pt-[9rem]">
           <div className="w-full md:w-1/2">
             <Heading as="h1">Experts in Print</Heading>
             <Heading as="h4">
-              We are team of professionals, and we want to be a part of your
-              success.
+              Partner with Gemprint <u>today</u>, and let us achieve{" "}
+              <span className="text-primary">success together</span>.
             </Heading>
             <div className="text-md space-y-4 leading-relaxed text-secondary-foreground lg:text-lg">
               <p>
-                At Gemprint we believe in providing exceptional quality, and
-                extraordinary service at an affordable price.
+                At Gemprint, we stand as a dedicated team of professionals
+                committed to contributing to your triumphs. Our mission is to
+                provide unparalleled quality and service without breaking the
+                bank.
               </p>
               <p>
-                We will do our best to understand your needs and offer you what
-                you really need. We offer our expertise you the best solution
-                for the best price!
+                With a firm commitment to excellence, we tailor our services to
+                suit your unique requirements. Your needs are our priority, and
+                we strive to offer precisely what you require. Count on us to
+                provide expert guidance and solutions tailored to your budget.
               </p>
             </div>
             <div className="mt-6 flex w-full flex-wrap items-center gap-4">
