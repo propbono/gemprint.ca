@@ -2,13 +2,13 @@ import { cn } from "@/utils/cn";
 
 type SectionProps = {
   children: React.ReactNode;
-  title?: string;
+  id?: string;
   className?: string;
 };
 
-export const Section = ({ children, title, className }: SectionProps) => {
+export const Section = ({ children, id, className }: SectionProps) => {
   return (
-    <section id={title} className={cn("relative w-full", className)}>
+    <section id={id} className={cn("relative w-full", className)}>
       {children}
     </section>
   );
