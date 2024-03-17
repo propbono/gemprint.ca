@@ -1,9 +1,10 @@
 "use client";
 
 import { cn } from "@/utils/cn";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MainMenu } from "./main-menu";
 import type { MenuItems } from "./types";
 
@@ -12,33 +13,32 @@ import type { MenuItems } from "./types";
 type HeaderProps = MenuItems;
 
 export const Header = ({ menuItems }: HeaderProps) => {
-  const [headerClass, setHeaderClass] = useState("bg-opacity-75");
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 20) {
-        setHeaderClass("bg-opacity-100");
-      } else {
-        setHeaderClass("bg-opacity-75");
-      }
-    };
+  const [hidden, setHidden] = useState(false);
 
-    document.addEventListener("scroll", handleScroll);
-
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous && latest > previous && latest > 50) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   return (
-    <header
+    <motion.header
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.45, damping: 15, ease: "easeInOut" }}
       className={cn(
-        "ease-in-in z-50 w-full bg-white shadow-lg transition delay-150 duration-700 hover:bg-opacity-100 lg:fixed lg:top-0 lg:mt-0 lg:shadow-2xl",
-        headerClass
+        "ease-in-in z-50 flex h-24 w-full items-center bg-white shadow-lg lg:fixed lg:top-0 lg:mt-0 lg:shadow-2xl"
       )}
     >
-      <nav className="container relative mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-6">
+      <nav className="container relative mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4">
         <Link href={"/"}>
           <Image
             alt="Logo of Gemprint - experts in print"
@@ -50,6 +50,6 @@ export const Header = ({ menuItems }: HeaderProps) => {
         </Link>
         <MainMenu menuItems={menuItems} />
       </nav>
-    </header>
+    </motion.header>
   );
 };
