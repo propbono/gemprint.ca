@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQ } from "@/utils/constants";
+import { FAQ_ITEMS } from "@/utils/constants";
 
 export default function Faq() {
   return (
@@ -15,7 +15,7 @@ export default function Faq() {
         Frequently Asked Questions
       </Heading>
       <Accordion type="multiple" className="mt-4">
-        {FAQ.map(({ title, text }, index) => (
+        {FAQ_ITEMS.map(({ title, text }, index) => (
           <AccordionItem key={title} value={title} className="w-full">
             <AccordionTrigger className="p-4">{title}</AccordionTrigger>
             <AccordionContent className="px-8 py-4">{text}</AccordionContent>
