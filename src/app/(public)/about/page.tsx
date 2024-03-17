@@ -22,16 +22,14 @@ export default function About() {
             </Heading>
             <div className="text-md space-y-4 leading-relaxed text-secondary-foreground lg:text-lg">
               <p>
-                At Gemprint, we stand as a dedicated team of professionals
-                committed to contributing to your triumphs. Our mission is to
-                provide unparalleled quality and service without breaking the
-                bank.
+                We are a dedicated team of professionals committed to
+                contributing to your triumphs. Our mission is to provide
+                unparalleled quality and service without breaking the bank.
               </p>
               <p>
                 With a firm commitment to excellence, we tailor our services to
                 suit your unique requirements. Your needs are our priority, and
-                we strive to offer precisely what you require. Count on us to
-                provide expert guidance and solutions tailored to your budget.
+                we strive to offer precisely what you require.
               </p>
             </div>
             <div className="mt-6 flex w-full flex-wrap items-center gap-4">
