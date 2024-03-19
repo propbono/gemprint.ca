@@ -1,25 +1,27 @@
 "use client";
 
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/utils/cn";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { MainMenu } from "./menu/main-menu";
-import type { MenuItems } from "./types";
-
-// TODO: add framer motion animations.
-
-type HeaderProps = MenuItems;
+import { DesktopMenu } from "./menu/desktop-menu";
+import { MobileMenu } from "./menu/mobile-menu";
+import type { HeaderProps } from "./types";
 
 export const Header = ({ menuItems }: HeaderProps) => {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
+  const isMediumBreakpoint = useMediaQuery("(min-width:768px)"); // md: breakpoint in tailwind
+  const isLargeBreakpoint = useMediaQuery("(min-width:1024px)"); // lg: breakpoint in tailwind
 
   const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if (previous && latest > previous && latest > 50) {
+    if (previous && latest > previous && latest > 50 && isLargeBreakpoint) {
       setHidden(true);
     } else {
       setHidden(false);
@@ -48,7 +50,11 @@ export const Header = ({ menuItems }: HeaderProps) => {
             height={40}
           />
         </Link>
-        <MainMenu menuItems={menuItems} />
+        {isMediumBreakpoint ? (
+          <DesktopMenu menuItems={menuItems} path={pathname} />
+        ) : (
+          <MobileMenu menuItems={menuItems} path={pathname} />
+        )}
       </nav>
     </motion.header>
   );
