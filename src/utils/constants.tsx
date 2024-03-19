@@ -32,7 +32,7 @@ export const HEADER_MENU_ITEMS = [
   { href: "/", title: "Home" },
   { href: "/about", title: "About" },
   { href: "/faq", title: "FAQs" },
-  { href: "/contact", title: "Contact Us", asButton: true },
+  { href: "/contact-us", title: "Contact Us", asButton: true },
 ];
 
 export const FAQ_ITEMS = [
