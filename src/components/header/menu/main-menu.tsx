@@ -2,9 +2,9 @@
 
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePathname } from "next/navigation";
+import { MenuItems } from "../types";
 import { DesktopMenu } from "./desktop-menu";
 import { MobileMenu } from "./mobile-menu";
-import { MenuItems } from "./types";
 
 // TODO: replace with navigation menu from shadcn
 export const MainMenu = ({ menuItems }: MenuItems) => {

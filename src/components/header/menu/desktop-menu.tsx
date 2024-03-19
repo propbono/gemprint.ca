@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { MenuItemsProps } from "./types";
+import { Button } from "../../ui/button";
+import { MenuItemsProps } from "../types";
 
 export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
   return (
