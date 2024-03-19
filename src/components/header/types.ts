@@ -1,5 +1,6 @@
 export type HeaderProps = {
   menuItems: MenuItem[];
+  className?: string;
 };
 
 export type MainMenuItemProps = {

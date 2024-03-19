@@ -11,7 +11,7 @@ import { DesktopMenu } from "./menu/desktop-menu";
 import { MobileMenu } from "./menu/mobile-menu";
 import type { HeaderProps } from "./types";
 
-export const Header = ({ menuItems }: HeaderProps) => {
+export const Header = ({ menuItems, className }: HeaderProps) => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const isMediumBreakpoint = useMediaQuery("(min-width:768px)"); // md: breakpoint in tailwind
@@ -37,7 +37,8 @@ export const Header = ({ menuItems }: HeaderProps) => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.45, damping: 15, ease: "easeInOut" }}
       className={cn(
-        "ease-in-in z-50 flex h-24 w-full items-center bg-white shadow-lg lg:fixed lg:top-0 lg:mt-0 lg:shadow-2xl"
+        "ease-in-in z-50 flex h-24 w-full items-center bg-white shadow-lg lg:fixed lg:top-0 lg:mt-0 lg:shadow-2xl",
+        className
       )}
     >
       <nav className="container relative mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4">

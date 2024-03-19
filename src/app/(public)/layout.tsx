@@ -15,11 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Header menuItems={HEADER_MENU_ITEMS} />
-      <main className="flex flex-grow  flex-col items-center justify-between">
-        {children}
-      </main>
-      <Footer links={FOOTER_LINKS} />
+      <Header menuItems={HEADER_MENU_ITEMS} className="header" />
+      <main className="main">{children}</main>
+      <Footer links={FOOTER_LINKS} className="footer" />
     </>
   );
 }

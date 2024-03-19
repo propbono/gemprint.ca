@@ -22,14 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "flex min-h-screen flex-col bg-muted",
-          ubuntu.className
-        )}
-      >
-        {children}
-      </body>
+      <body className={cn("layout-grid", ubuntu.className)}>{children}</body>
     </html>
   );
 }
