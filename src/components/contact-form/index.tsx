@@ -1,5 +1,6 @@
 "use client";
 
+import { sendContactEmail } from "@/actions/contact";
 import {
   Form,
   FormControl,
@@ -8,9 +9,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/utils/cn";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Heading } from "../heading";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
@@ -19,6 +21,7 @@ import { Textarea } from "../ui/textarea";
 import { formSchema, type ContactFormData } from "./types";
 
 export const ContactForm = ({ className }: { className?: string }) => {
+  const { toast } = useToast();
   const formMethods = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -27,11 +30,47 @@ export const ContactForm = ({ className }: { className?: string }) => {
       email: "",
       message: "",
       sendCopy: false,
+      requiredInformation: "",
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<ContactFormData> = async (
+    data: ContactFormData
+  ) => {
+    const result = formSchema.safeParse(data);
+
+    if (!result.success) {
+      let errorMessage = "";
+      result.error.format();
+      result.error.issues.forEach((issue) => {
+        errorMessage =
+          errorMessage + issue.path[0] + ": " + issue.message + ". ";
+      });
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: errorMessage,
+      });
+      return;
+    }
+
+    const response = await sendContactEmail(result.data);
+
+    if (response?.error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: response.error,
+      });
+    }
+    if (response.success) {
+      toast({
+        variant: "success",
+        title: "Success",
+        description: "Message sent",
+      });
+      formMethods.reset();
+    }
   };
 
   return (
@@ -108,12 +147,15 @@ export const ContactForm = ({ className }: { className?: string }) => {
           <div className="flex w-full justify-between px-3">
             <FormField
               control={formMethods.control}
-              name="firstName"
+              name="sendCopy"
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center gap-2">
                     <FormControl>
-                      <Checkbox {...field} />
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
                     </FormControl>
                     <FormLabel>Send a copy of an email to yourself.</FormLabel>
                   </div>
@@ -126,6 +168,20 @@ export const ContactForm = ({ className }: { className?: string }) => {
               Send Message
             </Button>
           </div>
+        </fieldset>
+        <fieldset className="hidden">
+          <FormField
+            control={formMethods.control}
+            name="requiredInformation"
+            render={({ field }) => (
+              <FormItem className="w-full px-3">
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </fieldset>
       </form>
     </Form>
