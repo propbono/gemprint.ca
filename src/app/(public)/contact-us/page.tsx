@@ -5,7 +5,6 @@ import { Section } from "@/components/section";
 import { LuPhoneCall } from "react-icons/lu";
 
 // TODO: Fix styles on the contact us button in menu
-// TODO: make the phone number bigger
 // TODO: update email template
 
 export default function ContactUs() {
@@ -34,9 +33,10 @@ export default function ContactUs() {
               than a day, often much quicker, ensuring you receive the
               assistance you need in a timely manner.
             </p>
-            <div className="mt-5 flex items-center gap-2 text-2xl font-bold">
-              <LuPhoneCall className="text-primary" size={16} />
-              <span className="text-sm">+1 416 666 1676</span>
+            <div className="mt-5 text-lg font-bold md:text-xl">Contact Us</div>
+            <div className="mt-3 flex items-center gap-2 text-lg font-bold md:text-xl">
+              <LuPhoneCall className="text-primary" />
+              <span>+1 416 666 1676</span>
             </div>
           </div>
           <ContactForm className="w-full flex-grow p-6 md:w-2/3 lg:pt-32" />
