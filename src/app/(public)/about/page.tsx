@@ -63,7 +63,6 @@ export default function About() {
             <Heading as="h2">
               How we change <span className="text-primary">the game</span>.
             </Heading>
-            {/* TODO: Change this paragraph verbiage */}
             <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
               Elevate your print and web design experience with us. Uncover how
               we&apos;re transforming the industry standards. Let&apos;s

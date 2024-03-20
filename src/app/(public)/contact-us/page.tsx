@@ -4,6 +4,10 @@ import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { LuPhoneCall } from "react-icons/lu";
 
+// TODO: Fix styles on the contact us button in menu
+// TODO: make the phone number bigger
+// TODO: update email template
+
 export default function ContactUs() {
   return (
     <Section className="h-full">
