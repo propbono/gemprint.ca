@@ -16,8 +16,8 @@ export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
                 asChild
                 key={menuItem.href}
                 variant="default"
-                className={cn("py-6 text-xl font-bold", {
-                  "bg-primary text-secondary-foreground": isActive,
+                className={cn("bg-foreground py-6 text-xl font-bold", {
+                  "bg-primary text-primary-foreground": isActive,
                 })}
               >
                 <Link href={menuItem.href}>{menuItem.title}</Link>
