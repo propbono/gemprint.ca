@@ -33,10 +33,10 @@ export default function About() {
               </p>
             </div>
             <div className="mt-6 flex w-full flex-wrap items-center gap-4">
-              <Link href="/blog">
+              {/* <Link href="/blog">
                 <Button variant="outline">See the products</Button>
-              </Link>
-              <Link href="/contact">
+              </Link> */}
+              <Link href="/contact-us">
                 <Button variant="default">Contact Us</Button>
               </Link>
             </div>
