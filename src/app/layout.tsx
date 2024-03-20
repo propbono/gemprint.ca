@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("layout-grid", ubuntu.className)}>{children}</body>
+      <body className={cn("layout-grid", ubuntu.className)}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
