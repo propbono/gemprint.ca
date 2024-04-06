@@ -56,7 +56,9 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
+
   body {
     @apply bg-muted text-foreground;
   }
@@ -78,5 +80,17 @@
   }
   .footer {
     grid-area: footer;
+  }
+
+  .border-bottom {
+    @apply border-b-2 border-dashed border-b-primary;
+  }
+
+  .border-top {
+    @apply z-50 border-t-2 border-dashed border-b-primary;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary/50 via-gray-100 via-50% to-gray-100;
   }
 }
