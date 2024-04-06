@@ -7,7 +7,9 @@ import {
   LuTrophy,
 } from "react-icons/lu";
 
-import { LinkCard } from "@/components/link-card";
+import type { Testimonial } from "@/components/customer-testimonials";
+import type { LinkCard } from "@/components/link-card";
+import { PrintProducts } from "./tempt-types";
 
 export const FOOTER_LINKS = [
   {
@@ -105,5 +107,64 @@ export const LINK_CARD_ITEMS: LinkCard[] = [
       "Our talented designers work closely with you to understand your brand and goals, turning your vision into reality. We are committed to providing high quality, effective designs that bring your ideas to life.",
     icon: <LuStar />,
     to: "",
+  },
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Greg Mozer",
+    role: "CEO, Anthropic",
+    text: "Their business cards helped me stand out and feel confident in every meeting.",
+  },
+  {
+    name: "Sara Choi",
+    role: "Designer, Anthropic",
+    text: "The thick cardstock and beautiful designs make my cards stand out from the crowd.",
+  },
+];
+
+export const PRINT_PRODUCTS: PrintProducts = [
+  {
+    name: "Premium Business Cards",
+    description:
+      "Make a lasting impression with our high-quality, customizable business cards. Perfect for professionals, entrepreneurs, and small businesses.",
+    slug: "business-cards",
+    products: [],
+    images: [
+      {
+        href: "/images/business-cards/business_cards_color_02.jpg",
+        alt: "UV Business Cards",
+      },
+      {
+        href: "/images/business-cards/business_cards_standard_03.jpg",
+        alt: "Standard Business Cards",
+      },
+      {
+        href: "/images/business-cards/business_cards_laminated_01.jpg",
+        alt: "Laminated Business Cards",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our business cards are printed on premium cardstock and come with a variety of finishes, including matte, glossy, and soft-touch. You can also add custom designs, logos, and information.",
+      items: [
+        {
+          title: "Premium Cardstock",
+          content:
+            "Our business cards are printed on high-quality, durable cardstock that feels substantial and professional.",
+        },
+        {
+          title: "Custom Finishes",
+          content:
+            "Choose from a variety of finishes to make your business cards stand out, including matte, glossy, and soft-touch.",
+        },
+        {
+          title: "Custom Designs",
+          content:
+            "Add your own custom designs, logos, and information to create personalized and professional business cards.",
+        },
+      ],
+    },
   },
 ];
