@@ -16,4 +16,12 @@ export type ProductsCategory = {
   };
 };
 
-type Product = {};
+export type Product = {
+  name: string;
+  category: CategorySlug;
+  image: {
+    href: string;
+    alt: string;
+  };
+  href: string;
+};

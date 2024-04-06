@@ -1,12 +1,13 @@
 import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
+import { ProductsCarousel } from "@/components/products";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { PRINT_PRODUCTS, TESTIMONIALS } from "@/utils/constants";
-import type { CategorySlug } from "@/utils/tempt-types";
+import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,7 +23,45 @@ export default async function Category({
   if (!categoryInfo) notFound();
 
   // destructure products
-  const products = categoryInfo.products;
+  // const products = categoryInfo.products;
+  const products: Product[] = [
+    {
+      name: "AQ Business Cards",
+      category: "business-cards",
+      image: {
+        href: "/images/business-cards/business_cards_standard_01.jpg",
+        alt: "AQ Business Cards",
+      },
+      href: "./aq-business-cards",
+    },
+    {
+      name: "UV Business Cards",
+      category: "business-cards",
+      image: {
+        href: "/images/business-cards/business_cards_color_01.jpg",
+        alt: "UV Business Cards",
+      },
+      href: "./uv-business-cards",
+    },
+    {
+      name: "Matte Laminated Business Cards",
+      category: "business-cards",
+      image: {
+        href: "/images/business-cards/business_cards_laminated_01.jpg",
+        alt: "Matte Laminated Business Cards",
+      },
+      href: "./matte-laminated-business-cards",
+    },
+    {
+      name: "Gloss Laminated Business Cards",
+      category: "business-cards",
+      image: {
+        href: "/images/business-cards/business_cards_laminated_02.jpg",
+        alt: "Gloss Laminated Business Cards",
+      },
+      href: "./1matte-laminated-business-cards",
+    },
+  ];
 
   return (
     <>
@@ -119,7 +158,9 @@ export default async function Category({
             <Heading as="h2">Products</Heading>
           </SectionHeader>
           {products.length > 0 ? (
-            <div>Products</div>
+            <div className="flex justify-center">
+              <ProductsCarousel products={products} />
+            </div>
           ) : (
             <div className="text-center">No Products available.</div>
           )}
