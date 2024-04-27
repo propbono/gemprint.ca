@@ -6,7 +6,6 @@ import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import type { Category } from "@/payload-types";
-import { TESTIMONIALS } from "@/utils/constants";
 import type { Product } from "@/utils/tempt-types";
 import configPromise from "@payload-config";
 import Link from "next/link";
@@ -29,6 +28,8 @@ export default async function Category({
 
   // TODO: Add testimonials collection
 
+  // TODO: refactor createdAt and updatedAt and beforeChange hook
+
   const payload = await getPayload({ config: configPromise });
   const { docs: categories } = await payload.find({
     collection: "categories",
@@ -38,7 +39,12 @@ export default async function Category({
   if (!categories) {
     notFound();
   }
+
   const categoryInfo = categories[0];
+
+  const { docs: testimonials } = await payload.find({
+    collection: "testimonials",
+  });
 
   const products: Product[] = [
     {
@@ -166,7 +172,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials testimonials={TESTIMONIALS} />
+      <CustomerTestimonials testimonials={testimonials} />
       <ProductsCarousel products={products} />
     </>
   );
