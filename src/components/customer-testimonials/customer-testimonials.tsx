@@ -7,6 +7,8 @@ import type { CustomerTestimonialProps } from "./types";
 export const CustomerTestimonials = ({
   testimonials,
 }: CustomerTestimonialProps) => {
+  if (!testimonials || testimonials.length === 0) return null;
+
   return (
     <Section className="bg-gray-100">
       <Container className="grid items-center gap-4 lg:py-6">
