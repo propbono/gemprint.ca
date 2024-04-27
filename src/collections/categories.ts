@@ -50,23 +50,21 @@ export const Categories: CollectionConfig = {
       },
     },
     {
-      name: "publishedOn",
+      name: "createdAt",
       type: "date",
       admin: {
+        readOnly: true,
         position: "sidebar",
-        date: {
-          pickerAppearance: "dayAndTime",
-        },
+        condition: (data) => Boolean(data?.createdAt),
       },
-      hooks: {
-        beforeChange: [
-          ({ siblingData, value }) => {
-            if (siblingData._status === "published" && !value) {
-              return new Date();
-            }
-            return value;
-          },
-        ],
+    },
+    {
+      name: "updatedAt",
+      type: "date",
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+        condition: (data) => Boolean(data?.updatedAt),
       },
     },
   ],
@@ -81,8 +79,14 @@ export const Categories: CollectionConfig = {
         if (operation === "create") {
           if (req.user) {
             data.createdBy = req.user.id;
+            data.createdAt = new Date();
+
             return data;
           }
+        }
+        if (operation === "update") {
+          data.updatedAt = new Date();
+          return data;
         }
       },
     ],
