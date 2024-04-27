@@ -1,12 +1,5 @@
+import { isAdmin } from "@/access/admin";
 import type { CollectionConfig } from "payload/types";
-
-const isAdmin = ({ req: { user } }: { req: { user: { role: string } } }) => {
-  if (user && user.role === "admin") {
-    return true;
-  }
-
-  return false;
-};
 
 export const Categories: CollectionConfig = {
   slug: "categories",
@@ -38,9 +31,29 @@ export const Categories: CollectionConfig = {
         condition: (data) => Boolean(data?.createdBy),
       },
     },
+    {
+      name: "publishedOn",
+      type: "date",
+      admin: {
+        position: "sidebar",
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+      },
+      hooks: {
+        beforeChange: [
+          ({ siblingData, value }) => {
+            if (siblingData._status === "published" && !value) {
+              return new Date();
+            }
+            return value;
+          },
+        ],
+      },
+    },
   ],
   access: {
-    read: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },
