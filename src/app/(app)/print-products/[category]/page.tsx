@@ -25,6 +25,10 @@ export default async function Category({
   // or should we pull them from products?
   // Uncomment images code when done
 
+  // TODO: Add Products collection
+
+  // TODO: Add testimonials collection
+
   const payload = await getPayload({ config: configPromise });
   const { docs: categories } = await payload.find({
     collection: "categories",
@@ -163,20 +167,7 @@ export default async function Category({
       </Section>
       {/* Testimonials */}
       <CustomerTestimonials testimonials={TESTIMONIALS} />
-      <Section id="products">
-        <Container>
-          <SectionHeader>
-            <Heading as="h2">Products</Heading>
-          </SectionHeader>
-          {products.length > 0 ? (
-            <div className="flex justify-center">
-              <ProductsCarousel products={products} />
-            </div>
-          ) : (
-            <div className="text-center">No Products available.</div>
-          )}
-        </Container>
-      </Section>
+      <ProductsCarousel products={products} />
     </>
   );
 }
