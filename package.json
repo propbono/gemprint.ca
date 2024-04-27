@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4200",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format:check": "prettier . --check",
-    "format:fix": "prettier . --write"
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 4200",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "ci": "payload migrate && pnpm build",
+    "generate:types": "payload generate:types",
+    "standalone-script": "tsx ./src/scripts/standalone-script.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -24,6 +27,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
+    "cross-env": "^7.0.3",
     "embla-carousel-react": "^8.0.0",
     "framer-motion": "^11.0.14",
     "next": "^14.3.0-canary.28",
