@@ -1,11 +1,15 @@
 import type { CollectionConfig } from "payload/types";
 
+const isAdmin = ({ req: { user } }: { req: { user: { role: string } } }) => {
+  if (user && user.role === "admin") {
+    return true;
+  }
+
+  return false;
+};
+
 export const Categories: CollectionConfig = {
   slug: "categories",
-  admin: {
-    useAsTitle: "email",
-  },
-  auth: true,
   fields: [
     {
       name: "name",
@@ -13,9 +17,43 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
-      name: "total",
-      type: "number",
+      name: "description",
+      type: "richText",
+    },
+    {
+      name: "slug",
+      type: "text",
       required: true,
     },
+    {
+      name: "createdBy",
+      type: "relationship",
+      relationTo: "users",
+      access: {
+        update: () => false,
+      },
+      admin: {
+        readOnly: true,
+        position: "sidebar",
+        condition: (data) => Boolean(data?.createdBy),
+      },
+    },
   ],
+  access: {
+    read: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
+  },
+  hooks: {
+    beforeChange: [
+      ({ req, operation, data }) => {
+        if (operation === "create") {
+          if (req.user) {
+            data.createdBy = req.user.id;
+            return data;
+          }
+        }
+      },
+    ],
+  },
 };
