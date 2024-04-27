@@ -5,25 +5,37 @@ import { ProductsCarousel } from "@/components/products";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { PRINT_PRODUCTS, TESTIMONIALS } from "@/utils/constants";
-import type { CategorySlug, Product } from "@/utils/tempt-types";
-import Image from "next/image";
+import type { Category } from "@/payload-types";
+import { TESTIMONIALS } from "@/utils/constants";
+import type { Product } from "@/utils/tempt-types";
+import configPromise from "@payload-config";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getPayload } from "payload";
 
 export default async function Category({
   params: { category },
 }: {
-  params: { category: CategorySlug };
+  params: { category: Category["slug"] };
 }) {
-  console.log(category);
-  const categoryInfo = PRINT_PRODUCTS.find((cat) => cat.slug === category);
+  // TODO: replace textarea with richText filed type
+  // check how to render richText type in React
 
-  if (!categoryInfo) notFound();
+  // TODO: Add images to the categories collection
+  // or should we pull them from products?
+  // Uncomment images code when done
 
-  // destructure products
-  // const products = categoryInfo.products;
+  const payload = await getPayload({ config: configPromise });
+  const { docs: categories } = await payload.find({
+    collection: "categories",
+    where: { slug: { equals: category } },
+  });
+
+  if (!categories) {
+    notFound();
+  }
+  const categoryInfo = categories[0];
+
   const products: Product[] = [
     {
       name: "AQ Business Cards",
@@ -62,7 +74,6 @@ export default async function Category({
       href: "./1matte-laminated-business-cards",
     },
   ];
-
   return (
     <>
       {/* Hero */}
@@ -84,7 +95,7 @@ export default async function Category({
               </Button>
             </div>
           </div>
-          <div className="col-span-1">
+          {/* <div className="col-span-1">
             <AspectRatio
               ratio={16 / 9}
               className="relative overflow-hidden rounded-md"
@@ -125,7 +136,7 @@ export default async function Category({
                 width="550"
               />
             </AspectRatio>
-          </div>
+          </div> */}
         </Container>
       </Section>
       <div className="border-bottom" />
@@ -134,7 +145,7 @@ export default async function Category({
         <Container className="grid items-center gap-4 lg:py-6">
           <SectionHeader>
             <Heading as="h2">{categoryInfo.features.heading}</Heading>
-            <Heading as="h5">{categoryInfo.features.subheading}</Heading>
+            <Heading as="h5">{categoryInfo.features.subHeading}</Heading>
           </SectionHeader>
           <div className="mx-auto grid w-full max-w-3xl items-start gap-4 sm:grid-cols-2 md:gap-6 lg:max-w-5xl lg:grid-cols-3">
             {categoryInfo.features.items.map((feature) => (
@@ -168,4 +179,15 @@ export default async function Category({
       </Section>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise });
+  const data = await payload.find({
+    collection: "categories",
+  });
+
+  const categories = data.docs.map((category) => category.slug);
+
+  return categories;
 }
