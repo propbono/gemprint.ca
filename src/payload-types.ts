@@ -10,6 +10,7 @@ export interface Config {
   collections: {
     users: User;
     categories: Category;
+    testimonials: Testimonial;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -56,9 +57,22 @@ export interface Category {
     }[];
   };
   createdBy?: (number | null) | User;
-  publishedOn?: string | null;
-  updatedAt: string;
-  createdAt: string;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  testimonial: string;
+  source?: string | null;
+  createdBy?: (number | null) | User;
+  createdAt?: string | null;
+  updatedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

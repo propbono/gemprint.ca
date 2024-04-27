@@ -6,6 +6,7 @@ import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
 import { Categories } from "./collections/categories";
+import { Testimonials } from "./collections/testimonials";
 import { Users } from "./collections/users";
 
 const filename = fileURLToPath(import.meta.url);
@@ -15,7 +16,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Categories],
+  collections: [Users, Categories, Testimonials],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || "",
