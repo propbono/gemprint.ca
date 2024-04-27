@@ -11,7 +11,8 @@ export const Categories: CollectionConfig = {
     },
     {
       name: "description",
-      type: "richText",
+      type: "textarea",
+      required: true,
     },
     {
       name: "slug",
@@ -23,13 +24,14 @@ export const Categories: CollectionConfig = {
       type: "group",
       fields: [
         { name: "heading", type: "text", required: true },
-        { name: "subHeading", type: "richText", required: true },
+        { name: "subHeading", type: "textarea", required: true },
         {
           name: "items",
           type: "array",
+          required: true,
           fields: [
             { name: "title", type: "text", required: true },
-            { name: "content", type: "richText", required: true },
+            { name: "content", type: "textarea", required: true },
           ],
         },
       ],

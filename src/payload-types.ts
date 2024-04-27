@@ -44,60 +44,16 @@ export interface User {
 export interface Category {
   id: number;
   name: string;
-  description?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  description: string;
   slug: string;
   features: {
     heading: string;
-    subHeading: {
-      root: {
-        type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    };
-    items?:
-      | {
-          title: string;
-          content: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-          id?: string | null;
-        }[]
-      | null;
+    subHeading: string;
+    items: {
+      title: string;
+      content: string;
+      id?: string | null;
+    }[];
   };
   createdBy?: (number | null) | User;
   publishedOn?: string | null;
