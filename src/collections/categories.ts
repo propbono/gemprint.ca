@@ -19,6 +19,22 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
+      name: "features",
+      type: "group",
+      fields: [
+        { name: "heading", type: "text", required: true },
+        { name: "subHeading", type: "richText", required: true },
+        {
+          name: "items",
+          type: "array",
+          fields: [
+            { name: "title", type: "text", required: true },
+            { name: "content", type: "richText", required: true },
+          ],
+        },
+      ],
+    },
+    {
       name: "createdBy",
       type: "relationship",
       relationTo: "users",
