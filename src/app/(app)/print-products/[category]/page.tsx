@@ -26,8 +26,6 @@ export default async function Category({
 
   // TODO: Add Products collection
 
-  // TODO: Add testimonials collection
-
   // TODO: refactor createdAt and updatedAt and beforeChange hook
 
   const payload = await getPayload({ config: configPromise });
@@ -171,7 +169,6 @@ export default async function Category({
           </div>
         </Container>
       </Section>
-      {/* Testimonials */}
       <CustomerTestimonials testimonials={testimonials} />
       <ProductsCarousel products={products} />
     </>

@@ -7,7 +7,6 @@ import {
   LuTrophy,
 } from "react-icons/lu";
 
-import type { Testimonial } from "@/components/customer-testimonials";
 import type { LinkCard } from "@/components/link-card";
 import { PrintProducts } from "./tempt-types";
 
@@ -107,19 +106,6 @@ export const LINK_CARD_ITEMS: LinkCard[] = [
       "Our talented designers work closely with you to understand your brand and goals, turning your vision into reality. We are committed to providing high quality, effective designs that bring your ideas to life.",
     icon: <LuStar />,
     to: "",
-  },
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    name: "Greg Mozer",
-    role: "CEO, Anthropic",
-    text: "Their business cards helped me stand out and feel confident in every meeting.",
-  },
-  {
-    name: "Sara Choi",
-    role: "Designer, Anthropic",
-    text: "The thick cardstock and beautiful designs make my cards stand out from the crowd.",
   },
 ];
 
