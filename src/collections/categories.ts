@@ -20,6 +20,19 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
+      name: "images",
+      type: "array",
+      required: true,
+      fields: [
+        {
+          name: "category-image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+      ],
+    },
+    {
       name: "features",
       type: "group",
       fields: [

@@ -11,6 +11,7 @@ export interface Config {
     users: User;
     categories: Category;
     testimonials: Testimonial;
+    media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -47,6 +48,10 @@ export interface Category {
   name: string;
   description: string;
   slug: string;
+  images: {
+    'category-image': number | Media;
+    id?: string | null;
+  }[];
   features: {
     heading: string;
     subHeading: string;
@@ -59,6 +64,23 @@ export interface Category {
   createdBy?: (number | null) | User;
   createdAt?: string | null;
   updatedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  text?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
