@@ -6,25 +6,14 @@ import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import type { Category, Media } from "@/payload-types";
+import type { Category } from "@/payload-types";
+import { isMedia } from "@/utils/is-media";
 import type { Product } from "@/utils/tempt-types";
 import configPromise from "@payload-config";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
-
-export const isMedia = (image: unknown): image is Media => {
-  // generate the typeguard for image that is type of Media
-  return (
-    image !== null &&
-    typeof image === "object" &&
-    "altText" in image &&
-    "url" in image &&
-    "width" in image &&
-    "height" in image
-  );
-};
 
 export default async function Category({
   params: { category },
