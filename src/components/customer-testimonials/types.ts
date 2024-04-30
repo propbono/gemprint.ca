@@ -1,8 +1,4 @@
-export type Testimonial = {
-  name: string;
-  role: string;
-  text: string;
-};
+import { Testimonial } from "@/payload-types";
 
 export type CustomerTestimonialProps = {
   testimonials: Testimonial[];

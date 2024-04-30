@@ -7,6 +7,8 @@ import type { CustomerTestimonialProps } from "./types";
 export const CustomerTestimonials = ({
   testimonials,
 }: CustomerTestimonialProps) => {
+  if (!testimonials || testimonials.length === 0) return null;
+
   return (
     <Section className="bg-gray-100">
       <Container className="grid items-center gap-4 lg:py-6">
@@ -18,13 +20,13 @@ export const CustomerTestimonials = ({
           </Heading>
         </SectionHeader>
         <div className="mx-auto grid max-w-5xl items-start gap-6 sm:grid-cols-2 md:gap-12">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="flex flex-col gap-2">
+          {testimonials.map((item) => (
+            <div key={item.name} className="flex flex-col gap-2">
               <div className="flex-1 rounded-lg border bg-gray-50 p-6 dark:border-gray-950 dark:bg-gray-950">
-                <p>{testimonial.text}</p>
+                <p>{item.testimonial}</p>
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400">
-                {`— ${testimonial.name}, ${testimonial.role}`}
+                {`— ${item.name}, ${item.role}`}
               </div>
             </div>
           ))}
