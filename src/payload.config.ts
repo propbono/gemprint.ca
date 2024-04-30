@@ -29,11 +29,6 @@ const s3Plugin = s3Storage({
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-console.log("S3 BUCKET: ", process.env.S3_BUCKET);
-console.log("S3 ACCESS KEY ID: ", process.env.S3_ACCESS_KEY_ID);
-console.log("S3 SECRET ACCESS KEY: ", process.env.S3_SECRET_ACCESS_KEY);
-console.log("S3 REGION: ", process.env.S3_REGION);
-console.log("S3 ENDPOINT: ", process.env.S3_ENDPOINT);
 export default buildConfig({
   admin: {
     user: Users.slug,

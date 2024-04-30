@@ -108,7 +108,6 @@ export default async function Category({
     },
   ];
 
-  console.log(categoryInfo.images);
   return (
     <>
       {/* Hero */}
