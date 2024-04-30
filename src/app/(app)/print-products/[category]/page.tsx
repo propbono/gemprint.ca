@@ -140,7 +140,7 @@ export default async function Category({
                   alt={categoryImage1.altText}
                   className="h-full w-full object-cover transition duration-500 hover:scale-105"
                   height="310"
-                  src={categoryImage2?.url!}
+                  src={categoryImage1?.url!}
                   width="550"
                 />
               </AspectRatio>
