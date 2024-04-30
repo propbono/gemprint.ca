@@ -5,8 +5,9 @@ export const Media: CollectionConfig = {
   upload: true,
   fields: [
     {
-      name: "text",
+      name: "altText",
       type: "text",
+      required: true,
     },
   ],
 };

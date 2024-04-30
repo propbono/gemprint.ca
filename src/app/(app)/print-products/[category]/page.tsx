@@ -5,12 +5,26 @@ import { ProductsCarousel } from "@/components/products";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
-import type { Category } from "@/payload-types";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import type { Category, Media } from "@/payload-types";
 import type { Product } from "@/utils/tempt-types";
 import configPromise from "@payload-config";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
+
+export const isMedia = (image: unknown): image is Media => {
+  // generate the typeguard for image that is type of Media
+  return (
+    image !== null &&
+    typeof image === "object" &&
+    "altText" in image &&
+    "url" in image &&
+    "width" in image &&
+    "height" in image
+  );
+};
 
 export default async function Category({
   params: { category },
@@ -44,6 +58,17 @@ export default async function Category({
     collection: "testimonials",
   });
 
+  const categoryImage1 = isMedia(categoryInfo.images.categoryImage1)
+    ? categoryInfo.images.categoryImage1
+    : null;
+
+  const categoryImage2 = isMedia(categoryInfo.images.categoryImage2)
+    ? categoryInfo.images.categoryImage2
+    : null;
+
+  const categoryImage3 = isMedia(categoryInfo.images.categoryImage3)
+    ? categoryInfo.images.categoryImage3
+    : null;
   const products: Product[] = [
     {
       name: "AQ Business Cards",
@@ -82,6 +107,8 @@ export default async function Category({
       href: "./1matte-laminated-business-cards",
     },
   ];
+
+  console.log(categoryInfo.images);
   return (
     <>
       {/* Hero */}
@@ -103,48 +130,54 @@ export default async function Category({
               </Button>
             </div>
           </div>
-          {/* <div className="col-span-1">
-            <AspectRatio
-              ratio={16 / 9}
-              className="relative overflow-hidden rounded-md"
-            >
-              <Image
-                alt={categoryInfo.images[0].alt}
-                className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                height="310"
-                src={categoryInfo.images[0].href}
-                width="550"
-              />
-            </AspectRatio>
-          </div>
-          <div className="col-span-1  md:col-span-2 lg:col-span-1 lg:col-start-2">
-            <AspectRatio
-              ratio={16 / 9}
-              className="relative overflow-hidden rounded-md"
-            >
-              <Image
-                alt={categoryInfo.images[1].alt}
-                className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                height="310"
-                src={categoryInfo.images[1].href}
-                width="550"
-              />
-            </AspectRatio>
-          </div>
-          <div className="col-span-1">
-            <AspectRatio
-              ratio={16 / 9}
-              className="relativeoverflow-hidden rounded-md"
-            >
-              <Image
-                alt={categoryInfo.images[2].alt}
-                className="aspec-video h-full w-full object-cover transition duration-500 hover:scale-105"
-                height="310"
-                src={categoryInfo.images[2].href}
-                width="550"
-              />
-            </AspectRatio>
-          </div> */}
+          {categoryImage1 && (
+            <div className="col-span-1">
+              <AspectRatio
+                ratio={16 / 9}
+                className="relative overflow-hidden rounded-md"
+              >
+                <Image
+                  alt={categoryImage1.altText}
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                  height="310"
+                  src={categoryImage2?.url!}
+                  width="550"
+                />
+              </AspectRatio>
+            </div>
+          )}
+          {categoryImage2 && (
+            <div className="col-span-1  md:col-span-2 lg:col-span-1 lg:col-start-2">
+              <AspectRatio
+                ratio={16 / 9}
+                className="relative overflow-hidden rounded-md"
+              >
+                <Image
+                  alt={categoryImage2.altText}
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                  height="310"
+                  src={categoryImage2.url!}
+                  width="550"
+                />
+              </AspectRatio>
+            </div>
+          )}
+          {categoryImage3 && (
+            <div className="col-span-1">
+              <AspectRatio
+                ratio={16 / 9}
+                className="relativeoverflow-hidden rounded-md"
+              >
+                <Image
+                  alt={categoryImage3.altText}
+                  className="aspec-video h-full w-full object-cover transition duration-500 hover:scale-105"
+                  height="310"
+                  src={categoryImage3.url!}
+                  width="550"
+                />
+              </AspectRatio>
+            </div>
+          )}
         </Container>
       </Section>
       <div className="border-bottom" />

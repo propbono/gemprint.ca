@@ -21,11 +21,22 @@ export const Categories: CollectionConfig = {
     },
     {
       name: "images",
-      type: "array",
-      required: true,
+      type: "group",
       fields: [
         {
-          name: "category-image",
+          name: "categoryImage1",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+        {
+          name: "categoryImage2",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+        {
+          name: "categoryImage3",
           type: "upload",
           relationTo: "media",
           required: true,

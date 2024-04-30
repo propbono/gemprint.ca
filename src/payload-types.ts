@@ -49,9 +49,10 @@ export interface Category {
   description: string;
   slug: string;
   images: {
-    'category-image': number | Media;
-    id?: string | null;
-  }[];
+    categoryImage1: number | Media;
+    categoryImage2: number | Media;
+    categoryImage3: number | Media;
+  };
   features: {
     heading: string;
     subHeading: string;
@@ -71,7 +72,7 @@ export interface Category {
  */
 export interface Media {
   id: number;
-  text?: string | null;
+  altText: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
