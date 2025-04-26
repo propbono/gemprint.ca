@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Container } from "@/components/container";
 import { Heading } from "../heading";
 import { Section } from "../section";
-import { Button } from "../ui/button";
 import {
   Card,
   CardContent,
@@ -12,6 +11,7 @@ import {
   CardHeader,
 } from "../ui/card";
 import heroImage from "/public/images/hero.webp";
+import { RequestQuoteButton } from "../request-quote-btn";
 
 export const Hero = () => {
   return (
@@ -45,9 +45,7 @@ export const Hero = () => {
             experts in print. Our experienced team is here to help you succeed.
           </CardContent>
           <CardFooter>
-            <Button asChild variant="default">
-              <a href="mailto:maimuna.gabeyre@gemprint.ca">Request a Quote</a>
-            </Button>
+            <RequestQuoteButton />
           </CardFooter>
         </Card>
       </Container>

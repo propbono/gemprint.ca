@@ -1,12 +1,11 @@
+import { ContactUsButton } from "@/components/contact-us-btn";
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { LinkCard } from "@/components/link-card";
 import { Section } from "@/components/section";
-import { Button } from "@/components/ui";
 import aboutImage from "@/images/about.webp";
 import { LINK_CARD_ITEMS } from "@/utils/constants";
 import Image from "next/image";
-import Link from "next/link";
 import { LuArrowDownCircle } from "react-icons/lu";
 
 export default function About() {
@@ -36,9 +35,7 @@ export default function About() {
               {/* <Link href="/blog">
                 <Button variant="outline">See the products</Button>
               </Link> */}
-              <Link href="/contact-us">
-                <Button variant="default">Contact Us</Button>
-              </Link>
+              <ContactUsButton />
             </div>
           </div>
           <div className="relative hidden bg-cover bg-center md:block md:h-1/2 md:w-1/2">
