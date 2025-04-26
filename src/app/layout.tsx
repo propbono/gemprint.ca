@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
+
 import { PostHogProvider } from "@/components/posthog-provider";
 import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
