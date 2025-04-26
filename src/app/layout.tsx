@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
+import { PostHogProvider } from "@/components/posthog-provider";
 import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
@@ -18,14 +19,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={cn("layout-grid", ubuntu.className)}>
-        {children}
-        <Toaster />
+        <PostHogProvider>
+          {children}
+          <Toaster />
+        </PostHogProvider>
       </body>
     </html>
   );
