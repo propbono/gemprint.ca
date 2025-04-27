@@ -9,7 +9,7 @@ import {
 
 import type { Testimonial } from "@/components/customer-testimonials";
 import type { LinkCard } from "@/components/link-card";
-import { PrintProducts } from "./tempt-types";
+import type { PrintProducts } from "./tempt-types";
 
 export const FOOTER_LINKS = [
   {

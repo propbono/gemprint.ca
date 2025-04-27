@@ -12,7 +12,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/utils/cn";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Heading } from "../heading";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
@@ -42,10 +42,10 @@ export const ContactForm = ({ className }: { className?: string }) => {
     if (!result.success) {
       let errorMessage = "";
       result.error.format();
-      result.error.issues.forEach((issue) => {
-        errorMessage =
-          errorMessage + issue.path[0] + ": " + issue.message + ". ";
-      });
+      for (const issue of result.error.issues) {
+        errorMessage = `${errorMessage + issue.path[0]}: ${issue.message}. `;
+      }
+
       toast({
         variant: "destructive",
         title: "Error",

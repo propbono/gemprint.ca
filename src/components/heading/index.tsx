@@ -1,8 +1,9 @@
 import { cn } from "@/utils/cn";
+import type { ReactNode } from "react";
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5";
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 };
 
