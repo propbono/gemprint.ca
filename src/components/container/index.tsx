@@ -1,7 +1,8 @@
 import { cn } from "@/utils/cn";
+import type { ReactNode } from "react";
 
 type ContainerProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 };
 

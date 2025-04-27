@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Heading } from "../heading";
 
 type LinkCardProps = {

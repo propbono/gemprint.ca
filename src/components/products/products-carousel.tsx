@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Product } from "@/utils/tempt-types";
+import type { Product } from "@/utils/tempt-types";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
@@ -14,33 +14,32 @@ export function ProductsCarousel({ products }: { products: Product[] }) {
   return (
     <Carousel className="w-full">
       <CarouselContent className="-ml-1">
-        {products &&
-          products.map((product, index) => (
-            <CarouselItem
-              key={index}
-              className="pl-1 md:basis-1/2 lg:basis-1/3"
-            >
-              <div className="p-1">
-                <div className="relative">
-                  <AspectRatio
-                    ratio={16 / 9}
-                    className="relative overflow-hidden rounded-md"
-                  >
-                    <Image
-                      alt={product.image.alt}
-                      className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                      height="310"
-                      src={product.image.href}
-                      width="550"
-                    />
-                  </AspectRatio>
-                  <span className="absolute left-2 top-2 rounded-lg bg-primary px-2 py-1  text-sm font-semibold text-white">
-                    {product.name}
-                  </span>
-                </div>
+        {products?.map((product) => (
+          <CarouselItem
+            key={product.href}
+            className="pl-1 md:basis-1/2 lg:basis-1/3"
+          >
+            <div className="p-1">
+              <div className="relative">
+                <AspectRatio
+                  ratio={16 / 9}
+                  className="relative overflow-hidden rounded-md"
+                >
+                  <Image
+                    alt={product.image.alt}
+                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                    height="310"
+                    src={product.image.href}
+                    width="550"
+                  />
+                </AspectRatio>
+                <span className="absolute left-2 top-2 rounded-lg bg-primary px-2 py-1  text-sm font-semibold text-white">
+                  {product.name}
+                </span>
               </div>
-            </CarouselItem>
-          ))}
+            </div>
+          </CarouselItem>
+        ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

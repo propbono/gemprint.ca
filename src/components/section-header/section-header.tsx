@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
 import { LuArrowDownCircle } from "react-icons/lu";
 
 export const SectionHeader: FC<PropsWithChildren> = ({ children }) => {

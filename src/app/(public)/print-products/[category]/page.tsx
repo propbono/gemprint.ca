@@ -17,7 +17,6 @@ export default async function Category({
 }: {
   params: { category: CategorySlug };
 }) {
-  console.log(category);
   const categoryInfo = PRINT_PRODUCTS.find((cat) => cat.slug === category);
 
   if (!categoryInfo) notFound();

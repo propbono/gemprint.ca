@@ -1,7 +1,8 @@
 import { cn } from "@/utils/cn";
+import type { ReactNode } from "react";
 
 type SectionProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   id?: string;
   className?: string;
 };
