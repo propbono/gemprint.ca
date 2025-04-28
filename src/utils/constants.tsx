@@ -113,14 +113,44 @@ export const LINK_CARD_ITEMS: LinkCard[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Greg Mozer",
-    role: "CEO, Anthropic",
-    text: "Their business cards helped me stand out and feel confident in every meeting.",
+    name: "Michel Alsamad",
+    role: "CEO, IT Engine",
+    text: "Amazing friendly service. Helped me with my marketing material and provided very helpful advice when I needed it. highly recommended.",
   },
   {
-    name: "Sara Choi",
-    role: "Designer, Anthropic",
-    text: "The thick cardstock and beautiful designs make my cards stand out from the crowd.",
+    name: "Jibfou Telecome",
+    role: "CEO, Saeed jibril",
+    text: "It was a very positive experience working with Gemprint. The team was so helpful and great to work with; Maimuna and Greg at Gemprint - you're my new favorite printer! I look forward to doing business with you for years to come.",
+  },
+  {
+    name: "Michael Cullen",
+    role: "CEO, Novalte",
+    text: "It was an awesome experience dealing with Gemprint, from submitting the designs, to explaining the quote and then getting the prints. Very fast turnaround time and super professional!\n\nHighly recommended!!!",
+  },
+  {
+    name: "B N",
+    role: "",
+    text: "Gem Printing exceeded all my expectations! Their attention to detail and commitment to quality were exceptional. They delivered a stunning final product right on time. I highly recommend them for any printing needs!",
+  },
+  {
+    name: "Matis Coffee",
+    role: "",
+    text: "Very fast service",
+  },
+  {
+    name: "Svetlana Ratnikova",
+    role: "CEO, IWB",
+    text: "Thank you hard working millennial Maimuna Gabeyre! Fantastic printing services ...way better than other chain print shops! Great quality and pricing. Comes highly recommended...",
+  },
+  {
+    name: "Sylvia Kozicka",
+    role: "",
+    text: "I really recommend their services! Quick to get in touch with and very kind and helpful staff. It was pleasure working with you Gemprint!",
+  },
+  {
+    name: "Parampal Singh",
+    role: "",
+    text: "Working with gemprint was an amazing experience as they are very quick and productive.",
   },
 ];
 

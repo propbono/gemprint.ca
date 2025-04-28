@@ -1,5 +1,8 @@
 import { Container } from "@/components/container";
-import { CustomerTestimonials } from "@/components/customer-testimonials";
+import {
+  CustomerTestimonials,
+  type Testimonial,
+} from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { ProductsCarousel } from "@/components/products";
 import { Section } from "@/components/section";
@@ -7,6 +10,7 @@ import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
+import { shuffleArray } from "@/utils/shuffle-array";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,11 +25,11 @@ export default async function Category({
 
   if (!categoryInfo) notFound();
 
-  // destructure products
-  // const products = categoryInfo.products;
   const products: Product[] = PRODUCTS.filter(
     (product) => product.category === category
   );
+
+  const testimonials: Testimonial[] = shuffleArray(TESTIMONIALS).slice(0, 2);
 
   return (
     <>
@@ -115,7 +119,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials testimonials={TESTIMONIALS} />
+      <CustomerTestimonials testimonials={testimonials} />
       <Section id="products">
         <Container>
           <SectionHeader>
