@@ -9,7 +9,7 @@ import {
 
 import type { Testimonial } from "@/components/customer-testimonials";
 import type { LinkCard } from "@/components/link-card";
-import type { PrintProducts } from "./tempt-types";
+import type { Product, ProductsCategory } from "./tempt-types";
 
 export const FOOTER_LINKS = [
   {
@@ -32,6 +32,7 @@ export const FOOTER_LINKS = [
 
 export const HEADER_MENU_ITEMS = [
   { href: "/", title: "Home" },
+  { href: "/print-products", title: "Print Products" },
   { href: "/about", title: "About" },
   { href: "/faq", title: "FAQs" },
   { href: "/contact-us", title: "Contact Us", asButton: true },
@@ -78,14 +79,14 @@ export const LINK_CARD_ITEMS: LinkCard[] = [
     description:
       "We offer a wide range of high quality printing services utilizing the best equipment and techniques to meet your business needs. Our experienced team will work with you to deliver materials you require, on time and on budget.",
     icon: <LuPrinter />,
-    to: "",
+    to: "./print-products",
   },
   {
     title: "Experts in Print",
     description:
       "With state-of-the-art equipment and decades of combined experience, our staff are true experts in the printing industry. We stay current on the latest techniques and technologies to deliver the highest quality printed products.",
     icon: <LuTrophy />,
-    to: "",
+    to: "./print-products",
   },
   {
     title: "Website Design",
@@ -123,24 +124,23 @@ export const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export const PRINT_PRODUCTS: PrintProducts = [
+export const CATEGORIES: ProductsCategory[] = [
   {
     name: "Premium Business Cards",
     description:
       "Make a lasting impression with our high-quality, customizable business cards. Perfect for professionals, entrepreneurs, and small businesses.",
-    slug: "business-cards",
-    products: [],
+    category: "business-cards",
     images: [
       {
-        href: "/images/business-cards/business_cards_color_02.jpg",
+        href: "/images/business-cards/business-cards_1.png",
         alt: "UV Business Cards",
       },
       {
-        href: "/images/business-cards/business_cards_standard_03.jpg",
+        href: "/images/business-cards/business-cards_2.png",
         alt: "Standard Business Cards",
       },
       {
-        href: "/images/business-cards/business_cards_laminated_01.jpg",
+        href: "/images/business-cards/business-cards_3.png",
         alt: "Laminated Business Cards",
       },
     ],
@@ -166,5 +166,380 @@ export const PRINT_PRODUCTS: PrintProducts = [
         },
       ],
     },
+  },
+  {
+    name: "Flyers",
+    description:
+      "Promote your events, services, or products with our high-quality, eye-catching flyers. Perfect for marketing campaigns, announcements, and promotional materials.",
+    category: "flyers",
+    images: [
+      {
+        href: "/images/flyers/flyers_1.png",
+        alt: "Standard Flyers",
+      },
+      {
+        href: "/images/flyers/flyers_2.png",
+        alt: "Premium Flyers",
+      },
+      {
+        href: "/images/flyers/flyers_3.png",
+        alt: "Promotional Flyers",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our flyers are printed on premium paper stock and come with a variety of finishes, including matte and glossy. Available in multiple sizes and perfect for any promotional needs.",
+      items: [
+        {
+          title: "Premium Paper Stock",
+          content:
+            "Our flyers are printed on high-quality paper that ensures vibrant colors and sharp images for maximum impact.",
+        },
+        {
+          title: "Multiple Sizes",
+          content:
+            "Choose from a variety of standard sizes including 8.5x11, 5.5x8.5, and 4x6 to suit your specific marketing needs.",
+        },
+        {
+          title: "Custom Designs",
+          content:
+            "Our design team can help create eye-catching flyers that effectively communicate your message and drive customer engagement.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Postcards",
+    description:
+      "Connect with customers through our high-quality, customizable postcards. Perfect for direct mail campaigns, announcements, invitations, and promotional offers.",
+    category: "postcards",
+    images: [
+      {
+        href: "/images/postcards/postcards_1.png",
+        alt: "Standard Postcards",
+      },
+      {
+        href: "/images/postcards/postcards_2.png",
+        alt: "Premium Postcards",
+      },
+      {
+        href: "/images/postcards/postcards_3.png",
+        alt: "Promotional Postcards",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our postcards are printed on premium cardstock with various coating options. Available in multiple sizes and perfect for any marketing campaign.",
+      items: [
+        {
+          title: "Premium Cardstock",
+          content:
+            "Our postcards are printed on high-quality, durable cardstock that ensures vibrant colors and professional presentation.",
+        },
+        {
+          title: "Multiple Sizes",
+          content:
+            "Choose from standard 4x6, 5x7, or 6x9 sizes, or request custom dimensions to suit your specific needs.",
+        },
+        {
+          title: "Coating Options",
+          content:
+            "Select from gloss, matte, or UV coating to enhance durability and visual appeal of your postcards.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Brochures",
+    description:
+      "Showcase your products and services with our professional brochures. Ideal for providing detailed information about your business, products, or events in an elegant, organized format.",
+    category: "brochures",
+    images: [
+      {
+        href: "/images/brochures/brochures_1.png",
+        alt: "Standard Tri-fold Brochures",
+      },
+      {
+        href: "/images/brochures/brochures_2.png",
+        alt: "Bi-fold Brochures",
+      },
+      {
+        href: "/images/brochures/brochures_3.png",
+        alt: "Z-fold Brochures",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our brochures come in various fold styles and paper options to effectively communicate your message and represent your brand professionally.",
+      items: [
+        {
+          title: "Multiple Fold Options",
+          content:
+            "Choose from tri-fold, bi-fold, Z-fold, and gate-fold designs to best present your content and meet your marketing objectives.",
+        },
+        {
+          title: "Premium Paper",
+          content:
+            "Select from various paper weights and finishes including gloss, matte, and uncoated to achieve your desired look and feel.",
+        },
+        {
+          title: "Full Color Printing",
+          content:
+            "Our high-resolution printing ensures your brochures feature vibrant colors, sharp images, and clear text for maximum impact.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Real Estate Signs",
+    description:
+      "Boost your property visibility with our durable, eye-catching real estate signs. Designed to withstand the elements while effectively marketing your listings.",
+    category: "real-estate-signs",
+    images: [
+      {
+        href: "/images/real-estate-signs/real-estate-signs_1.png",
+        alt: "For Sale Signs",
+      },
+      {
+        href: "/images/real-estate-signs/real-estate-signs_2.png",
+        alt: "Open House Signs",
+      },
+      {
+        href: "/images/real-estate-signs/real-estate-signs_3.png",
+        alt: "Custom Real Estate Signs",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our real estate signs are built to last with weather-resistant materials and vibrant, fade-resistant printing to ensure your properties get noticed.",
+      items: [
+        {
+          title: "Weather-Resistant",
+          content:
+            "Made with durable materials designed to withstand sun, rain, and wind, ensuring your signs remain effective in all conditions.",
+        },
+        {
+          title: "Customizable Designs",
+          content:
+            "Fully customizable with your branding, contact information, and property details to create a cohesive marketing presence.",
+        },
+        {
+          title: "Various Mounting Options",
+          content:
+            "Available with stakes, frames, or hanging options to suit different property types and placement requirements.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Election Signs",
+    description:
+      "Make your campaign stand out with our high-visibility election signs. Designed for maximum impact and durability throughout your entire campaign season.",
+    category: "election-signs",
+    images: [
+      {
+        href: "/images/election-signs/election-signs_1.png",
+        alt: "Lawn Election Signs",
+      },
+      {
+        href: "/images/election-signs/election-signs_2.png",
+        alt: "Large Format Election Signs",
+      },
+      {
+        href: "/images/election-signs/election-signs_3.png",
+        alt: "Custom Election Campaign Signs",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our election signs are designed to help you win with weather-resistant materials, bold colors, and quick turnaround times to meet campaign deadlines.",
+      items: [
+        {
+          title: "Campaign-Ready Materials",
+          content:
+            "Constructed with durable corrugated plastic or aluminum that stands up to weather conditions throughout your campaign period.",
+        },
+        {
+          title: "High Visibility Design",
+          content:
+            "Bold colors and clear typography ensure your message is easily readable from a distance, even for drivers passing by.",
+        },
+        {
+          title: "Fast Turnaround",
+          content:
+            "Expedited production and delivery options available to meet tight campaign schedules and last-minute needs.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Banners & Signage",
+    description:
+      "Create impactful visual communications with our custom banners and signage. Perfect for events, storefronts, trade shows, and promotional displays.",
+    category: "banners-signage",
+    images: [
+      {
+        href: "/images/banners/banners-and-signage_1.png",
+        alt: "Vinyl Banners",
+      },
+      {
+        href: "/images/banners/banners-and-signage_2.png",
+        alt: "Retractable Banner Stands",
+      },
+      {
+        href: "/images/banners/banners-and-signage_3.png",
+        alt: "Custom Signage",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our banners and signs are printed on premium materials with vibrant, fade-resistant inks to ensure your message stands out in any environment.",
+      items: [
+        {
+          title: "Durable Materials",
+          content:
+            "Choose from vinyl, fabric, aluminum, and other materials designed for indoor or outdoor use with excellent durability.",
+        },
+        {
+          title: "Multiple Size Options",
+          content:
+            "Available in standard sizes or custom dimensions to fit your specific display needs and space requirements.",
+        },
+        {
+          title: "Finishing Options",
+          content:
+            "Select from various finishing options including grommets, pole pockets, stands, and mounting hardware for easy installation.",
+        },
+      ],
+    },
+  },
+  {
+    name: "NCR Forms & Invoices",
+    description:
+      "Streamline your business operations with our professional NCR (No Carbon Required) forms and invoices. Perfect for receipts, purchase orders, work orders, and any business documentation requiring multiple copies.",
+    category: "ncr-forms",
+    images: [
+      {
+        href: "/images/ncr-forms/ncr-invoices_1.png",
+        alt: "NCR Invoice Forms",
+      },
+      {
+        href: "/images/ncr-forms/ncr-invoices_2.png",
+        alt: "Custom NCR Forms",
+      },
+      {
+        href: "/images/ncr-forms/ncr-invoices_3.png",
+        alt: "Multi-part Business Forms",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our NCR forms provide clean, accurate copies without messy carbon paper. Available in various formats and customizable to meet your specific business requirements.",
+      items: [
+        {
+          title: "Multiple Copy Options",
+          content:
+            "Available in 2-part, 3-part, or 4-part sets with different color sequences to easily distinguish between copies for different departments.",
+        },
+        {
+          title: "Custom Numbering",
+          content:
+            "Sequential numbering available for tracking and record-keeping purposes, essential for invoices, receipts, and order forms.",
+        },
+        {
+          title: "Customizable Design",
+          content:
+            "Fully customizable with your company logo, contact information, terms and conditions, and specific form fields to match your business processes.",
+        },
+      ],
+    },
+  },
+  {
+    name: "Promotional Products",
+    description:
+      "Extend your brand reach with our customizable promotional products. From branded merchandise to corporate gifts, we offer items that keep your business top-of-mind.",
+    category: "promotional-products",
+    images: [
+      {
+        href: "/images/promo/promotional-products_1.png",
+        alt: "Promotional Products",
+      },
+      {
+        href: "/images/promo/promotional-products_2.png",
+        alt: "Corporate Gifts",
+      },
+      {
+        href: "/images/promo/promotional-products_3.png",
+        alt: "Custom Promotional Items",
+      },
+    ],
+    features: {
+      heading: "Features",
+      subheading:
+        "Our promotional products combine quality, functionality, and brand visibility to create effective marketing tools that recipients will actually use.",
+      items: [
+        {
+          title: "Wide Product Selection",
+          content:
+            "Choose from pens, mugs, apparel, bags, tech accessories, and hundreds of other items to find the perfect match for your audience.",
+        },
+        {
+          title: "Quality Branding",
+          content:
+            "High-quality imprinting, embroidery, and engraving options ensure your logo and message look professional on every item.",
+        },
+        {
+          title: "Bulk Ordering",
+          content:
+            "Volume discounts available for larger orders, making promotional products a cost-effective marketing solution for events and campaigns.",
+        },
+      ],
+    },
+  },
+];
+
+export const PRODUCTS: Product[] = [
+  {
+    name: "AQ Business Cards",
+    category: "business-cards",
+    image: {
+      href: "/images/business-cards/business_cards_standard_01.jpg",
+      alt: "AQ Business Cards",
+    },
+    href: "./aq-business-cards",
+  },
+  {
+    name: "UV Business Cards",
+    category: "business-cards",
+    image: {
+      href: "/images/business-cards/business_cards_color_01.jpg",
+      alt: "UV Business Cards",
+    },
+    href: "./uv-business-cards",
+  },
+  {
+    name: "Matte Laminated Business Cards",
+    category: "business-cards",
+    image: {
+      href: "/images/business-cards/business_cards_laminated_01.jpg",
+      alt: "Matte Laminated Business Cards",
+    },
+    href: "./matte-laminated-business-cards",
+  },
+  {
+    name: "Gloss Laminated Business Cards",
+    category: "business-cards",
+    image: {
+      href: "/images/business-cards/business_cards_laminated_02.jpg",
+      alt: "Gloss Laminated Business Cards",
+    },
+    href: "./1matte-laminated-business-cards",
   },
 ];

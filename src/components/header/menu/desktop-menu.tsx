@@ -7,7 +7,9 @@ export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
   return (
     <div className={cn("flex flex-row items-center justify-center gap-4")}>
       {menuItems?.map((menuItem) => {
-        const isActive = menuItem.href === path;
+        const isActive =
+          menuItem.href === path ||
+          (menuItem.href !== "/" && path.includes(menuItem.href));
 
         if (menuItem.asButton) {
           return (
