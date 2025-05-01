@@ -17,7 +17,9 @@ export const MobileMenu = ({ menuItems, path }: MenuItemsProps) => {
           )}
         >
           {menuItems?.map((menuItem) => {
-            const isActive = menuItem.href === path;
+            const isActive =
+              menuItem.href === path ||
+              (menuItem.href !== "/" && path.includes(menuItem.href));
 
             return (
               <Link
