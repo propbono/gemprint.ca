@@ -1,10 +1,14 @@
 import {
+  LuAward,
   LuBaggageClaim,
   LuCode2,
   LuHeartHandshake,
+  LuLeaf,
+  LuLightbulb,
   LuPrinter,
   LuStar,
   LuTrophy,
+  LuUsers,
 } from "react-icons/lu";
 
 import type { Testimonial } from "@/components/customer-testimonials";
@@ -130,7 +134,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "B N",
     role: "",
-    text: "Gem Printing exceeded all my expectations! Their attention to detail and commitment to quality were exceptional. They delivered a stunning final product right on time. I highly recommend them for any printing needs!",
+    text: "Gemprint services exceeded all my expectations! Their attention to detail and commitment to quality were exceptional. They delivered a stunning final product right on time. I highly recommend them for any printing needs!",
   },
   {
     name: "Matis Coffee",
@@ -150,7 +154,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Parampal Singh",
     role: "",
-    text: "Working with gemprint was an amazing experience as they are very quick and productive.",
+    text: "Working with Gemprint was an amazing experience as they are very quick and productive.",
   },
 ];
 
@@ -535,6 +539,7 @@ export const CATEGORIES: ProductsCategory[] = [
   },
 ];
 
+// TODO: add the rest of the products
 export const PRODUCTS: Product[] = [
   {
     name: "AQ Business Cards",
@@ -571,5 +576,32 @@ export const PRODUCTS: Product[] = [
       alt: "Gloss Laminated Business Cards",
     },
     href: "./1matte-laminated-business-cards",
+  },
+];
+
+export const OUR_VALUES = [
+  {
+    icon: <LuAward className="h-8 w-8" />,
+    title: "Excellence",
+    description:
+      "We strive for excellence in every project, no matter the size or complexity.",
+  },
+  {
+    icon: <LuUsers className="h-8 w-8" />,
+    title: "Collaboration",
+    description:
+      "We work closely with our clients to understand their vision and bring it to life.",
+  },
+  {
+    icon: <LuLightbulb className="h-8 w-8" />,
+    title: "Innovation",
+    description:
+      "We constantly explore new technologies and techniques to stay ahead of industry trends.",
+  },
+  {
+    icon: <LuLeaf className="h-8 w-8" />,
+    title: "Sustainability",
+    description:
+      "We're committed to environmentally responsible printing practices and materials.",
   },
 ];

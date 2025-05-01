@@ -11,6 +11,7 @@ export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
           menuItem.href === path ||
           (menuItem.href !== "/" && path.includes(menuItem.href));
 
+        // TODO: add a mega menu for items with children
         if (menuItem.asButton) {
           return (
             <Button

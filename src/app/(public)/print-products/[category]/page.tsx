@@ -1,16 +1,12 @@
 import { Container } from "@/components/container";
-import {
-  CustomerTestimonials,
-  type Testimonial,
-} from "@/components/customer-testimonials";
+import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { ProductsCarousel } from "@/components/products";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
-import { shuffleArray } from "@/utils/shuffle-array";
+import { CATEGORIES, PRODUCTS } from "@/utils/constants";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,12 +25,10 @@ export default async function Category({
     (product) => product.category === category
   );
 
-  const testimonials: Testimonial[] = shuffleArray(TESTIMONIALS).slice(0, 2);
-
   return (
     <>
       {/* Hero */}
-      <Section className="gradient-primary flex w-full xl:min-h-screen xl:items-center">
+      <Section className="gradient-primary flex w-full xl:min-h-[70vh] xl:items-center">
         <Container className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:pt-32">
           <div className="col-span-1 flex flex-col items-start md:col-span-2">
             <Heading as="h2" className="mb-3 lg:mb-3">
@@ -83,11 +77,11 @@ export default async function Category({
           <div className="col-span-1">
             <AspectRatio
               ratio={16 / 9}
-              className="relativeoverflow-hidden rounded-md"
+              className="relative overflow-hidden rounded-md"
             >
               <Image
                 alt={categoryInfo.images[2].alt}
-                className="aspec-video h-full w-full object-cover transition duration-500 hover:scale-105"
+                className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
                 src={categoryInfo.images[2].href}
                 width="550"
@@ -119,7 +113,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials testimonials={testimonials} />
+      <CustomerTestimonials />
       <Section id="products">
         <Container>
           <SectionHeader>
