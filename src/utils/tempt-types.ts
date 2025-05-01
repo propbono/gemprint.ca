@@ -1,4 +1,14 @@
-export type CategorySlug = "business-cards" | "flyers";
+export type CategorySlug =
+  | "business-cards"
+  | "flyers"
+  | "postcards"
+  | "stickers"
+  | "brochures"
+  | "real-estate-signs"
+  | "election-signs"
+  | "banners-signage"
+  | "promotional-products"
+  | "ncr-forms";
 
 export type PrintProducts = ProductsCategory[];
 
@@ -6,8 +16,7 @@ export type PrintProducts = ProductsCategory[];
 export type ProductsCategory = {
   name: string;
   description: string;
-  slug: CategorySlug;
-  products: Product[];
+  category: CategorySlug;
   images: { href: string; alt: string }[];
   features: {
     heading: string;
