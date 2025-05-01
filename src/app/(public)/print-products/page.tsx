@@ -6,13 +6,20 @@ import { CATEGORIES } from "@/utils/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { LuArrowRightCircle } from "react-icons/lu";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 export default function PrintProducts() {
   return (
     <Container>
       <Section>
         <SectionHeader>
-          <Heading>Print Products</Heading>
+          <Heading as="h2">Print Products</Heading>
+
+          <Heading as="h5">
+            Quality print solutions for your business needs. From business cards
+            to banners, we deliver exceptional materials that make your brand
+            stand out.
+          </Heading>
         </SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CATEGORIES.map((item) => (
@@ -21,7 +28,7 @@ export default function PrintProducts() {
               key={item.category}
               className="group relative overflow-hidden rounded-lg border bg-background transition-all hover:shadow-lg"
             >
-              <div className="aspect-video overflow-hidden">
+              <AspectRatio ratio={4 / 3}>
                 <Image
                   src={item.images[0].href || "/placeholder.svg"}
                   alt={item.images[0].alt}
@@ -29,7 +36,7 @@ export default function PrintProducts() {
                   height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-              </div>
+              </AspectRatio>
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{item.name}</h2>
                 <p className="text-muted-foreground mb-4">{item.description}</p>
