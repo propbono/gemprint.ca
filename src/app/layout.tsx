@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import type { ReactNode } from "react";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body className={cn("layout-grid", ubuntu.className)}>

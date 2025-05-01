@@ -16,7 +16,7 @@ export const ContactFormEmailTemplate = ({
       <body>
         <Heading as="h1">New Form Submission</Heading>
         <p>You just submitted a form. Here are the details:</p>
-        <p>Name: {firstName + " " + lastName}</p>
+        <p>Name:·{`${firstName}·${lastName}`}</p>
         <p>Email: {email}</p>
         <p>Message: {message}</p>
       </body>

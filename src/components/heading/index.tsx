@@ -1,8 +1,9 @@
 import { cn } from "@/utils/cn";
+import type { ReactNode } from "react";
 
 type HeadingProps = {
-  as?: "h1" | "h2" | "h3" | "h4";
-  children: React.ReactNode;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5";
+  children: ReactNode;
   className?: string;
 };
 
@@ -53,6 +54,18 @@ export const Heading = ({ as = "h2", children, className }: HeadingProps) => {
       >
         {children}
       </h4>
+    );
+  }
+  if (as === "h5") {
+    return (
+      <h5
+        className={cn(
+          "mb-5 max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7",
+          className
+        )}
+      >
+        {children}
+      </h5>
     );
   }
 };
