@@ -29,7 +29,7 @@ export default async function Category({
     <>
       {/* Hero */}
       <Section className="gradient-primary flex w-full xl:min-h-[70vh] xl:items-center">
-        <Container className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:pt-32">
+        <Container className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:pt-32">
           <div className="col-span-1 flex flex-col items-start md:col-span-2">
             <Heading as="h2" className="mb-3 lg:mb-3">
               {categoryInfo.name}
@@ -60,7 +60,7 @@ export default async function Category({
               />
             </AspectRatio>
           </div>
-          <div className="col-span-1  md:col-span-2 lg:col-span-1 lg:col-start-2">
+          <div className="col-span-1 hidden sm:block  md:col-span-2 lg:col-span-1 lg:col-start-2">
             <AspectRatio
               ratio={16 / 9}
               className="relative overflow-hidden rounded-md"
@@ -74,7 +74,7 @@ export default async function Category({
               />
             </AspectRatio>
           </div>
-          <div className="col-span-1">
+          <div className="col-span-1 hidden sm:block">
             <AspectRatio
               ratio={16 / 9}
               className="relative overflow-hidden rounded-md"
@@ -124,7 +124,18 @@ export default async function Category({
               <ProductsCarousel products={products} />
             </div>
           ) : (
-            <div className="text-center">No Products available.</div>
+            <div className="text-center">
+              <p className="text-lg text-gray-500">
+                We are adding more products. In the meantime{" "}
+                <a
+                  href="mailto:orders@gemprint.ca"
+                  className="text-primary underline"
+                >
+                  Email us
+                </a>{" "}
+                for a quote.
+              </p>
+            </div>
           )}
         </Container>
       </Section>
