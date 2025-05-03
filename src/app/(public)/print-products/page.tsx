@@ -3,10 +3,10 @@ import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { CATEGORIES } from "@/utils/constants";
-import Link from "next/link";
-import Image from "next/image";
-import { LuArrowRightCircle } from "react-icons/lu";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Image from "next/image";
+import Link from "next/link";
+import { LuArrowRightCircle } from "react-icons/lu";
 
 export default function PrintProducts() {
   return (
@@ -34,6 +34,7 @@ export default function PrintProducts() {
                   alt={item.images[0].alt}
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </AspectRatio>

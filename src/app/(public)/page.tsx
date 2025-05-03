@@ -1,12 +1,10 @@
 import { Container } from "@/components/container";
+import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { LinkCard } from "@/components/link-card";
+import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
-import { LINK_CARD_ITEMS } from "@/utils/constants";
-import Image from "next/image";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-import { CustomerTestimonials } from "@/components/customer-testimonials";
 import {
   Card,
   CardDescription,
@@ -14,7 +12,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { PostHogButton } from "@/components/posthog-button";
+import { LINK_CARD_ITEMS } from "@/utils/constants";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -63,6 +63,7 @@ export default function Home() {
                 src="/images/flyers/flyers_1.png"
                 fill
                 alt="Print products showcase"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               />
             </AspectRatio>

@@ -5,7 +5,9 @@ import type { MenuItemsProps } from "../types";
 
 export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
   return (
-    <div className={cn("flex flex-row items-center justify-center gap-4")}>
+    <div
+      className={cn("flex flex-row items-center justify-center gap-4 lg:gap-6")}
+    >
       {menuItems?.map((menuItem) => {
         const isActive =
           menuItem.href === path ||
@@ -32,7 +34,7 @@ export const DesktopMenu = ({ menuItems, path }: MenuItemsProps) => {
             href={menuItem.href}
             key={menuItem.href}
             className={cn(
-              "mr-6 block text-xl font-bold transition  duration-500 ease-in-out hover:text-primary",
+              "block text-xl font-bold transition  duration-500 ease-in-out hover:text-primary mr-0",
               {
                 "text-primary": isActive,
               }

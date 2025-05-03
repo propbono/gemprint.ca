@@ -56,8 +56,9 @@ export default async function Category({
                 alt={categoryInfo.images[0].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[0].href}
                 width="550"
+                src={categoryInfo.images[0].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
@@ -70,8 +71,9 @@ export default async function Category({
                 alt={categoryInfo.images[1].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[1].href}
                 width="550"
+                src={categoryInfo.images[1].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
@@ -84,8 +86,9 @@ export default async function Category({
                 alt={categoryInfo.images[2].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[2].href}
                 width="550"
+                src={categoryInfo.images[2].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
