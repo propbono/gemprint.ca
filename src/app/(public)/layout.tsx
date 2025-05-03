@@ -3,11 +3,9 @@ import { Header } from "@/components/header";
 import { FOOTER_LINKS, HEADER_MENU_ITEMS } from "@/utils/constants";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { defaultMetadata } from "../metadata";
 
-export const metadata: Metadata = {
-  title: "Gemprint - Experts in Print",
-  description: "Gemprint website listing all our services and products",
-};
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,

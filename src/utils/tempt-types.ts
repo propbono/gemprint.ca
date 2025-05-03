@@ -23,6 +23,7 @@ export type ProductsCategory = {
     subheading: string;
     items: { title: string; content: string }[];
   };
+  keywords?: string[];
 };
 
 export type Product = {

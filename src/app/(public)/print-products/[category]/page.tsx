@@ -13,6 +13,54 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({
+  params: { category },
+}: {
+  params: { category: CategorySlug };
+}) {
+  const categoryInfo = CATEGORIES.find((cat) => cat.category === category);
+
+  if (!categoryInfo) notFound();
+
+  const title = `${categoryInfo.name} Printing Services`;
+  const description = categoryInfo.description;
+  const keywords = categoryInfo.keywords ?? [
+    "printing services",
+    "business cards",
+    "flyers",
+    "brochures",
+    "signage",
+    "promotional products",
+    "NCR",
+    "real estate signs",
+    "election signs",
+    "banners",
+    "stickers",
+    "custom printing",
+    "print products",
+    "print solutions",
+    "Canada",
+  ];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: `/print-products/${category}`,
+    },
+    openGraph: {
+      title: `${title} | Gemprint`,
+      description,
+      url: `https://gemprint.ca/print-products/${category}`,
+      images: categoryInfo.images.map((img) => ({
+        url: img.href,
+        alt: img.alt,
+      })),
+    },
+  };
+}
+
 export default async function Category({
   params: { category },
 }: {
