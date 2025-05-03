@@ -1,15 +1,25 @@
 "use client";
 import posthog from "posthog-js";
-import { Button } from "../ui";
+import { Button, type ButtonProps } from "../ui";
 
-export const RequestQuoteButton = () => {
+type RequestQuoteButtonProps = ButtonProps & {
+  text: string;
+};
+
+export const RequestQuoteButton = ({
+  text,
+  className,
+  ...rest
+}: RequestQuoteButtonProps) => {
   return (
     <Button
+      {...rest}
       asChild
-      variant="default"
+      size="link"
+      className={className}
       onClick={() => posthog.capture("request a quote click")}
     >
-      <a href="mailto:maimuna.gabeyre@gemprint.ca">Request a Quote</a>
+      <a href="mailto:maimuna.gabeyre@gemprint.ca">{text}</a>
     </Button>
   );
 };

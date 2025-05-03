@@ -3,9 +3,7 @@ import { Heading } from "@/components/heading";
 import { LinkCard } from "@/components/link-card";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
-import { Button } from "@/components/ui";
 import { LINK_CARD_ITEMS } from "@/utils/constants";
-import Link from "next/link";
 import Image from "next/image";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
@@ -16,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { PostHogButton } from "@/components/posthog-button";
 
 export default function Home() {
   return (
@@ -45,13 +44,18 @@ export default function Home() {
                   service.
                 </CardDescription>
               </CardHeader>
-              <CardFooter className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg">
-                  <Link href="./contact-us">Get Started Today</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="./print-products">Explore Products</Link>
-                </Button>
+              <CardFooter className="grid grid-cols-1 sm:flex sm:flex-row gap-4">
+                <PostHogButton
+                  text="Get Started Today"
+                  url="./contact-us"
+                  eventName="contact us click"
+                />
+                <PostHogButton
+                  text="Explore Products"
+                  url="./print-products"
+                  eventName="see the products click"
+                  variant="outline"
+                />
               </CardFooter>
             </Card>
             <AspectRatio ratio={16 / 9}>
@@ -102,12 +106,17 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">
-            <Button asChild size="lg">
-              <Link href="./contact-us">Get a Free Quote</Link>
-            </Button>
-            <Button asChild variant="secondary" size="lg">
-              <Link href="./print-products">See our services</Link>
-            </Button>
+            <PostHogButton
+              text="Get a Free Quote"
+              url="./contact-us"
+              eventName="contact us click"
+            />
+            <PostHogButton
+              text="See our services"
+              url="./print-products"
+              eventName="see the products click"
+              variant="secondary"
+            />
           </div>
         </Container>
       </Section>

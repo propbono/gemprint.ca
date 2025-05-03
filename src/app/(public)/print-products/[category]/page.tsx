@@ -2,6 +2,7 @@ import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { ProductsCarousel } from "@/components/products";
+import { RequestQuoteButton } from "@/components/request-quote-btn";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
@@ -127,12 +128,11 @@ export default async function Category({
             <div className="text-center">
               <p className="text-lg text-gray-500">
                 We are adding more products. In the meantime{" "}
-                <a
-                  href="mailto:orders@gemprint.ca"
-                  className="text-primary underline"
-                >
-                  Email us
-                </a>{" "}
+                <RequestQuoteButton
+                  text="Email us"
+                  variant="link"
+                  className="text-lg"
+                />{" "}
                 for a quote.
               </p>
             </div>

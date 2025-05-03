@@ -1,4 +1,4 @@
-import { ContactUsButton } from "@/components/contact-us-btn";
+import { PostHogButton } from "@/components/posthog-button";
 import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
@@ -31,11 +31,18 @@ export default function About() {
                 we strive to offer precisely what you require.
               </p>
             </div>
-            <div className="mt-6 flex w-full flex-wrap items-center gap-4">
-              {/* <Link href="/blog">
-                <Button variant="outline">See the products</Button>
-              </Link> */}
-              <ContactUsButton />
+            <div className="mt-6 grid grid-cols-1  sm:flex w-full sm:flex-wrap items-center gap-4">
+              <PostHogButton
+                text="See the products"
+                url="./print-products"
+                eventName="see the products click"
+                variant="outline"
+              />
+              <PostHogButton
+                text="Contact Us"
+                url="./contact-us"
+                eventName="contact us click"
+              />
             </div>
           </div>
           <div className="relative hidden bg-cover bg-center md:block md:h-1/2 md:w-1/2">
