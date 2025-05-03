@@ -12,11 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LINK_CARD_ITEMS } from "@/utils/constants";
+import { LINK_CARD_ITEMS, TESTIMONIALS } from "@/utils/constants";
+import { shuffleArray } from "@/utils/shuffle-array";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
 export default function Home() {
+  const testimonials = shuffleArray(TESTIMONIALS);
   return (
     <>
       <Section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
@@ -121,7 +123,7 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-      <CustomerTestimonials defaultColumns={3} />
+      <CustomerTestimonials testimonials={testimonials} defaultColumns={3} />
     </>
   );
 }

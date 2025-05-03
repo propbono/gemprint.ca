@@ -1,19 +1,38 @@
+"use client";
+
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
-import type { CustomerTestimonialProps, Testimonial } from "./types";
 import { cn } from "@/utils/cn";
-import { shuffleArray } from "@/utils/shuffle-array";
-import { TESTIMONIALS } from "@/utils/constants";
+import Script from "next/script";
+import type { CustomerTestimonialProps, Testimonial } from "./types";
 
 export const CustomerTestimonials = ({
+  testimonials,
   defaultColumns = 2,
 }: CustomerTestimonialProps) => {
-  const testimonials: Testimonial[] = shuffleArray(TESTIMONIALS).slice(
-    0,
-    defaultColumns
-  );
+  const reviews: Testimonial[] = testimonials.slice(0, defaultColumns);
+
+  const testimonialLdSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Gemprint",
+    review: reviews.map((testimonial) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: testimonial.name,
+      },
+      reviewBody: testimonial.text,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+    })),
+  };
+
   return (
     <Section className="bg-gray-100">
       <Container className="grid items-center gap-4 lg:py-6">
@@ -33,7 +52,7 @@ export const CustomerTestimonials = ({
             }
           )}
         >
-          {testimonials.map((testimonial) => (
+          {reviews.map((testimonial) => (
             <div key={testimonial.name} className="flex flex-col gap-2">
               <div className="flex-1 rounded-lg border bg-gray-50 p-6 dark:border-gray-950 dark:bg-gray-950">
                 <p>{testimonial.text}</p>
@@ -47,6 +66,12 @@ export const CustomerTestimonials = ({
           ))}
         </div>
       </Container>
+      <Script
+        type="application/ld+json"
+        id="schema-customer-testimonials"
+        suppressHydrationWarning
+        content={JSON.stringify(testimonialLdSchema)}
+      />
     </Section>
   );
 };

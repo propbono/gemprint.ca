@@ -7,7 +7,8 @@ import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { CATEGORIES, PRODUCTS } from "@/utils/constants";
+import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
+import { shuffleArray } from "@/utils/shuffle-array";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,6 +70,8 @@ export default async function Category({
   const categoryInfo = CATEGORIES.find((cat) => cat.category === category);
 
   if (!categoryInfo) notFound();
+
+  const testimonials = shuffleArray(TESTIMONIALS);
 
   const products: Product[] = PRODUCTS.filter(
     (product) => product.category === category
@@ -165,7 +168,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials />
+      <CustomerTestimonials testimonials={testimonials} />
       <Section id="products">
         <Container>
           <SectionHeader>

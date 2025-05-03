@@ -1,14 +1,16 @@
-import { PostHogButton } from "@/components/posthog-button";
 import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
+import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import aboutImage from "@/images/about.webp";
-import { OUR_VALUES } from "@/utils/constants";
+import { OUR_VALUES, TESTIMONIALS } from "@/utils/constants";
+import { shuffleArray } from "@/utils/shuffle-array";
 import Image from "next/image";
 
 export default function About() {
+  const testimonials = shuffleArray(TESTIMONIALS);
   return (
     <>
       <Section id="about" className="border-bottom">
@@ -85,7 +87,7 @@ export default function About() {
           </div>
         </Container>
       </Section>
-      <CustomerTestimonials defaultColumns={3} />
+      <CustomerTestimonials testimonials={testimonials} defaultColumns={3} />
     </>
   );
 }
