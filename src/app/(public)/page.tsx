@@ -44,7 +44,7 @@ export default function Home() {
                   service.
                 </CardDescription>
               </CardHeader>
-              <CardFooter className="flex flex-col gap-2 min-[400px]:flex-row">
+              <CardFooter className="grid grid-cols-1 sm:flex sm:flex-row gap-4">
                 <PostHogButton
                   text="Get Started Today"
                   url="./contact-us"

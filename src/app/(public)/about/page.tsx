@@ -31,7 +31,7 @@ export default function About() {
                 we strive to offer precisely what you require.
               </p>
             </div>
-            <div className="mt-6 flex w-full flex-wrap items-center gap-4">
+            <div className="mt-6 grid grid-cols-1  sm:flex w-full sm:flex-wrap items-center gap-4">
               <PostHogButton
                 text="See the products"
                 url="./print-products"
