@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/utils/cn";
-import { Container } from "../container";
 import posthog from "posthog-js";
+import { Container } from "../container";
 
 type FooterProps = {
   links?: {
@@ -29,6 +29,8 @@ export const Footer = ({ links, className }: FooterProps) => {
                 >
                   <a
                     href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
                     onClick={() =>
                       posthog.capture("social link click", {
                         $current_url: link.href,
