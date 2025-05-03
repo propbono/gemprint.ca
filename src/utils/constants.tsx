@@ -736,3 +736,68 @@ export const OUR_VALUES = [
       "We're committed to environmentally responsible printing practices and materials.",
   },
 ];
+
+/* LD Schemas */
+export const DEFAULT_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Gemprint",
+  url: "https://gemprint.ca",
+  logo: "https://gemprint.ca/images/gemprint-logo.svg",
+  sameAs: [
+    "https://facebook.com/gemprint",
+    "https://instagram.com/gemprint",
+    "https://linkedin.com/company/gemprint",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-416-666-1676",
+    contactType: "customer service",
+    availableLanguage: ["English", "Arabic", "Polish", "Somali"],
+  },
+};
+
+export const CONTACT_US_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Gemprint",
+  description: "Professional printing services in Canada",
+  url: "https://gemprint.ca",
+
+  telephone: "+1-416-666-1676",
+  email: "orders@gemprint.ca",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "315-2 Lambertlodge Ave.",
+    addressLocality: "Toronto",
+    addressRegion: "Ontario",
+    postalCode: "M6G 3Y9",
+    addressCountry: "CA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "43.67401",
+    longitude: "-79.42263",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+};
+
+export const FAQ_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((faq) => ({
+    "@type": "Question",
+    name: faq.title,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.text,
+    },
+  })),
+};

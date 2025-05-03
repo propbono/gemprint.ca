@@ -6,7 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQ_ITEMS } from "@/utils/constants";
+import { FAQ_ITEMS, FAQ_LD_SCHEMA } from "@/utils/constants";
+import Script from "next/script";
 
 export default function Faq() {
   return (
@@ -22,6 +23,12 @@ export default function Faq() {
           </AccordionItem>
         ))}
       </Accordion>
+      <Script
+        type="application/ld+json"
+        id="schema-faq"
+        suppressHydrationWarning
+        content={JSON.stringify(FAQ_LD_SCHEMA)}
+      />
     </Container>
   );
 }

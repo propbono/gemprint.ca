@@ -3,6 +3,8 @@ import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { Card, CardContent } from "@/components/ui/card";
+import { CONTACT_US_LD_SCHEMA } from "@/utils/constants";
+import Script from "next/script";
 import { LuPhoneCall } from "react-icons/lu";
 
 // TODO: update email template
@@ -59,6 +61,12 @@ export default function ContactUs() {
           </CardContent>
         </Card>
       </Container>
+      <Script
+        type="application/ld+json"
+        id="schema-contact-us"
+        suppressHydrationWarning
+        content={JSON.stringify(CONTACT_US_LD_SCHEMA)}
+      />
     </Section>
   );
 }

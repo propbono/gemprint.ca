@@ -4,6 +4,8 @@ import { cn } from "@/utils/cn";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import { DEFAULT_LD_SCHEMA } from "@/utils/constants";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import { defaultMetadata } from "./metadata";
 
@@ -26,6 +28,12 @@ export default function RootLayout({
           {children}
           <Toaster />
         </PostHogProvider>
+        <Script
+          type="application/ld+json"
+          id="schema-default"
+          suppressHydrationWarning
+          content={JSON.stringify(DEFAULT_LD_SCHEMA)}
+        />
       </body>
     </html>
   );

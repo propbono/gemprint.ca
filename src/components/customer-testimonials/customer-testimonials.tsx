@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
@@ -14,7 +12,7 @@ export const CustomerTestimonials = ({
 }: CustomerTestimonialProps) => {
   const reviews: Testimonial[] = testimonials.slice(0, defaultColumns);
 
-  const testimonialLdSchema = {
+  const TESTIMONIAL_LD_SCHEMA = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Gemprint",
@@ -70,7 +68,7 @@ export const CustomerTestimonials = ({
         type="application/ld+json"
         id="schema-customer-testimonials"
         suppressHydrationWarning
-        content={JSON.stringify(testimonialLdSchema)}
+        content={JSON.stringify(TESTIMONIAL_LD_SCHEMA)}
       />
     </Section>
   );
