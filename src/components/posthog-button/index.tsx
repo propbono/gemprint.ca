@@ -19,7 +19,7 @@ export const PostHogButton = ({
 }: PostHogButtonProps) => {
   return (
     <Button {...rest} asChild onClick={() => posthog.capture(eventName)}>
-      <Link href="/contact-us">{text}</Link>
+      <Link href={url}>{text}</Link>
     </Button>
   );
 };
