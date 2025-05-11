@@ -5,8 +5,6 @@ import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-export const contentType = "image/jpeg";
-
 const ubuntuRegular = fetch(
   "https://github.com/google/fonts/raw/main/ufl/ubuntu/Ubuntu-Regular.ttf"
 ).then((res) => res.arrayBuffer());
