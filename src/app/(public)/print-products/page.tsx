@@ -3,10 +3,42 @@ import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { CATEGORIES } from "@/utils/constants";
-import Link from "next/link";
-import Image from "next/image";
-import { LuArrowRightCircle } from "react-icons/lu";
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Image from "next/image";
+import Link from "next/link";
+import { LuArrowRightCircle } from "react-icons/lu";
+
+export async function generateMetadata() {
+  const title = "Print Products | Gemprint";
+  const description =
+    "Explore our wide range of print products, from business cards to banners, all with premium quality and fast turnaround.";
+
+  const img = `${process.env.NEXT_PUBLIC_BASE_URL}/images/brochures/brochures_1.png`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description, img }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description })],
+    },
+  };
+}
 
 export default function PrintProducts() {
   return (
@@ -34,6 +66,7 @@ export default function PrintProducts() {
                   alt={item.images[0].alt}
                   width={400}
                   height={300}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </AspectRatio>

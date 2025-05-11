@@ -1,12 +1,10 @@
 import { Container } from "@/components/container";
+import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { LinkCard } from "@/components/link-card";
+import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
-import { LINK_CARD_ITEMS } from "@/utils/constants";
-import Image from "next/image";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-import { CustomerTestimonials } from "@/components/customer-testimonials";
 import {
   Card,
   CardDescription,
@@ -14,9 +12,45 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { PostHogButton } from "@/components/posthog-button";
+import { LINK_CARD_ITEMS, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
+import { shuffleArray } from "@/utils/shuffle-array";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Image from "next/image";
+
+export async function generateMetadata() {
+  const title = "Gemprint | Premium Print Solutions for Your Business";
+  const description =
+    "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.";
+  const cta1 = "Get Started Today";
+  const cta2 = "Explore Products";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description, cta1, cta2 }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description, cta1, cta2 })],
+    },
+  };
+}
 
 export default function Home() {
+  const testimonials = shuffleArray(TESTIMONIALS);
   return (
     <>
       <Section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
@@ -63,6 +97,7 @@ export default function Home() {
                 src="/images/flyers/flyers_1.png"
                 fill
                 alt="Print products showcase"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               />
             </AspectRatio>
@@ -120,7 +155,7 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-      <CustomerTestimonials defaultColumns={3} />
+      <CustomerTestimonials testimonials={testimonials} defaultColumns={3} />
     </>
   );
 }

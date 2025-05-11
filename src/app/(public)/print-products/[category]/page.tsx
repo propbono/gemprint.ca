@@ -7,11 +7,76 @@ import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { CATEGORIES, PRODUCTS } from "@/utils/constants";
+import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
+import { shuffleArray } from "@/utils/shuffle-array";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+const cta1 = "See available products";
+const cta2 = "Learn More";
+
+export async function generateMetadata({
+  params: { category },
+}: {
+  params: { category: CategorySlug };
+}) {
+  const categoryInfo = CATEGORIES.find((cat) => cat.category === category);
+
+  if (!categoryInfo) notFound();
+
+  const title = `${categoryInfo.name} Printing Services`;
+  const description = categoryInfo.description;
+  const img = `${process.env.NEXT_PUBLIC_BASE_URL}${categoryInfo.images[0].href}`;
+
+  const keywords = categoryInfo.keywords ?? [
+    "printing services",
+    "business cards",
+    "flyers",
+    "brochures",
+    "signage",
+    "promotional products",
+    "NCR",
+    "real estate signs",
+    "election signs",
+    "banners",
+    "stickers",
+    "custom printing",
+    "print products",
+    "print solutions",
+    "Canada",
+  ];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: `/print-products/${category}`,
+    },
+    openGraph: {
+      title: `${title} | Gemprint`,
+      description,
+      url: `https://gemprint.ca/print-products/${category}`,
+      images: [
+        {
+          url: ogImageUrl({ title, description, cta1, cta2 }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Gemprint`,
+      description,
+      images: [ogImageUrl({ title, description, cta1, cta2, img })],
+    },
+  };
+}
 
 export default async function Category({
   params: { category },
@@ -21,6 +86,8 @@ export default async function Category({
   const categoryInfo = CATEGORIES.find((cat) => cat.category === category);
 
   if (!categoryInfo) notFound();
+
+  const testimonials = shuffleArray(TESTIMONIALS);
 
   const products: Product[] = PRODUCTS.filter(
     (product) => product.category === category
@@ -40,10 +107,10 @@ export default async function Category({
             </p>
             <div className="flex gap-4">
               <Button variant="default" asChild>
-                <Link href="#products">See available products</Link>
+                <Link href="#products">{cta1}</Link>
               </Button>
               <Button variant="secondary" asChild>
-                <Link href="#features">Learn More</Link>
+                <Link href="#features">{cta2}</Link>
               </Button>
             </div>
           </div>
@@ -56,8 +123,9 @@ export default async function Category({
                 alt={categoryInfo.images[0].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[0].href}
                 width="550"
+                src={categoryInfo.images[0].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
@@ -70,8 +138,9 @@ export default async function Category({
                 alt={categoryInfo.images[1].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[1].href}
                 width="550"
+                src={categoryInfo.images[1].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
@@ -84,8 +153,9 @@ export default async function Category({
                 alt={categoryInfo.images[2].alt}
                 className="h-full w-full object-cover transition duration-500 hover:scale-105"
                 height="310"
-                src={categoryInfo.images[2].href}
                 width="550"
+                src={categoryInfo.images[2].href}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </AspectRatio>
           </div>
@@ -114,7 +184,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials />
+      <CustomerTestimonials testimonials={testimonials} />
       <Section id="products">
         <Container>
           <SectionHeader>

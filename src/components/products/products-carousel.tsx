@@ -28,9 +28,10 @@ export function ProductsCarousel({ products }: { products: Product[] }) {
                   <Image
                     alt={product.image.alt}
                     className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                    width="550"
                     height="310"
                     src={product.image.href}
-                    width="550"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </AspectRatio>
                 <span className="absolute left-2 top-2 rounded-lg bg-primary px-2 py-1  text-sm font-semibold text-white">

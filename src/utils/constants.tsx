@@ -164,6 +164,19 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Make a lasting impression with our high-quality, customizable business cards. Perfect for professionals, entrepreneurs, and small businesses.",
     category: "business-cards",
+    keywords: [
+      "business cards",
+      "premium business cards",
+      "custom business cards",
+      "professional business cards",
+      "high-quality business cards",
+      "Toronto business cards",
+      "GTA business cards",
+      "business card printing",
+      "UV business cards",
+      "matte business cards",
+      "glossy business cards",
+    ],
     images: [
       {
         href: "/images/business-cards/business-cards_1.png",
@@ -206,6 +219,20 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Promote your events, services, or products with our high-quality, eye-catching flyers. Perfect for marketing campaigns, announcements, and promotional materials.",
     category: "flyers",
+    keywords: [
+      "flyers",
+      "promotional flyers",
+      "marketing flyers",
+      "event flyers",
+      "flyer printing",
+      "custom flyers",
+      "Toronto flyers",
+      "GTA flyer printing",
+      "high-quality flyers",
+      "business flyers",
+      "advertising flyers",
+      "color flyers",
+    ],
     images: [
       {
         href: "/images/flyers/flyers_1.png",
@@ -248,6 +275,20 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Connect with customers through our high-quality, customizable postcards. Perfect for direct mail campaigns, announcements, invitations, and promotional offers.",
     category: "postcards",
+    keywords: [
+      "postcards",
+      "direct mail postcards",
+      "marketing postcards",
+      "custom postcards",
+      "postcard printing",
+      "promotional postcards",
+      "Toronto postcards",
+      "GTA postcard printing",
+      "business postcards",
+      "invitation postcards",
+      "announcement postcards",
+      "EDDM postcards",
+    ],
     images: [
       {
         href: "/images/postcards/postcards_1.png",
@@ -290,6 +331,20 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Showcase your products and services with our professional brochures. Ideal for providing detailed information about your business, products, or events in an elegant, organized format.",
     category: "brochures",
+    keywords: [
+      "brochures",
+      "tri-fold brochures",
+      "bi-fold brochures",
+      "marketing brochures",
+      "product brochures",
+      "company brochures",
+      "brochure printing",
+      "Toronto brochures",
+      "GTA brochure printing",
+      "custom brochures",
+      "professional brochures",
+      "Z-fold brochures",
+    ],
     images: [
       {
         href: "/images/brochures/brochures_1.png",
@@ -332,6 +387,20 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Boost your property visibility with our durable, eye-catching real estate signs. Designed to withstand the elements while effectively marketing your listings.",
     category: "real-estate-signs",
+    keywords: [
+      "real estate signs",
+      "property signs",
+      "for sale signs",
+      "open house signs",
+      "realtor signs",
+      "custom real estate signs",
+      "Toronto real estate signs",
+      "GTA real estate signs",
+      "durable real estate signs",
+      "weather-resistant signs",
+      "yard signs",
+      "property marketing signs",
+    ],
     images: [
       {
         href: "/images/real-estate-signs/real-estate-signs_1.png",
@@ -374,6 +443,20 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Make your campaign stand out with our high-visibility election signs. Designed for maximum impact and durability throughout your entire campaign season.",
     category: "election-signs",
+    keywords: [
+      "election signs",
+      "campaign signs",
+      "political signs",
+      "candidate signs",
+      "lawn election signs",
+      "coroplast election signs",
+      "Toronto election signs",
+      "GTA election signs",
+      "durable campaign signs",
+      "custom election signs",
+      "voting signs",
+      "political campaign materials",
+    ],
     images: [
       {
         href: "/images/election-signs/election-signs_1.png",
@@ -416,6 +499,22 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Create impactful visual communications with our custom banners and signage. Perfect for events, storefronts, trade shows, and promotional displays.",
     category: "banners-signage",
+    keywords: [
+      "banners",
+      "signage",
+      "vinyl banners",
+      "retractable banners",
+      "trade show banners",
+      "custom signs",
+      "Toronto banners",
+      "GTA signage",
+      "outdoor banners",
+      "indoor signage",
+      "event banners",
+      "promotional displays",
+      "banner stands",
+      "business signage",
+    ],
     images: [
       {
         href: "/images/banners/banners-and-signage_1.png",
@@ -458,6 +557,21 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Streamline your business operations with our professional NCR (No Carbon Required) forms and invoices. Perfect for receipts, purchase orders, work orders, and any business documentation requiring multiple copies.",
     category: "ncr-forms",
+    keywords: [
+      "NCR forms",
+      "carbonless forms",
+      "invoice forms",
+      "receipt books",
+      "business forms",
+      "custom NCR forms",
+      "Toronto NCR printing",
+      "GTA business forms",
+      "multi-part forms",
+      "purchase order forms",
+      "work order forms",
+      "numbered forms",
+      "sequential forms",
+    ],
     images: [
       {
         href: "/images/ncr-forms/ncr-invoices_1.png",
@@ -500,6 +614,23 @@ export const CATEGORIES: ProductsCategory[] = [
     description:
       "Extend your brand reach with our customizable promotional products. From branded merchandise to corporate gifts, we offer items that keep your business top-of-mind.",
     category: "promotional-products",
+    keywords: [
+      "promotional products",
+      "branded merchandise",
+      "corporate gifts",
+      "promotional items",
+      "custom promotional products",
+      "branded giveaways",
+      "Toronto promotional items",
+      "GTA promotional products",
+      "branded pens",
+      "branded mugs",
+      "custom apparel",
+      "promotional bags",
+      "trade show giveaways",
+      "branded tech accessories",
+      "business swag",
+    ],
     images: [
       {
         href: "/images/promo/promotional-products_1.png",
@@ -605,3 +736,68 @@ export const OUR_VALUES = [
       "We're committed to environmentally responsible printing practices and materials.",
   },
 ];
+
+/* LD Schemas */
+export const DEFAULT_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Gemprint",
+  url: "https://gemprint.ca",
+  logo: "https://gemprint.ca/images/gemprint-logo.svg",
+  sameAs: [
+    "https://facebook.com/gemprint",
+    "https://instagram.com/gemprint",
+    "https://linkedin.com/company/gemprint",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-416-666-1676",
+    contactType: "customer service",
+    availableLanguage: ["English", "Arabic", "Polish", "Somali"],
+  },
+};
+
+export const CONTACT_US_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Gemprint",
+  description: "Professional printing services in Canada",
+  url: "https://gemprint.ca",
+
+  telephone: "+1-416-666-1676",
+  email: "orders@gemprint.ca",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "315-2 Lambertlodge Ave.",
+    addressLocality: "Toronto",
+    addressRegion: "Ontario",
+    postalCode: "M6G 3Y9",
+    addressCountry: "CA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "43.67401",
+    longitude: "-79.42263",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+};
+
+export const FAQ_LD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((faq) => ({
+    "@type": "Question",
+    name: faq.title,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.text,
+    },
+  })),
+};

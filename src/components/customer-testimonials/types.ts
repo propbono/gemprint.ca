@@ -5,5 +5,6 @@ export type Testimonial = {
 };
 
 export type CustomerTestimonialProps = {
+  testimonials: Testimonial[];
   defaultColumns?: 2 | 3;
 };

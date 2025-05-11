@@ -1,14 +1,63 @@
-import { PostHogButton } from "@/components/posthog-button";
 import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
+import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import aboutImage from "@/images/about.webp";
-import { OUR_VALUES } from "@/utils/constants";
+import { OUR_VALUES, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
+import { shuffleArray } from "@/utils/shuffle-array";
 import Image from "next/image";
 
+export async function generateMetadata() {
+  const title = "About | Gemprint";
+  const ogImageTitle = "Experts in Print";
+  const description =
+    "Learn more about Gemprint, our mission, and our commitment to quality printing services in Canada.";
+  const cta1 = "See the products";
+  const cta2 = "Contact Us";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({
+            title: ogImageTitle,
+            description,
+            cta1,
+            cta2,
+            img: aboutImage.src,
+          }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [
+        ogImageUrl({
+          title: ogImageTitle,
+          description,
+          cta1,
+          cta2,
+          img: aboutImage.src,
+        }),
+      ],
+    },
+  };
+}
+
 export default function About() {
+  const testimonials = shuffleArray(TESTIMONIALS);
   return (
     <>
       <Section id="about" className="border-bottom">
@@ -85,7 +134,7 @@ export default function About() {
           </div>
         </Container>
       </Section>
-      <CustomerTestimonials defaultColumns={3} />
+      <CustomerTestimonials testimonials={testimonials} defaultColumns={3} />
     </>
   );
 }
