@@ -12,8 +12,12 @@ import Image from "next/image";
 
 export async function generateMetadata() {
   const title = "About | Gemprint";
+  const ogImageTitle = "Experts in Print";
   const description =
     "Learn more about Gemprint, our mission, and our commitment to quality printing services in Canada.";
+  const cta1 = "See the products";
+  const cta2 = "Contact Us";
+
   return {
     title,
     description,
@@ -22,7 +26,13 @@ export async function generateMetadata() {
       description,
       images: [
         {
-          url: ogImageUrl({ title, description }),
+          url: ogImageUrl({
+            title: ogImageTitle,
+            description,
+            cta1,
+            cta2,
+            img: aboutImage.src,
+          }),
           width: 1200,
           height: 630,
           alt: title,
@@ -33,7 +43,15 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImageUrl({ title, description })],
+      images: [
+        ogImageUrl({
+          title: ogImageTitle,
+          description,
+          cta1,
+          cta2,
+          img: aboutImage.src,
+        }),
+      ],
     },
   };
 }

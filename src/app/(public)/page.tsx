@@ -19,9 +19,12 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
 export async function generateMetadata() {
-  const title = "Gemprint | Professional Printing Services in Canada";
+  const title = "Gemprint | Premium Print Solutions for Your Business";
   const description =
     "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.";
+  const cta1 = "Get Started Today";
+  const cta2 = "Explore Products";
+
   return {
     title,
     description,
@@ -30,7 +33,7 @@ export async function generateMetadata() {
       description,
       images: [
         {
-          url: ogImageUrl({ title, description }),
+          url: ogImageUrl({ title, description, cta1, cta2 }),
           width: 1200,
           height: 630,
           alt: title,
@@ -41,7 +44,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImageUrl({ title, description })],
+      images: [ogImageUrl({ title, description, cta1, cta2 })],
     },
   };
 }
