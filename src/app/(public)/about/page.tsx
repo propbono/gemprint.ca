@@ -6,8 +6,37 @@ import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import aboutImage from "@/images/about.webp";
 import { OUR_VALUES, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import { shuffleArray } from "@/utils/shuffle-array";
 import Image from "next/image";
+
+export async function generateMetadata() {
+  const title = "About | Gemprint";
+  const description =
+    "Learn more about Gemprint, our mission, and our commitment to quality printing services in Canada.";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description })],
+    },
+  };
+}
 
 export default function About() {
   const testimonials = shuffleArray(TESTIMONIALS);

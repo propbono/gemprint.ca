@@ -8,11 +8,15 @@ import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import { shuffleArray } from "@/utils/shuffle-array";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+const cta1 = "See available products";
+const cta2 = "Learn More";
 
 export async function generateMetadata({
   params: { category },
@@ -25,6 +29,8 @@ export async function generateMetadata({
 
   const title = `${categoryInfo.name} Printing Services`;
   const description = categoryInfo.description;
+  const img = `${process.env.NEXT_PUBLIC_BASE_URL}${categoryInfo.images[0].href}`;
+
   const keywords = categoryInfo.keywords ?? [
     "printing services",
     "business cards",
@@ -54,10 +60,20 @@ export async function generateMetadata({
       title: `${title} | Gemprint`,
       description,
       url: `https://gemprint.ca/print-products/${category}`,
-      images: categoryInfo.images.map((img) => ({
-        url: img.href,
-        alt: img.alt,
-      })),
+      images: [
+        {
+          url: ogImageUrl({ title, description, cta1, cta2 }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Gemprint`,
+      description,
+      images: [ogImageUrl({ title, description, cta1, cta2, img })],
     },
   };
 }
@@ -91,10 +107,10 @@ export default async function Category({
             </p>
             <div className="flex gap-4">
               <Button variant="default" asChild>
-                <Link href="#products">See available products</Link>
+                <Link href="#products">{cta1}</Link>
               </Button>
               <Button variant="secondary" asChild>
-                <Link href="#features">Learn More</Link>
+                <Link href="#features">{cta2}</Link>
               </Button>
             </div>
           </div>

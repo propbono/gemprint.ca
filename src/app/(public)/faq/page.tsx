@@ -1,3 +1,4 @@
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import { Container } from "@/components/container";
 import { Heading } from "@/components/heading";
 import {
@@ -8,6 +9,34 @@ import {
 } from "@/components/ui/accordion";
 import { FAQ_ITEMS, FAQ_LD_SCHEMA } from "@/utils/constants";
 import Script from "next/script";
+
+export async function generateMetadata() {
+  const title = "Frequently Asked Questions | Gemprint";
+  const description =
+    "Find answers to common questions about Gemprint's printing services, ordering, and delivery.";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description })],
+    },
+  };
+}
 
 export default function Faq() {
   return (

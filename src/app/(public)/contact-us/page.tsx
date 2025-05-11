@@ -4,10 +4,39 @@ import { Heading } from "@/components/heading";
 import { Section } from "@/components/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { CONTACT_US_LD_SCHEMA } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import Script from "next/script";
 import { LuPhoneCall } from "react-icons/lu";
 
 // TODO: update email template
+
+export async function generateMetadata() {
+  const title = "Contact | Gemprint";
+  const description =
+    "Get in touch with Gemprint for all your printing needs. We're here to help!";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description })],
+    },
+  };
+}
 
 export default function ContactUs() {
   return (

@@ -1,10 +1,10 @@
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import type { Metadata } from "next";
 
-// TODO: Update images for opengraph and twitter
 export const defaultMetadata: Metadata = {
   title: {
     template: "%s | Gemprint - Professional Printing Services",
-    default: "Gemprint - Professional Printing Services in Canada",
+    default: "Gemprint | Professional Printing Services in Canada",
   },
   description:
     "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.",
@@ -38,7 +38,7 @@ export const defaultMetadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Gemprint - Professional Printing Services",
+    title: "Gemprint | Professional Printing Services",
     description:
       "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.",
     url: "https://gemprint.ca",
@@ -47,7 +47,11 @@ export const defaultMetadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/gemprint-og-image.jpg",
+        url: ogImageUrl({
+          title: "Gemprint | Professional Printing Services",
+          description:
+            "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.",
+        }),
         width: 1200,
         height: 630,
         alt: "Gemprint - Professional Printing Services",
@@ -56,10 +60,16 @@ export const defaultMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gemprint - Professional Printing Services",
+    title: "Gemprint | Professional Printing Services",
     description:
       "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.",
-    images: ["/images/gemprint-twitter-image.jpg"],
+    images: [
+      ogImageUrl({
+        title: "Gemprint | Professional Printing Services",
+        description:
+          "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.",
+      }),
+    ],
   },
   robots: {
     index: true,

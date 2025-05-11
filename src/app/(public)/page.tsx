@@ -13,9 +13,38 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LINK_CARD_ITEMS, TESTIMONIALS } from "@/utils/constants";
+import { ogImageUrl } from "@/utils/ogImageUrl";
 import { shuffleArray } from "@/utils/shuffle-array";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
+
+export async function generateMetadata() {
+  const title = "Gemprint | Professional Printing Services in Canada";
+  const description =
+    "High-quality printing services including business cards, flyers, brochures, signage, and promotional products for businesses across Canada.";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl({ title, description }),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl({ title, description })],
+    },
+  };
+}
 
 export default function Home() {
   const testimonials = shuffleArray(TESTIMONIALS);
