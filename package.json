@@ -31,7 +31,7 @@
     "class-variance-authority": "^0.7.0",
     "embla-carousel-react": "^8.0.0",
     "framer-motion": "^11.0.14",
-    "next": "^14.2.28",
+    "next": "14.2.35",
     "posthog-js": "^1.236.7",
     "posthog-node": "^4.14.0",
     "react": "^18",
@@ -69,7 +69,11 @@
     "vitest": "^3.1.2"
   },
   "lint-staged": {
-    "*.{js, jsx,ts,tsx}": ["npm run lint"],
-    "*.{json,js,ts,jsx,tsx,html}": ["npm run format:fix"]
+    "*.{js, jsx,ts,tsx}": [
+      "npm run lint"
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "npm run format:fix"
+    ]
   }
 }
