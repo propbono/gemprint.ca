@@ -2,8 +2,6 @@ import { Container } from "@/components/container";
 import { CustomerTestimonials } from "@/components/customer-testimonials";
 import { Heading } from "@/components/heading";
 import { HeroVariantA } from "@/components/hero/variant-a";
-import { HeroVariantB } from "@/components/hero/variant-b";
-import { HeroVariantC } from "@/components/hero/variant-c";
 import { LinkCard } from "@/components/link-card";
 import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
@@ -57,21 +55,7 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      {/* === Hero Variants for Captain Review === */}
-      <div className="bg-gray-100 py-2 text-center text-xs font-medium uppercase tracking-wider text-gray-500">
-        Hero Variant A — Product Showcase
-      </div>
       <HeroVariantA />
-
-      <div className="bg-gray-100 py-2 text-center text-xs font-medium uppercase tracking-wider text-gray-500">
-        Hero Variant B — Bold &amp; Minimal
-      </div>
-      <HeroVariantB />
-
-      <div className="bg-gray-100 py-2 text-center text-xs font-medium uppercase tracking-wider text-gray-500">
-        Hero Variant C — Visual Grid
-      </div>
-      <HeroVariantC />
 
       {/* === Existing Homepage Content === */}
       <Section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
