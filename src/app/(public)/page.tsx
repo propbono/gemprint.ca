@@ -1,9 +1,9 @@
 import { Container } from "@/components/container";
+import { CustomerTestimonials } from "@/components/customer-testimonials";
+import { Heading } from "@/components/heading";
 import { HeroVariantA } from "@/components/hero/variant-a";
 import { HeroVariantB } from "@/components/hero/variant-b";
 import { HeroVariantC } from "@/components/hero/variant-c";
-import { CustomerTestimonials } from "@/components/customer-testimonials";
-import { Heading } from "@/components/heading";
 import { LinkCard } from "@/components/link-card";
 import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";

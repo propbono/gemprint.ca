@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 const heroCategories = [
   {
