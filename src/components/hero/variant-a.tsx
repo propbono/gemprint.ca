@@ -1,3 +1,4 @@
+import { PostHogButton } from "@/components/posthog-button";
 import {
   Carousel,
   CarouselContent,
@@ -5,7 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { PostHogButton } from "@/components/posthog-button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
