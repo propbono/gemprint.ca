@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui";
 import {
   Carousel,
   CarouselContent,
@@ -6,9 +5,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { PostHogButton } from "@/components/posthog-button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import Link from "next/link";
 
 const productSlides = [
   {
@@ -134,21 +133,21 @@ export function HeroVariantA() {
 
             {/* CTAs — below text, outside carousel */}
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button
+              <PostHogButton
+                text="Get a Free Quote"
+                url="/contact-us"
+                eventName="contact us click"
                 size="lg"
                 className="px-8 py-6 text-lg font-semibold"
-                asChild
-              >
-                <Link href="/contact-us">Get a Free Quote</Link>
-              </Button>
-              <Button
+              />
+              <PostHogButton
+                text="Explore Products"
+                url="/print-products"
+                eventName="see the products click"
                 size="lg"
                 variant="outline"
                 className="border-gray-500 bg-transparent px-8 py-6 text-lg font-semibold text-white hover:bg-gray-800 hover:text-white"
-                asChild
-              >
-                <Link href="/print-products">Explore Products</Link>
-              </Button>
+              />
             </div>
           </div>
 
