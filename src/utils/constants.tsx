@@ -30,7 +30,7 @@ export const FOOTER_LINKS = [
   },
   {
     title: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/gemprint",
   },
 ];
 
@@ -745,9 +745,10 @@ export const DEFAULT_LD_SCHEMA = {
   url: "https://gemprint.ca",
   logo: "https://gemprint.ca/images/gemprint-logo.svg",
   sameAs: [
-    "https://facebook.com/gemprint",
-    "https://instagram.com/gemprint",
-    "https://linkedin.com/company/gemprint",
+    "https://www.facebook.com/GemprintGTA",
+    "https://www.instagram.com/gemprint_gta/",
+    "https://twitter.com/GemprintTheSix",
+    "https://www.linkedin.com/company/gemprint",
   ],
   contactPoint: {
     "@type": "ContactPoint",

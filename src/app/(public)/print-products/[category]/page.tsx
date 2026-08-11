@@ -9,7 +9,6 @@ import { Button } from "@/components/ui";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { CATEGORIES, PRODUCTS, TESTIMONIALS } from "@/utils/constants";
 import { ogImageUrl } from "@/utils/ogImageUrl";
-import { shuffleArray } from "@/utils/shuffle-array";
 import type { CategorySlug, Product } from "@/utils/tempt-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +41,6 @@ export async function generateMetadata({
     "real estate signs",
     "election signs",
     "banners",
-    "stickers",
     "custom printing",
     "print products",
     "print solutions",
@@ -86,8 +84,6 @@ export default async function Category({
   const categoryInfo = CATEGORIES.find((cat) => cat.category === category);
 
   if (!categoryInfo) notFound();
-
-  const testimonials = shuffleArray(TESTIMONIALS);
 
   const products: Product[] = PRODUCTS.filter(
     (product) => product.category === category
@@ -184,7 +180,7 @@ export default async function Category({
         </Container>
       </Section>
       {/* Testimonials */}
-      <CustomerTestimonials testimonials={testimonials} />
+      <CustomerTestimonials testimonials={TESTIMONIALS} />
       <Section id="products">
         <Container>
           <SectionHeader>
