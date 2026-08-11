@@ -16,6 +16,7 @@
     "lint:all": "npm run lint .",
     "lint:fix": "biome lint --write --",
     "lint:fix-all": "npm run lint:fix .",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
