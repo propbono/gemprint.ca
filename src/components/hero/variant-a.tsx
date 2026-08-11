@@ -1,20 +1,35 @@
 import { Button } from "@/components/ui";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import Link from "next/link";
 
-const productCollage = [
+const productSlides = [
   {
     src: "/images/business-cards/business-cards_1.png",
     alt: "Business Cards sample",
+    label: "Business Cards",
   },
-  { src: "/images/flyers/flyers_1.png", alt: "Flyers sample" },
+  {
+    src: "/images/flyers/flyers_1.png",
+    alt: "Flyers sample",
+    label: "Flyers",
+  },
   {
     src: "/images/brochures/brochures_1.png",
     alt: "Brochures sample",
+    label: "Brochures",
   },
   {
     src: "/images/postcards/postcards_1.png",
     alt: "Postcards sample",
+    label: "Postcards",
   },
 ];
 
@@ -43,9 +58,9 @@ export function HeroVariantA() {
               turnaround
             </p>
 
-            {/* CTAs — design system colors */}
+            {/* CTAs */}
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" asChild>
+              <Button size="lg" variant="default" asChild>
                 <Link href="/contact-us">Get a Free Quote</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
@@ -103,23 +118,37 @@ export function HeroVariantA() {
             </div>
           </div>
 
-          {/* Right: Product collage */}
-          <div className="hidden lg:grid lg:grid-cols-2 lg:gap-3">
-            {productCollage.map((item) => (
-              <div
-                key={item.src}
-                className="overflow-hidden rounded-lg bg-gray-800"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={300}
-                  height={225}
-                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 1024px) 0px, 300px"
-                />
-              </div>
-            ))}
+          {/* Right: Product carousel */}
+          <div className="hidden lg:block px-10">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {productSlides.map((slide) => (
+                  <CarouselItem key={slide.alt}>
+                    <div className="overflow-hidden rounded-lg bg-gray-800">
+                      <AspectRatio ratio={4 / 3}>
+                        <Image
+                          src={slide.src}
+                          alt={slide.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 0px, 450px"
+                        />
+                      </AspectRatio>
+                    </div>
+                    <p className="mt-3 text-center text-sm font-medium text-gray-300">
+                      {slide.label}
+                    </p>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
+              <CarouselNext className="right-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
+            </Carousel>
           </div>
         </div>
       </div>
