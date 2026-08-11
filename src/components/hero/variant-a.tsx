@@ -1,26 +1,37 @@
 import { Button } from "@/components/ui";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { cn } from "@/utils/cn";
 import Image from "next/image";
 import Link from "next/link";
+
+const productCollage = [
+  {
+    src: "/images/business-cards/business-cards_1.png",
+    alt: "Business Cards sample",
+  },
+  { src: "/images/flyers/flyers_1.png", alt: "Flyers sample" },
+  {
+    src: "/images/brochures/brochures_1.png",
+    alt: "Brochures sample",
+  },
+  {
+    src: "/images/postcards/postcards_1.png",
+    alt: "Postcards sample",
+  },
+];
 
 export function HeroVariantA() {
   return (
     <section className="relative w-full overflow-hidden bg-gray-950 py-16 md:py-24 lg:py-32">
-      {/* Background hero image with overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero.webp"
-          alt=""
-          fill
-          className="object-cover opacity-50"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-950/70 to-gray-950/40" />
-      </div>
+      {/* Radial gradient for depth (same as Variant B) */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,212,255,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 50% 100%, rgba(0,212,255,0.06) 0%, transparent 60%)",
+        }}
+      />
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid gap-10 items-center lg:grid-cols-2 lg:gap-16">
           {/* Left: Text content */}
           <div className="space-y-6">
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl/none">
@@ -32,17 +43,12 @@ export function HeroVariantA() {
               turnaround
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* CTAs — design system colors */}
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Button size="lg" asChild>
                 <Link href="/contact-us">Get a Free Quote</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 hover:text-white"
-                asChild
-              >
+              <Button size="lg" variant="outline" asChild>
                 <Link href="/print-products">Browse Products</Link>
               </Button>
             </div>
@@ -97,16 +103,23 @@ export function HeroVariantA() {
             </div>
           </div>
 
-          {/* Right: Product image */}
-          <div className={cn("hidden lg:block")}>
-            <AspectRatio ratio={4 / 3}>
-              <Image
-                src="/images/hero.webp"
-                alt="Gemprint premium print products"
-                fill
-                className="rounded-xl object-cover shadow-2xl"
-              />
-            </AspectRatio>
+          {/* Right: Product collage */}
+          <div className="hidden lg:grid lg:grid-cols-2 lg:gap-3">
+            {productCollage.map((item) => (
+              <div
+                key={item.src}
+                className="overflow-hidden rounded-lg bg-gray-800"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={300}
+                  height={225}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 1024px) 0px, 300px"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
