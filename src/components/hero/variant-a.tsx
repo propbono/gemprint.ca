@@ -179,8 +179,8 @@ export function HeroVariantA() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
-              <CarouselNext className="right-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
+              <CarouselPrevious className="h-10 w-10 bg-white text-gray-900 border-gray-200 hover:bg-gray-100 hover:border-gray-400 active:scale-95 transition-transform shadow-md" />
+              <CarouselNext className="h-10 w-10 bg-white text-gray-900 border-gray-200 hover:bg-gray-100 hover:border-gray-400 active:scale-95 transition-transform shadow-md" />
             </Carousel>
           </div>
         </div>
