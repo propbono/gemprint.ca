@@ -27,15 +27,40 @@ const productSlides = [
     label: "Brochures",
   },
   {
+    src: "/images/banners/banners-and-signage_1.png",
+    alt: "Banners sample",
+    label: "Banners & Signage",
+  },
+  {
+    src: "/images/election-signs/election-signs_1.png",
+    alt: "Election Signs sample",
+    label: "Election Signs",
+  },
+  {
+    src: "/images/ncr-forms/ncr-invoices_1.png",
+    alt: "NCR Forms sample",
+    label: "NCR Forms",
+  },
+  {
     src: "/images/postcards/postcards_1.png",
     alt: "Postcards sample",
     label: "Postcards",
+  },
+  {
+    src: "/images/promo/promotional-products_1.png",
+    alt: "Promotional Products sample",
+    label: "Promo Products",
+  },
+  {
+    src: "/images/real-estate-signs/real-estate-signs_1.png",
+    alt: "Real Estate Signs sample",
+    label: "Real Estate Signs",
   },
 ];
 
 export function HeroVariantA() {
   return (
-    <section className="relative w-full overflow-hidden bg-gray-950 py-16 md:py-24 lg:py-32">
+    <section className="relative flex min-h-[85vh] w-full flex-col justify-center overflow-hidden bg-gray-950">
       {/* Radial gradient for depth (same as Variant B) */}
       <div
         className="absolute inset-0 z-0"
@@ -45,111 +70,117 @@ export function HeroVariantA() {
         }}
       />
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-4">
-        <div className="grid gap-10 items-center lg:grid-cols-2 lg:gap-16">
-          {/* Left: Text content */}
-          <div className="space-y-6">
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl/none">
-              Premium Print That Makes{" "}
-              <span className="text-primary">Your Brand Stand Out</span>
-            </h1>
-            <p className="max-w-xl text-lg text-gray-300">
-              Business cards, flyers, signage &amp; more — Toronto-based, fast
-              turnaround
-            </p>
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 py-16 md:py-20">
+        {/* Headline & subhead */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl/none">
+            Premium Print That Makes{" "}
+            <span className="text-primary">Your Brand Stand Out</span>
+          </h1>
+          <p className="mt-4 text-lg text-gray-300">
+            Business cards, flyers, signage &amp; more — Toronto-based, fast
+            turnaround
+          </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" variant="default" asChild>
-                <Link href="/contact-us">Get a Free Quote</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/print-products">Browse Products</Link>
-              </Button>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-4 pt-2 text-sm text-gray-400">
-              <span className="flex items-center gap-1.5">
-                <svg
-                  className="h-4 w-4 text-primary"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Toronto Since 2018
-              </span>
-              <span className="flex items-center gap-1.5">
-                <svg
-                  className="h-4 w-4 text-primary"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Fast Turnaround
-              </span>
-              <span className="flex items-center gap-1.5">
-                <svg
-                  className="h-4 w-4 text-primary"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Quality Guaranteed
-              </span>
-            </div>
+          {/* Trust badges */}
+          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <span className="flex items-center gap-1.5">
+              <svg
+                className="h-4 w-4 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Toronto Since 2018
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                className="h-4 w-4 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Fast Turnaround
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                className="h-4 w-4 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Quality Guaranteed
+            </span>
           </div>
+        </div>
 
-          {/* Right: Product carousel */}
-          <div className="hidden lg:block px-10">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-            >
-              <CarouselContent>
-                {productSlides.map((slide) => (
-                  <CarouselItem key={slide.alt}>
-                    <div className="overflow-hidden rounded-lg bg-gray-800">
-                      <AspectRatio ratio={4 / 3}>
-                        <Image
-                          src={slide.src}
-                          alt={slide.alt}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 0px, 450px"
-                        />
-                      </AspectRatio>
-                    </div>
-                    <p className="mt-3 text-center text-sm font-medium text-gray-300">
-                      {slide.label}
-                    </p>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
-              <CarouselNext className="right-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
-            </Carousel>
-          </div>
+        {/* Prominent CTAs */}
+        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <Button size="lg" className="px-8 py-6 text-lg font-semibold" asChild>
+            <Link href="/contact-us">Get a Free Quote</Link>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-gray-500 px-8 py-6 text-lg font-semibold text-white hover:bg-gray-800 hover:text-white"
+            asChild
+          >
+            <Link href="/print-products">Browse Products</Link>
+          </Button>
+        </div>
+
+        {/* Product carousel */}
+        <div className="mx-auto mt-12 max-w-3xl px-10">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {productSlides.map((slide) => (
+                <CarouselItem
+                  key={slide.alt}
+                  className="basis-full sm:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="overflow-hidden rounded-lg bg-gray-800">
+                    <AspectRatio ratio={4 / 3}>
+                      <Image
+                        src={slide.src}
+                        alt={slide.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </AspectRatio>
+                  </div>
+                  <p className="mt-3 text-center text-sm font-medium text-gray-300">
+                    {slide.label}
+                  </p>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
+            <CarouselNext className="right-0 border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:text-white" />
+          </Carousel>
         </div>
       </div>
     </section>
