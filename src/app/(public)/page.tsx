@@ -6,17 +6,8 @@ import { LinkCard } from "@/components/link-card";
 import { PostHogButton } from "@/components/posthog-button";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { LINK_CARD_ITEMS, TESTIMONIALS } from "@/utils/constants";
 import { ogImageUrl } from "@/utils/ogImageUrl";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-import Image from "next/image";
 
 export async function generateMetadata() {
   const title = "Gemprint | Premium Print Solutions for Your Business";
@@ -57,58 +48,6 @@ export default function Home() {
     <>
       <HeroVariantA />
 
-      {/* === Existing Homepage Content === */}
-      <Section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero.webp"
-            alt="Creative paint splash background"
-            fill
-            className="object-cover "
-            priority
-          />
-          <div className="absolute inset-0" />
-        </div>
-        <Container>
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_400px]">
-            <Card className="flex flex-col justify-center space-y-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none text-foreground">
-                  <u>Premium</u> Print Solutions{" "}
-                  <span className="text-primary">for Your Business</span>
-                </CardTitle>
-                <CardDescription className="max-w-[600px] text-muted-foreground md:text-xl dark:text-background">
-                  From business cards to banners, we deliver high-quality print
-                  products with fast turnaround times and exceptional customer
-                  service.
-                </CardDescription>
-              </CardHeader>
-              <CardFooter className="grid grid-cols-1 sm:flex sm:flex-row gap-4">
-                <PostHogButton
-                  text="Get Started Today"
-                  url="./contact-us"
-                  eventName="contact us click"
-                />
-                <PostHogButton
-                  text="Explore Products"
-                  url="./print-products"
-                  eventName="see the products click"
-                  variant="outline"
-                />
-              </CardFooter>
-            </Card>
-            <AspectRatio ratio={16 / 9}>
-              <Image
-                src="/images/flyers/flyers_1.png"
-                fill
-                alt="Print products showcase"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-              />
-            </AspectRatio>
-          </div>
-        </Container>
-      </Section>
       <Section className="bg-slate-50" id="services">
         <Container className="space-y-6 px-4 py-8 md:py-12 lg:py-12">
           <SectionHeader>

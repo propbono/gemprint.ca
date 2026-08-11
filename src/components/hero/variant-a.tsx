@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui";
+import { PostHogButton } from "@/components/posthog-button";
 import {
   Carousel,
   CarouselContent,
@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/carousel";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import Link from "next/link";
 
 const productSlides = [
   {
@@ -27,15 +26,40 @@ const productSlides = [
     label: "Brochures",
   },
   {
+    src: "/images/banners/banners-and-signage_1.png",
+    alt: "Banners sample",
+    label: "Banners & Signage",
+  },
+  {
+    src: "/images/election-signs/election-signs_1.png",
+    alt: "Election Signs sample",
+    label: "Election Signs",
+  },
+  {
+    src: "/images/ncr-forms/ncr-invoices_1.png",
+    alt: "NCR Forms sample",
+    label: "NCR Forms",
+  },
+  {
     src: "/images/postcards/postcards_1.png",
     alt: "Postcards sample",
     label: "Postcards",
+  },
+  {
+    src: "/images/promo/promotional-products_1.png",
+    alt: "Promotional Products sample",
+    label: "Promo Products",
+  },
+  {
+    src: "/images/real-estate-signs/real-estate-signs_1.png",
+    alt: "Real Estate Signs sample",
+    label: "Real Estate Signs",
   },
 ];
 
 export function HeroVariantA() {
   return (
-    <section className="relative w-full overflow-hidden bg-gray-950 py-16 md:py-24 lg:py-32">
+    <section className="relative flex min-h-[85vh] w-full flex-col justify-center overflow-hidden bg-gray-950">
       {/* Radial gradient for depth (same as Variant B) */}
       <div
         className="absolute inset-0 z-0"
@@ -45,9 +69,9 @@ export function HeroVariantA() {
         }}
       />
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-4">
-        <div className="grid gap-10 items-center lg:grid-cols-2 lg:gap-16">
-          {/* Left: Text content */}
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Left: Text + CTAs */}
           <div className="space-y-6">
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl/none">
               Premium Print That Makes{" "}
@@ -57,16 +81,6 @@ export function HeroVariantA() {
               Business cards, flyers, signage &amp; more — Toronto-based, fast
               turnaround
             </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" variant="default" asChild>
-                <Link href="/contact-us">Get a Free Quote</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/print-products">Browse Products</Link>
-              </Button>
-            </div>
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-4 pt-2 text-sm text-gray-400">
@@ -115,6 +129,25 @@ export function HeroVariantA() {
                 </svg>
                 Quality Guaranteed
               </span>
+            </div>
+
+            {/* CTAs — below text, outside carousel */}
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <PostHogButton
+                text="Get a Free Quote"
+                url="/contact-us"
+                eventName="contact us click"
+                size="lg"
+                className="px-8 py-6 text-lg font-semibold"
+              />
+              <PostHogButton
+                text="Explore Products"
+                url="/print-products"
+                eventName="see the products click"
+                size="lg"
+                variant="outline"
+                className="border-gray-500 bg-transparent px-8 py-6 text-lg font-semibold text-white hover:bg-gray-800 hover:text-white"
+              />
             </div>
           </div>
 
