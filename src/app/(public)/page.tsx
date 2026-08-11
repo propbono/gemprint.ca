@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/card";
 import { LINK_CARD_ITEMS, TESTIMONIALS } from "@/utils/constants";
 import { ogImageUrl } from "@/utils/ogImageUrl";
-import { shuffleArray } from "@/utils/shuffle-array";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
@@ -28,6 +27,9 @@ export async function generateMetadata() {
   return {
     title,
     description,
+    alternates: {
+      canonical: "/",
+    },
     openGraph: {
       title,
       description,
@@ -50,9 +52,11 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
-  const testimonials = shuffleArray(TESTIMONIALS);
   return (
     <>
+      <h1 className="sr-only">
+        Gemprint — Premium Print Solutions for Your Business
+      </h1>
       <Section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
         <div className="absolute inset-0 z-0">
           <Image
@@ -155,7 +159,7 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-      <CustomerTestimonials testimonials={testimonials} defaultColumns={3} />
+      <CustomerTestimonials testimonials={TESTIMONIALS} defaultColumns={3} />
     </>
   );
 }

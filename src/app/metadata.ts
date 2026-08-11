@@ -19,7 +19,6 @@ export const defaultMetadata: Metadata = {
     "real estate signs",
     "election signs",
     "banners",
-    "stickers",
     "custom printing",
     "print products",
     "print solutions",
@@ -34,9 +33,6 @@ export const defaultMetadata: Metadata = {
     telephone: true,
   },
   metadataBase: new URL("https://gemprint.ca"),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Gemprint | Professional Printing Services",
     description:

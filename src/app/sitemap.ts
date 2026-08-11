@@ -5,7 +5,6 @@ const categories: CategorySlug[] = [
   "business-cards",
   "flyers",
   "postcards",
-  "stickers",
   "brochures",
   "real-estate-signs",
   "election-signs",

@@ -24,11 +24,21 @@ export const sendContactEmail = async (
     };
   }
 
-  const { requiredInformation, sendCopy, email, firstName, lastName, message } =
-    result.data;
+  const {
+    requiredInformation,
+    sendCopy,
+    email,
+    firstName,
+    lastName,
+    message,
+    phone,
+    inquiryType,
+  } = result.data;
 
-  // Honeypot to ignore bot submissions
-  if (requiredInformation && requiredInformation?.length > 0) Promise.resolve();
+  // Honeypot: silently ignore bot submissions
+  if (requiredInformation && requiredInformation.length > 0) {
+    return { error: null, success: true };
+  }
 
   if (!process.env.EMAIL_FROM)
     throw new Error("Missing environment variables: EMAIL_FROM");
@@ -46,6 +56,9 @@ export const sendContactEmail = async (
         lastName,
         email,
         message,
+        phone,
+        inquiryType,
+        sendCopy,
       }) as ReactElement,
     });
     if (error) return { error: error.message, success: false };
